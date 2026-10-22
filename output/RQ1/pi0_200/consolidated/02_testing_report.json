@@ -1,0 +1,28 @@
+{
+  "method_split_metrics": 560,
+  "methods": [
+    "Tarantula",
+    "Barinel",
+    "Kulczynski2",
+    "Wong2",
+    "Ochiai2",
+    "Ochiai",
+    "DStar2",
+    "Jaccard",
+    "Wong3",
+    "GP13",
+    "OP2",
+    "Wong1",
+    "Zoltar",
+    "Ample"
+  ],
+  "metrics_sha256": "67003addc251e2f673b40d264977df1b874f0352c29cab45ec8d7457019f1052",
+  "risk_values": 335916,
+  "splits": 40,
+  "status": "PASS",
+  "test_episode_predictions": 23994,
+  "test_labels_used_only_for_evaluation": true,
+  "test_outcomes_used_in_score_construction": false,
+  "training_scores_hash": "0dd9b73ff5ab2bb442685b733fe4de5b47f1c19f27229717bcf3433340d20a1a",
+  "training_split_hash": "c35669f6a70f789270bb37e2409df1130667b5d5945bf1a0c1311e8183968f2d"
+}
