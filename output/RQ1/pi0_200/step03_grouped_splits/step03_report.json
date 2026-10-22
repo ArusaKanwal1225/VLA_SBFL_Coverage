@@ -1,0 +1,30 @@
+{
+  "step": "03_scene_key_review_and_grouped_splits",
+  "model": "Pi0",
+  "budget": 200,
+  "episodes_reviewed": 8000,
+  "exact_candidate_fields": [
+    "object_name",
+    "orientation_id",
+    "x",
+    "y"
+  ],
+  "scene_key_scope": "candidate configuration key, NOT independently verified simulator identity",
+  "rounded_key_use": "diagnostic only",
+  "near_duplicate_groups_needing_review": 0,
+  "explicit_key_confirmation": true,
+  "split_seeds": [
+    11,
+    23,
+    37,
+    41,
+    53,
+    67,
+    79,
+    83,
+    97,
+    101
+  ],
+  "status": "GROUPED_SPLITS_CREATED_WITH_CONFIRMED_CANDIDATE_KEY",
+  "splits_created": 40
+}

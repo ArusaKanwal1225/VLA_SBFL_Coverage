@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "model": "Pi0",
+  "budget": 200,
+  "algorithms": [
+    "DH_200scenes",
+    "DH_HybridDT_200scenes",
+    "DH_HybridRF_200scenes",
+    "DH_WeightedRF_200scenes"
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    41,
+    53,
+    67,
+    79,
+    83,
+    97,
+    101
+  ],
+  "total_spectra": 40,
+  "total_episodes_covered_in_step04": 8000,
+  "component": "3D TCP voxel",
+  "counts_definitions": {
+    "e_f": "failing TRAIN episodes covering the voxel",
+    "e_p": "passing TRAIN episodes covering the voxel",
+    "n_f": "failing TRAIN episodes not covering the voxel",
+    "n_p": "passing TRAIN episodes not covering the voxel"
+  },
+  "test_outcomes_used_to_fit_scores": false,
+  "candidate_scene_group_limitation": "The group key was based on scene-config candidate fields and does not independently prove full simulator scene identity.",
+  "voxelization_settings_path": "output\\RQ1\\pi0_200\\step04_voxel_coverage\\voxelization_settings.json",
+  "split_manifest_sha256": "1e22ab56171d58df69712d17bea879a79784d5407ef88c6466cfe8f0abccb4b9",
+  "step04_binary_spectrum_sha256": "b8709223977221d0731f202b5fdb0a214261081f07917e7f4800cc99a22c7cac",
+  "counts_file": "output\\RQ1\\pi0_200\\step05_training_contingency\\train_voxel_contingency_counts.csv.gz",
+  "note": "Unvisited training voxels are absent from counts file. Later risk scoring needs an explicit unseen-voxel policy."
+}

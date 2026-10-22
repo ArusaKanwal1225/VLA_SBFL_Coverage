@@ -1,0 +1,21 @@
+{
+  "research_question": "RQ1",
+  "step": "01_data_audit",
+  "model": "Pi0",
+  "budget": 200,
+  "algorithms": [
+    "DH_200scenes",
+    "DH_HybridDT_200scenes",
+    "DH_HybridRF_200scenes",
+    "DH_WeightedRF_200scenes"
+  ],
+  "runs_per_algorithm": 10,
+  "expected_total_episodes": 8000,
+  "observed_runs": 40,
+  "observed_episodes": 8000,
+  "critical_issues": 0,
+  "scene_group_identifier_available": false,
+  "train_test_split_created": false,
+  "status": "PASS",
+  "created_utc": "2026-10-22T19:56:58.757835+00:00"
+}

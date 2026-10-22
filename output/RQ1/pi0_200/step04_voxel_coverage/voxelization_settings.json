@@ -1,0 +1,35 @@
+{
+  "step": "04_deterministic_tcp_xyz_voxelization",
+  "model": "Pi0",
+  "budget": 200,
+  "algorithms": [
+    "DH_200scenes",
+    "DH_HybridDT_200scenes",
+    "DH_HybridRF_200scenes",
+    "DH_WeightedRF_200scenes"
+  ],
+  "voxel_size_m": 0.02,
+  "origin_m": [
+    -1.0,
+    -1.0,
+    0.0
+  ],
+  "voxel_rule": "floor((tcp_xyz - origin_xyz)/voxel_size)",
+  "binary_rule": "each distinct voxel counted once per episode",
+  "split_manifest": "output\\RQ1\\pi0_200\\step03_grouped_splits\\split_manifest.csv",
+  "split_seeds": [
+    11,
+    23,
+    37,
+    41,
+    53,
+    67,
+    79,
+    83,
+    97,
+    101
+  ],
+  "scene_key_status": "candidate scene key confirmed by previous script; full simulator identity not independently proven",
+  "full_episode_voxel_summary": "descriptive only; must not be used to learn test-dependent suspiciousness",
+  "training_coverage_definition": "absolute count of unique training-visited voxels"
+}

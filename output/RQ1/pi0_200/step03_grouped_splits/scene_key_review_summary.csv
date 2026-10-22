@@ -1,0 +1,5 @@
+algorithm,episodes,exact_groups,repeated_exact_groups,episodes_in_repeated_groups,cross_run_exact_groups,rounded4_groups_containing_multiple_exact_groups
+DH_200scenes,2000,2000,0,0,0,0
+DH_HybridDT_200scenes,2000,2000,0,0,0,0
+DH_HybridRF_200scenes,2000,2000,0,0,0,0
+DH_WeightedRF_200scenes,2000,1999,1,2,1,0

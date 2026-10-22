@@ -1,0 +1,11 @@
+check,passed
+All Step04-09 prerequisite reports PASS,True
+40 outer train-test split assignments exist,True
+Zero candidate-scene overlap in each split,True
+560 complete algorithm/seed/method metrics,True
+Identical held-out test episodes across all 14 methods,True
+No test labels used for voxel suspicion or risk estimation,True
+Frozen Step08/09 SHA256 signatures match,True
+ROC-AUC / AP values within range,True
+All four algorithms equally weighted,True
+Avoid independence p-values for overlapping splits,True

@@ -1,0 +1,5 @@
+algorithm,episodes,exact_candidate_unique_groups,rounded4_diagnostic_unique_groups,exact_candidate_groups_repeated,episodes_in_repeated_exact_groups,exact_candidate_groups_across_runs,max_episodes_in_exact_group
+DH_200scenes,2000,2000,2000,0,0,0,1
+DH_HybridDT_200scenes,2000,2000,2000,0,0,0,1
+DH_HybridRF_200scenes,2000,2000,2000,0,0,0,1
+DH_WeightedRF_200scenes,2000,1999,1999,1,2,1,2

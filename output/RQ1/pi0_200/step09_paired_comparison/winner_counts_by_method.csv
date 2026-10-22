@@ -1,0 +1,15 @@
+method,tied_best_auc_blocks,tied_best_ap_blocks,top3_auc_blocks,top3_ap_blocks
+Zoltar,37,38,40,40
+Ochiai2,3,2,30,34
+Tarantula,0,0,11,5
+Barinel,0,0,15,3
+Ample,0,0,9,10
+Wong2,0,0,2,8
+Kulczynski2,0,0,0,0
+Ochiai,0,0,0,0
+Jaccard,0,0,0,0
+DStar2,0,0,0,0
+GP13,0,0,0,0
+OP2,0,0,0,0
+Wong3,0,0,0,0
+Wong1,0,0,0,0
