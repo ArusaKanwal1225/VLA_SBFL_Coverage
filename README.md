@@ -2,7 +2,7 @@
 
 **Spectrum-Based Fault Localization (SBFL) for Vision-Language-Action (VLA) models.**
 
-This repository contains **only** the prepared experiment inputs, SBFL-related Python scripts, and analysis results. It intentionally excludes VLA model weights, checkpoints, simulators, LeRobot/Transformers code, videos, and the original full DeepHyperion experiment folders.
+This repository contains **only** the prepared experiment inputs, SBFL-related Python scripts, and analysis results.
 
 ## Research questions
 
