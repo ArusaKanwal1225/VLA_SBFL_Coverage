@@ -1,0 +1,11 @@
+{
+  "model": "Pi0",
+  "algorithm": "DH_400scenes",
+  "run_id": "run_4",
+  "budget": 400,
+  "episodes": 400,
+  "successes": 159,
+  "failures": 241,
+  "trajectory_positions": 32000,
+  "errors": 0
+}

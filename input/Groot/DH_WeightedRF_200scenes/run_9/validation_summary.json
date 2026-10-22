@@ -1,0 +1,11 @@
+{
+  "model": "Groot",
+  "algorithm": "DH_WeightedRF_200scenes",
+  "run_id": "run_9",
+  "budget": 200,
+  "episodes": 200,
+  "successes": 73,
+  "failures": 127,
+  "trajectory_positions": 16000,
+  "errors": 0
+}

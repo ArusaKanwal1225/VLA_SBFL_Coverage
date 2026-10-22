@@ -1,0 +1,11 @@
+{
+  "model": "Groot",
+  "algorithm": "DH_HybridRF_200scenes",
+  "run_id": "run_8",
+  "budget": 200,
+  "episodes": 200,
+  "successes": 102,
+  "failures": 98,
+  "trajectory_positions": 16000,
+  "errors": 0
+}

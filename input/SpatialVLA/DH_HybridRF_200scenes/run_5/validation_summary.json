@@ -1,0 +1,11 @@
+{
+  "model": "SpatialVLA",
+  "algorithm": "DH_HybridRF_200scenes",
+  "run_id": "run_5",
+  "budget": 200,
+  "episodes": 200,
+  "successes": 51,
+  "failures": 149,
+  "trajectory_positions": 16000,
+  "errors": 0
+}

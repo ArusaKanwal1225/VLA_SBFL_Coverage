@@ -1,0 +1,11 @@
+{
+  "model": "Pi0",
+  "algorithm": "DH_HybridRF_400scenes",
+  "run_id": "run_5",
+  "budget": 400,
+  "episodes": 400,
+  "successes": 118,
+  "failures": 282,
+  "trajectory_positions": 32000,
+  "errors": 0
+}

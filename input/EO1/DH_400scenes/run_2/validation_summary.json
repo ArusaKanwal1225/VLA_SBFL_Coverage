@@ -1,0 +1,11 @@
+{
+  "model": "EO1",
+  "algorithm": "DH_400scenes",
+  "run_id": "run_2",
+  "budget": 400,
+  "episodes": 400,
+  "successes": 253,
+  "failures": 147,
+  "trajectory_positions": 32000,
+  "errors": 0
+}

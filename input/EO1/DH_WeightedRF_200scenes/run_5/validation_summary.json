@@ -1,0 +1,11 @@
+{
+  "model": "EO1",
+  "algorithm": "DH_WeightedRF_200scenes",
+  "run_id": "run_5",
+  "budget": 200,
+  "episodes": 200,
+  "successes": 76,
+  "failures": 124,
+  "trajectory_positions": 16000,
+  "errors": 0
+}

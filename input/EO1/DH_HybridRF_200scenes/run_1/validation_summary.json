@@ -1,0 +1,11 @@
+{
+  "model": "EO1",
+  "algorithm": "DH_HybridRF_200scenes",
+  "run_id": "run_1",
+  "budget": 200,
+  "episodes": 200,
+  "successes": 80,
+  "failures": 120,
+  "trajectory_positions": 16000,
+  "errors": 0
+}
