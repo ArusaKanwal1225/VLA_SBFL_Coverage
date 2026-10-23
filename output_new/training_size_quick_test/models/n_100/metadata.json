@@ -1,0 +1,230 @@
+{
+  "artifact_version": 1,
+  "created_at_utc": "2026-10-23T17:31:23.937999+00:00",
+  "files": {
+    "formula_catalog.csv": "b32fec35d5851832fddf79bd303065f03ff1e8b9c956e578ee1f33dddd7ebf55",
+    "formula_edge_cases.csv.gz": "361c75cd15ec3551d7d89d9de6cb0a04e238c73c9099b2a36367965c40cb7a3f",
+    "training_episode_ids.csv.gz": "a2ff42e3f2548468a3800d6c4eefab7a513217052e60ec98e8a102e38c81591f",
+    "voxel_scores.csv.gz": "b143211f236eb6a0fbed76b5bd92d12d4e54813fee6ee675abc61488df4f874b"
+  },
+  "formula_diagnostics": {
+    "ample": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "anderberg": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "arithmetic_mean": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "baroni_urbani_buser": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "braun_banquet": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "cohen": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "dennis": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "dice": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "fleiss": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "fossum": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "goodman": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "gower": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "hamann": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "hamming": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "harmonic_mean": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "jaccard": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "kulczynski": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "michael": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "mountford": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "pearson": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "phi": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "pierce": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "rogers_tanimoto": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "rogot1": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "rogot2": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "scott": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "simple_matching": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "sokal": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "sorensen_dice": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "tarwid": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "zoltar": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    }
+  },
+  "formula_ids": [
+    "braun_banquet",
+    "dennis",
+    "mountford",
+    "fossum",
+    "pearson",
+    "gower",
+    "michael",
+    "pierce",
+    "baroni_urbani_buser",
+    "tarwid",
+    "ample",
+    "phi",
+    "arithmetic_mean",
+    "cohen",
+    "fleiss",
+    "zoltar",
+    "harmonic_mean",
+    "rogot2",
+    "simple_matching",
+    "rogers_tanimoto",
+    "hamming",
+    "hamann",
+    "sokal",
+    "scott",
+    "rogot1",
+    "kulczynski",
+    "anderberg",
+    "dice",
+    "goodman",
+    "jaccard",
+    "sorensen_dice"
+  ],
+  "grid": {
+    "coordinate_frame": "robot_base",
+    "coverage": "binary_per_episode",
+    "origin": [
+      -1.0,
+      -1.0,
+      0.0
+    ],
+    "rule": "floor((xyz - origin) / voxel_size)",
+    "voxel_size": 0.02
+  },
+  "score_policy": {
+    "all_unknown_trajectory": "neutral percentile 0.5",
+    "partial_unknown_voxels": "ignored and reported",
+    "trajectory_aggregation": "maximum empirical-percentile suspiciousness among known voxels",
+    "voxel_scores": "raw formula values with finite rank-preserving infinity sentinels"
+  },
+  "training": {
+    "algorithm": "DH_200scenes",
+    "experiment": "training_size_quick_test",
+    "sampling_seed": 20261023,
+    "split_seed": 11,
+    "train_size": 100,
+    "training_episode_ids_sha256": "98c379e3e0a286a581a4c470901f85acb6d216d533d9c52826d83aed1571db0f",
+    "training_episodes": 100,
+    "training_failures": 52,
+    "training_has_both_classes": true,
+    "training_passes": 48,
+    "training_voxels": 1947
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "algorithm": "DH_200scenes",
+  "formula_count": 31,
+  "formula_set": "table4",
+  "input": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input/Pi0/DH_200scenes",
+  "manifest": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/output/RQ1/pi0_200/step03_grouped_splits/split_manifest.csv",
+  "nested_training_samples": true,
+  "one_trajectory_limitation": "A single trajectory has one outcome class. Formulas whose denominator needs the absent class use the configured undefined-neutral policy, so the n=1 model is finite but statistically underdetermined.",
+  "requested_train_sizes": [
+    1,
+    5,
+    50,
+    100,
+    200
+  ],
+  "same_test_episodes_for_every_model": true,
+  "sampling_seed": 20261023,
+  "split_seed": 11,
+  "test_failures": 52,
+  "test_passes": 48,
+  "test_size": 100
+}

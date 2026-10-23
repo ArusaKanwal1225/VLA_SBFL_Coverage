@@ -1,3 +1,8 @@
 
+# Local OS and Python runtime files
+.DS_Store
+__pycache__/
+*.py[cod]
+
 # Historical extraction error reports
 output/input_validation/*_errors.txt
