@@ -31,7 +31,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sampling-seed", type=int, default=20261023)
     parser.add_argument("--test-size", type=int, default=100)
     parser.add_argument("--output-dir", type=Path,
-                        default=Path("output_new/training_size_quick_test"))
+                        default=Path(
+                            "preliminary_experiments/training_size_quick_test/results"))
     parser.add_argument("--voxel-size", type=float, default=0.02)
     parser.add_argument("--origin", type=float, nargs=3, default=(-1.0, -1.0, 0.0))
     return parser.parse_args()
