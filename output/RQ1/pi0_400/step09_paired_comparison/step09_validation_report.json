@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "step": "09_paired_descriptive_comparison",
+  "model": "Pi0",
+  "budget": 400,
+  "algorithms": [
+    "DH_400scenes",
+    "DH_HybridDT_400scenes",
+    "DH_HybridRF_400scenes",
+    "DH_WeightedRF_400scenes"
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    41,
+    53,
+    67,
+    79,
+    83,
+    97,
+    101
+  ],
+  "methods": [
+    "Tarantula",
+    "Barinel",
+    "Kulczynski2",
+    "Wong2",
+    "Ochiai2",
+    "Ochiai",
+    "DStar2",
+    "Jaccard",
+    "Wong3",
+    "GP13",
+    "OP2",
+    "Wong1",
+    "Zoltar",
+    "Ample"
+  ],
+  "method_split_results": 560,
+  "paired_method_pairs": 91,
+  "paired_algorithm_split_rows": 3640,
+  "algorithm_method_summaries": 56,
+  "descriptive_leader": "Zoltar",
+  "leading_equal_algorithm_mean_auc": 0.7058117962364773,
+  "figures_png": 8,
+  "figures_pdf": 8,
+  "split_dependence_warning": "Ten 70/30 splits overlap within each algorithm. Descriptive analysis only; no naive p-values or CIs.",
+  "scope_warning": "ROC-AUC/AP measure held-out failure discrimination, not ground-truth fault localization accuracy.",
+  "scene_grouping_warning": "Reviewed near-duplicates kept together. Full simulator-scene identity has not been independently verified.",
+  "no_new_train_test_splits_or_fitting": true,
+  "identical_test_episodes_compared_per_algorithm_seed": true,
+  "input_sha256": {
+    "metrics": "babccb9c5eee3686cc92bf37c1acac40b393f5d01ed4d5f9b9dc6b7890ef703d",
+    "ranking": "f90803bd5b9565b7d9244bc55fd482db7c21a2525362f0e7bdfda190535815ca",
+    "report": "fb9ea5e339304f7b3aa13f6472dd0246259efabe3886a303a61b54b45b453cfa"
+  },
+  "output_sha256": {
+    "method_ranking_summary.csv": "31831eaa0fe00d4846c50b336eb952a39ec3afbd559d218bd36e07b31f92f52f",
+    "per_algorithm_method_summary.csv": "4aac860322a99457200f42bf9ba28fbe3e59904054ce066d909e255025d2a038",
+    "per_split_method_ranks.csv": "046268fff20db0eb68aaea20edee0aa73f0c9966fd510f1ed510e6537314eb81",
+    "paired_comparisons_by_split.csv.gz": "3962be4dab7b8bb05fbbe9787e1b7d26711e9e2207a3cd7be8a67af2062a4bd6",
+    "paired_comparisons_by_algorithm.csv": "88e42bb0a38a94891a43adb55f709883de6a57d97e72ca56758d09607287ac86",
+    "paired_comparisons_overall.csv": "50ff96512c1347e7c6dfd2df1f5cb4ca7fb65889b210365057f29f8074f2d56c",
+    "leader_vs_others.csv": "8ef492f51501de4fa5c6b6b9677b58ea1412ecfafefca2798562271228e22bd8",
+    "winner_counts_by_method.csv": "58ecc186b9e8319b7f5aad1e592e4ab4f51b9be1849e8ec9ba4c163616420408",
+    "step09_research_summary.md": "052810cf10fd9c7b1470ed04a2864a270d0ce9fbdc187f054a725dc1390e49bd"
+  }
+}

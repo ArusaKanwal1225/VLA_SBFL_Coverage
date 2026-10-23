@@ -1,0 +1,5 @@
+algorithm,episodes,failures,successes,unique_voxels_full_data_descriptive_only,mean_unique_voxels_per_episode,median_unique_voxels_per_episode
+DH_400scenes,4000,2227,1773,7987,28.17425,28.0
+DH_HybridDT_400scenes,4000,2801,1199,8296,28.668,29.0
+DH_HybridRF_400scenes,4000,2863,1137,8181,28.8625,29.0
+DH_WeightedRF_400scenes,4000,2924,1076,8321,28.62925,29.0

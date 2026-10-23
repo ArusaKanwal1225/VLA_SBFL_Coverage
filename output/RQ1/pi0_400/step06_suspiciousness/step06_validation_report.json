@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "model": "Pi0",
+  "scene_budget": 400,
+  "algorithms": [
+    "DH_400scenes",
+    "DH_HybridDT_400scenes",
+    "DH_HybridRF_400scenes",
+    "DH_WeightedRF_400scenes"
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    41,
+    53,
+    67,
+    79,
+    83,
+    97,
+    101
+  ],
+  "total_training_spectra": 40,
+  "total_method_spectra": 560,
+  "total_voxel_rows_across_splits": 308614,
+  "methods": [
+    "Tarantula",
+    "Barinel",
+    "Kulczynski2",
+    "Wong2",
+    "Ochiai2",
+    "Ochiai",
+    "DStar2",
+    "Jaccard",
+    "Wong3",
+    "GP13",
+    "OP2",
+    "Wong1",
+    "Zoltar",
+    "Ample"
+  ],
+  "input_training_counts_sha256": "794361ab19d5dd7de202cba7c5caa5f0bf774783ac45d9dd2953d5e5dcbcec6a",
+  "input_training_summary_sha256": "c8fdcae83b9b9224c8dddfa4e78267449bcdb9d633f403197ff457d52f9e2864",
+  "input_step05_report_sha256": "b16c27c88e5275091f4e788e39d7cf6d014359cf230144ea3e734f41ddcbc42f",
+  "scores_file": "voxel_suspiciousness_scores.csv.gz",
+  "scores_format": "one row per (algorithm, seed, training-covered voxel); 14 wide suspiciousness columns",
+  "test_outcomes_used_to_fit_scores": false,
+  "dstar2_positive_over_zero_encoded_as_max_finite_plus_one": 0,
+  "ochiai2_zero_over_zero_encoded_as_zero": 0,
+  "unseen_test_voxel_policy": "Not scored here. Step07: ignore unseen voxels in per-episode max; if none known, use below minimum known score per method/split.",
+  "comparison_warning": "Raw values are NOT comparable across methods, and maxima/ties are NOT held-out predictive performance.",
+  "scene_grouping_limitation": "Current grouped splits rely on candidate scene identity rather than complete independent simulator confirmation."
+}

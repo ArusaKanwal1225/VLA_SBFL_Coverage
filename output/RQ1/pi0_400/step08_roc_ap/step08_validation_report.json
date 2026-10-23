@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "step": "08_roc_auc_average_precision",
+  "model": "Pi0",
+  "budget": 400,
+  "algorithms": [
+    "DH_400scenes",
+    "DH_HybridDT_400scenes",
+    "DH_HybridRF_400scenes",
+    "DH_WeightedRF_400scenes"
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    41,
+    53,
+    67,
+    79,
+    83,
+    97,
+    101
+  ],
+  "methods": [
+    "Tarantula",
+    "Barinel",
+    "Kulczynski2",
+    "Wong2",
+    "Ochiai2",
+    "Ochiai",
+    "DStar2",
+    "Jaccard",
+    "Wong3",
+    "GP13",
+    "OP2",
+    "Wong1",
+    "Zoltar",
+    "Ample"
+  ],
+  "splits_evaluated": 40,
+  "method_split_metrics": 560,
+  "heldout_episode_rows_evaluated": 47975,
+  "per_method_prediction_scores": 671650,
+  "constant_score_method_split_count": 0,
+  "roc_auc_reference": 0.5,
+  "average_precision_reference": "held-out failure prevalence per algorithm/seed",
+  "average_precision_definition": "sklearn.metrics.average_precision_score, step-wise AP; not trapezoidal PR AUC",
+  "direction": "higher SBFL risk predicts failure=1",
+  "risk_rule_frozen_in_step07": "max over training-known visited voxels",
+  "computed_new_suspiciousness_maps": false,
+  "computed_new_train_test_splits": false,
+  "reused_identical_heldout_episodes_for_all_14_methods": true,
+  "aggregation": "mean of per-algorithm ten-split means; equal weight to four algorithms",
+  "statistical_caution": "Overlapping 70/30 splits are not independent replications. Step08 rankings are descriptive.",
+  "scope_caution": "ROC-AUC/AP assess held-out failure discrimination, not known fault-location accuracy.",
+  "scene_identity_caution": "Reviewed near-duplicates kept together. Full simulator-scene identity has not been independently verified.",
+  "input_files_sha256": {
+    "predictions": "b57b937a95b87abde516412e231422bc2c4e91a7c2f247d73d54743cbc451222",
+    "split_summary": "bd9680bc1ff7f42776812c080332158e5b0e9bd9241a899dd8b73822014a3f6c",
+    "method_diagnostics": "8ffa1f97461ceab067f6b40d23f791aceadd133b87cbdd315da1fc9f4793d063",
+    "step07_report": "0bcb7e49c9682d087236528429cd9fc86a015ee6c53afbbb9a27eddbef28af66"
+  },
+  "output_files_sha256": {
+    "per_split_metrics.csv": "babccb9c5eee3686cc92bf37c1acac40b393f5d01ed4d5f9b9dc6b7890ef703d",
+    "split_class_balance.csv": "7ca73ae4bd9c554be344b8159f69d59db8ef297eba70b010c95ef5e8a30c7a0d",
+    "per_algorithm_method_summary.csv": "5359eda49a8338593fa8185cb0fe9d1c2ff7e2a7c36844daaa7e834399e0a31c",
+    "overall_method_summary.csv": "f90803bd5b9565b7d9244bc55fd482db7c21a2525362f0e7bdfda190535815ca",
+    "roc_curve_points.csv.gz": "d9565e4e0bedee05c6592dbf8735fc0d050eda6045e5d517cd1e1a5aac5afbaf",
+    "pr_curve_points.csv.gz": "3fffe23d79229f38fc24648d3ee3f11d0000ff8f16a69fb6553279890980cc31"
+  },
+  "figures_png_count": 13,
+  "figures_pdf_count": 13
+}
