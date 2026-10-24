@@ -24,6 +24,22 @@ class CoverageStatistics:
     reference_trajectories: int
 
 
+@dataclass(frozen=True)
+class MatchedCoverageBootstrapResult:
+    """Intervals for high-minus-low effects and technique interactions.
+
+    Size-specific arrays are indexed by training size and technique. Overall
+    arrays average the training sizes equally before computing percentiles.
+    """
+
+    effect_lower: np.ndarray
+    effect_upper: np.ndarray
+    overall_effect_lower: np.ndarray
+    overall_effect_upper: np.ndarray
+    overall_interaction_lower: np.ndarray
+    overall_interaction_upper: np.ndarray
+
+
 def voxel_union(visits: Mapping[str, Sequence[Voxel]]) -> set[Voxel]:
     """Return the union of binary trajectory coverage."""
 
@@ -161,3 +177,58 @@ def matched_high_low_effects(
         rows[value + "_high"] = pivot[(value, high_tier)].to_numpy(dtype=np.float64)
         rows["delta_" + value] = rows[value + "_high"] - rows[value + "_low"]
     return rows
+
+
+def matched_coverage_bootstrap(
+    fold_deltas: np.ndarray,
+    reference_technique_index: int,
+    iterations: int,
+    seed: int,
+) -> MatchedCoverageBootstrapResult:
+    """Bootstrap matched coverage effects while preserving equal budget weights.
+
+    The input has dimensions block x budget x run x training_size x technique.
+    The same sampled blocks and runs are used for all training sizes and
+    techniques, preserving every paired contrast.
+    """
+
+    values = np.asarray(fold_deltas, dtype=np.float64)
+    if values.ndim != 5 or min(values.shape) < 1 or not np.isfinite(values).all():
+        raise ValueError("fold_deltas must be a non-empty finite 5-D array")
+    if iterations < 100:
+        raise ValueError("at least 100 bootstrap iterations are required")
+    blocks, budgets, folds, training_sizes, techniques = values.shape
+    if not 0 <= reference_technique_index < techniques:
+        raise ValueError(
+            "reference_technique_index is outside the technique dimension")
+
+    generator = np.random.default_rng(seed)
+    draws = np.empty(
+        (iterations, training_sizes, techniques), dtype=np.float64)
+    for iteration in range(iterations):
+        block_indices = generator.integers(0, blocks, size=blocks)
+        fold_indices = generator.integers(
+            0, folds, size=(blocks, budgets, folds))
+        sampled = np.empty_like(values)
+        for block_position, block_index in enumerate(block_indices):
+            for budget_index in range(budgets):
+                sampled[block_position, budget_index] = values[
+                    block_index,
+                    budget_index,
+                    fold_indices[block_position, budget_index],
+                ]
+        draws[iteration] = sampled.mean(axis=(0, 1, 2))
+
+    overall_draws = draws.mean(axis=1)
+    interactions = (
+        overall_draws
+        - overall_draws[:, [reference_technique_index]]
+    )
+    return MatchedCoverageBootstrapResult(
+        effect_lower=np.percentile(draws, 2.5, axis=0),
+        effect_upper=np.percentile(draws, 97.5, axis=0),
+        overall_effect_lower=np.percentile(overall_draws, 2.5, axis=0),
+        overall_effect_upper=np.percentile(overall_draws, 97.5, axis=0),
+        overall_interaction_lower=np.percentile(interactions, 2.5, axis=0),
+        overall_interaction_upper=np.percentile(interactions, 97.5, axis=0),
+    )

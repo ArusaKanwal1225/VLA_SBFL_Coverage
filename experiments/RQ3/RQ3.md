@@ -1,7 +1,8 @@
 # RQ3 protocol: effect of voxel coverage on SBFL techniques
 
-**Status:** implemented and smoke-validated. The confirmatory experiment has
-not been executed.
+**Status:** full primary experiment completed (4,800/4,800 cells). The
+publication tables and matched reporting analysis are reproducible from the
+stored aggregate artifacts.
 
 ## Research question
 
@@ -155,6 +156,15 @@ For the primary `0.02` grid:
 5. Apply one Holm correction across the 30 non-reference techniques.
 6. Call an interaction meaningful only when corrected `p < 0.05` and the
    absolute interaction is at least `0.01` ROC-AUC.
+
+To directly operationalize H3.1 in the publication report, Harmonic Mean's
+high-minus-low effect is additionally tested against zero over the 16 matched
+blocks. The overall contrast averages the five training sizes equally and is
+the primary test. Training-size-specific tests are secondary and receive one
+Holm correction across the five sizes. Matched hierarchical-bootstrap
+confidence intervals resample primary blocks and then run folds within each
+equal-weight budget, using identical draws across training sizes and
+techniques.
 
 The intended-treatment contrast uses calibration-selected high and low tiers.
 Actual test coverage is reported to verify that the manipulation generalizes.

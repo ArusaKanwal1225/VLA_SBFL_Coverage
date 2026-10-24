@@ -5,6 +5,7 @@ import pandas as pd
 
 from experiments.RQ3.analysis import (
     coverage_statistics,
+    matched_coverage_bootstrap,
     matched_high_low_effects,
     select_coverage_quantiles,
 )
@@ -89,6 +90,38 @@ class RQ3AnalysisTests(unittest.TestCase):
         self.assertAlmostEqual(float(effects.iloc[0]["delta_roc_auc"]), 0.12)
         self.assertAlmostEqual(
             float(effects.iloc[0]["delta_calibration_mean_known_fraction"]), 0.6)
+
+    def test_matched_coverage_bootstrap_preserves_constant_effects(self):
+        values = np.zeros((3, 2, 4, 2, 3), dtype=np.float64)
+        values[..., 0, 0] = 0.01
+        values[..., 0, 1] = 0.03
+        values[..., 0, 2] = -0.02
+        values[..., 1, 0] = 0.02
+        values[..., 1, 1] = 0.04
+        values[..., 1, 2] = -0.01
+        result = matched_coverage_bootstrap(
+            values,
+            reference_technique_index=0,
+            iterations=100,
+            seed=17,
+        )
+        np.testing.assert_allclose(
+            result.effect_lower,
+            np.asarray([[0.01, 0.03, -0.02], [0.02, 0.04, -0.01]]),
+        )
+        np.testing.assert_allclose(result.effect_lower, result.effect_upper)
+        np.testing.assert_allclose(
+            result.overall_effect_lower,
+            np.asarray([0.015, 0.035, -0.015]),
+        )
+        np.testing.assert_allclose(
+            result.overall_interaction_lower,
+            np.asarray([0.0, 0.02, -0.03]),
+        )
+        np.testing.assert_allclose(
+            result.overall_interaction_lower,
+            result.overall_interaction_upper,
+        )
 
 
 if __name__ == "__main__":
