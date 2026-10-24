@@ -1,0 +1,48 @@
+{
+  "competitive_formula_ids": [
+    "harmonic_mean",
+    "rogot2",
+    "dennis",
+    "phi",
+    "tarwid",
+    "arithmetic_mean",
+    "zoltar"
+  ],
+  "condition_order": [
+    "DH",
+    "DH_HybridDT",
+    "DH_HybridRF",
+    "DH_WeightedRF"
+  ],
+  "outputs": [
+    "rq1_cross_vla_roc_auc.csv",
+    "rq1_cross_vla_roc_auc.tex",
+    "rq1_competitive_statistics.csv",
+    "rq1_competitive_statistics.tex",
+    "rq1_supplementary_EO1.csv",
+    "rq1_supplementary_EO1.tex",
+    "rq1_supplementary_GR00T.csv",
+    "rq1_supplementary_GR00T.tex",
+    "rq1_supplementary_Pi0.csv",
+    "rq1_supplementary_Pi0.tex",
+    "rq1_supplementary_SpatialVLA.csv",
+    "rq1_supplementary_SpatialVLA.tex"
+  ],
+  "rank_policy": "descending competition rank with numeric ties",
+  "source_directory": "experiments/RQ1/results/phase_a_primary/aggregate",
+  "source_sha256": {
+    "overall_ranking.csv": "174fe2549092cdf30eef7a24a03ce67242b10a6bb03eafd07bfa698d509edbfb",
+    "primary_block_metrics.csv": "1b3e689ff0a1183070a76ae67336455a5b216999f313888895602c4df06bab7f",
+    "statistical_comparison.csv": "f991fb900f0dddebbac1dee902aaa09f16aa73a4abbc32e7e376706f041a6a8f",
+    "subgroup_metrics.csv": "4e23f8e5293c130e47bf8b5258178f87cd0edcbc371e8a5d0ceefc68d55cc491"
+  },
+  "supplementary_sd_policy": "sample SD across four trajectory-generation conditions",
+  "technique_count": 31,
+  "top_rank_cutoff": 5,
+  "vla_order": [
+    "EO1",
+    "Groot",
+    "Pi0",
+    "SpatialVLA"
+  ]
+}
