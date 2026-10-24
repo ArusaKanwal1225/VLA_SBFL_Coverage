@@ -1,0 +1,29 @@
+\begin{table*}[t]
+\centering
+\caption{Coverage and computational diagnostics by VLA and voxel size for Harmonic Mean. Values are averaged over the 80 held-out folds in each VLA-size cell. Artifact sizes use decimal megabytes.}
+\label{tab:rq2-diagnostics-by-vla}
+{\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+VLA & Size & Known & Ties & Train voxels & Artifact (MB) & Fit (s) & Score (s) \\
+\midrule
+EO1 & 0.01 & 92.4\% & 90.1\% & 30,791 & 1.87 & 0.129 & 0.212 \\
+ & 0.02 & 98.8\% & 67.2\% & 5,651 & 0.84 & 0.056 & 0.050 \\
+ & 0.05 & 99.8\% & 84.6\% & 572 & 0.13 & 0.025 & 0.012 \\
+\midrule
+GR00T & 0.01 & 92.8\% & 90.7\% & 37,545 & 2.52 & 0.159 & 0.259 \\
+ & 0.02 & 98.8\% & 59.1\% & 7,231 & 1.06 & 0.072 & 0.063 \\
+ & 0.05 & 99.8\% & 75.0\% & 736 & 0.16 & 0.030 & 0.014 \\
+\midrule
+Pi0 & 0.01 & 84.2\% & 93.3\% & 37,656 & 1.41 & 0.133 & 0.249 \\
+ & 0.02 & 97.9\% & 69.2\% & 7,532 & 0.92 & 0.054 & 0.059 \\
+ & 0.05 & 99.7\% & 71.9\% & 738 & 0.16 & 0.023 & 0.013 \\
+\midrule
+SpatialVLA & 0.01 & 86.9\% & 91.1\% & 33,879 & 1.52 & 0.133 & 0.229 \\
+ & 0.02 & 97.8\% & 66.3\% & 6,773 & 0.79 & 0.051 & 0.055 \\
+ & 0.05 & 99.7\% & 76.8\% & 692 & 0.15 & 0.021 & 0.013 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

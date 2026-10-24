@@ -1,0 +1,90 @@
+{
+  "competitive_formula_ids_by_vla": {
+    "EO1": [
+      "dennis",
+      "harmonic_mean",
+      "phi",
+      "rogot2",
+      "tarwid",
+      "zoltar"
+    ],
+    "GR00T": [
+      "dennis",
+      "harmonic_mean",
+      "phi",
+      "rogot2",
+      "tarwid",
+      "zoltar"
+    ],
+    "Pi0": [
+      "arithmetic_mean",
+      "dennis",
+      "harmonic_mean",
+      "phi",
+      "rogot2",
+      "tarwid",
+      "zoltar"
+    ],
+    "SpatialVLA": [
+      "dennis",
+      "harmonic_mean",
+      "phi",
+      "rogot2",
+      "tarwid",
+      "zoltar"
+    ]
+  },
+  "descriptive_scope": "stratified by VLA",
+  "meaningful_interactions": 5,
+  "outputs": [
+    "rq2_reference_by_vla.csv",
+    "rq2_reference_by_vla.tex",
+    "rq2_techniques_by_vla.csv",
+    "rq2_techniques_by_vla.tex",
+    "rq2_diagnostics_by_vla.csv",
+    "rq2_diagnostics_by_vla.tex",
+    "rq2_global_size_test.csv",
+    "rq2_meaningful_interactions.csv",
+    "rq2_ranking_stability.csv",
+    "rq2_global_statistics.tex",
+    "rq2_supplementary_EO1.csv",
+    "rq2_supplementary_EO1.tex",
+    "rq2_supplementary_GR00T.csv",
+    "rq2_supplementary_GR00T.tex",
+    "rq2_supplementary_Pi0.csv",
+    "rq2_supplementary_Pi0.tex",
+    "rq2_supplementary_SpatialVLA.csv",
+    "rq2_supplementary_SpatialVLA.tex"
+  ],
+  "source_directory": "experiments/RQ2/results/phase_a_granularity/aggregate",
+  "source_sha256": {
+    "fold_metrics_by_size.csv.gz": "bb7f58e2267395b3854b24181ae859d117770f5bfa1c817cde1350561b761116",
+    "primary_block_metrics.csv": "b56032d35eb7611b95bf248dc2d8370642b67e5a0d2205d93125fbc42694a3b5",
+    "ranking_stability.csv": "300bb6021283c7c9bbf6b0340a12fb14b55e3e60e949f9abdaf95b177f3c7507",
+    "rankings_by_size.csv": "4b87dcd0fb2f21cf99f3f0c3b29ea011fec1a6e878eaf22fc005e47fb5bab566",
+    "size_diagnostics.csv": "0b49b2c16de6bf2dd8f93819e07bc0269596f2ef1ed963674f1bbfcacc340051",
+    "statistical_tests.json": "6b6c3aac792a1f7658d4a5d09879a6d02b23236686d8f8362f15542e5919d081",
+    "technique_size_effects.csv": "06bd2e2aee6aa1df63e11d74c1361f0c2b1bfea4a67ffd951bafc5ece1a07a31",
+    "technique_size_interactions.csv": "d8338279bd892b0103cbf772897c21fcceb17286c1b87e4d66a077c3de33389c",
+    "voxel_size_comparison.csv": "676b164df9da922cdd7067f05a7670a67d48fc55ef283ddebd1af1d471125b08"
+  },
+  "statistical_scope": "global over 16 matched VLA-condition blocks",
+  "technique_count": 31,
+  "top_rank_cutoff": 5,
+  "training_voxel_sources": {
+    "0.01": "experiments/RQ2/results/phase_a_granularity/cells/size_0p01",
+    "0.02": "experiments/RQ1/results/phase_a_primary",
+    "0.05": "experiments/RQ2/results/phase_a_granularity/cells/size_0p05"
+  },
+  "vla_order": [
+    "EO1",
+    "GR00T",
+    "Pi0",
+    "SpatialVLA"
+  ],
+  "voxel_sizes": [
+    0.01,
+    0.02,
+    0.05
+  ]
+}
