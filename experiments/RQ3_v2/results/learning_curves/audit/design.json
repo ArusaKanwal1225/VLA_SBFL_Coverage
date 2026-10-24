@@ -1,0 +1,221 @@
+{
+  "all_unknown_policy": "neutral_0.5",
+  "analysis_sha256": "778a0ade2ce52dd6abd1e58000b44067f92b4171c4016bda62edf371937891f3",
+  "class_balance": "exactly 50% pass and 50% fail",
+  "configuration_ids": [
+    "EO1__DH__200",
+    "EO1__DH__400",
+    "EO1__DH_HybridDT__200",
+    "EO1__DH_HybridDT__400",
+    "EO1__DH_HybridRF__200",
+    "EO1__DH_HybridRF__400",
+    "EO1__DH_WeightedRF__200",
+    "EO1__DH_WeightedRF__400",
+    "Groot__DH__200",
+    "Groot__DH__400",
+    "Groot__DH_HybridDT__200",
+    "Groot__DH_HybridDT__400",
+    "Groot__DH_HybridRF__200",
+    "Groot__DH_HybridRF__400",
+    "Groot__DH_WeightedRF__200",
+    "Groot__DH_WeightedRF__400",
+    "Pi0__DH__200",
+    "Pi0__DH__400",
+    "Pi0__DH_HybridDT__200",
+    "Pi0__DH_HybridDT__400",
+    "Pi0__DH_HybridRF__200",
+    "Pi0__DH_HybridRF__400",
+    "Pi0__DH_WeightedRF__200",
+    "Pi0__DH_WeightedRF__400",
+    "SpatialVLA__DH__200",
+    "SpatialVLA__DH__400",
+    "SpatialVLA__DH_HybridDT__200",
+    "SpatialVLA__DH_HybridDT__400",
+    "SpatialVLA__DH_HybridRF__200",
+    "SpatialVLA__DH_HybridRF__400",
+    "SpatialVLA__DH_WeightedRF__200",
+    "SpatialVLA__DH_WeightedRF__400"
+  ],
+  "coordinate_frame": "robot_base",
+  "folds_per_configuration": 10,
+  "formula_catalogue": [
+    {
+      "expression": "ef / max(ef+ep, ef+nf)",
+      "formula_id": "braun_banquet",
+      "name": "Braun-Banquet"
+    },
+    {
+      "expression": "(ef*np-ep*nf) / sqrt(n*(ef+ep)*(ef+nf))",
+      "formula_id": "dennis",
+      "name": "Dennis"
+    },
+    {
+      "expression": "ef / (0.5*(ef*ep+ef*nf)+ep*nf)",
+      "formula_id": "mountford",
+      "name": "Mountford"
+    },
+    {
+      "expression": "n*(ef-0.5)^2 / ((ef+ep)*(ef+nf))",
+      "formula_id": "fossum",
+      "name": "Fossum"
+    },
+    {
+      "expression": "n*(ef*np-ep*nf)^2 / (C*U*S*F)",
+      "formula_id": "pearson",
+      "name": "Pearson"
+    },
+    {
+      "expression": "(ef+np) / sqrt(F*C*U*S)",
+      "formula_id": "gower",
+      "name": "Gower"
+    },
+    {
+      "expression": "4*(ef*np-ep*nf) / ((ef+np)^2+(ep+nf)^2)",
+      "formula_id": "michael",
+      "name": "Michael"
+    },
+    {
+      "expression": "(ef*nf+nf*ep) / (ef*nf+2*nf*np+ep*np)",
+      "formula_id": "pierce",
+      "name": "Pierce"
+    },
+    {
+      "expression": "(sqrt(ef*np)+ef) / (sqrt(ef*np)+ef+ep+nf)",
+      "formula_id": "baroni_urbani_buser",
+      "name": "Baroni-Urbani & Buser"
+    },
+    {
+      "expression": "(n*ef-F*C) / (n*ef+F*C)",
+      "formula_id": "tarwid",
+      "name": "Tarwid"
+    },
+    {
+      "expression": "abs(ef/F - ep/S)",
+      "formula_id": "ample",
+      "name": "Ample"
+    },
+    {
+      "expression": "(ef*np-nf*ep) / sqrt(C*F*S*U)",
+      "formula_id": "phi",
+      "name": "Phi (Geometric Mean)"
+    },
+    {
+      "expression": "2*(ef*np-nf*ep) / (C*U+F*S)",
+      "formula_id": "arithmetic_mean",
+      "name": "Arithmetic Mean"
+    },
+    {
+      "expression": "2*(ef*np-nf*ep) / (C*S+F*U)",
+      "formula_id": "cohen",
+      "name": "Cohen"
+    },
+    {
+      "expression": "(4*(ef*np-nf*ep)-(nf-ep)^2) / ((2ef+nf+ep)+(2np+nf+ep))",
+      "formula_id": "fleiss",
+      "name": "Fleiss"
+    },
+    {
+      "expression": "ef / (ef+nf+ep+10000*nf*ep/ef)",
+      "formula_id": "zoltar",
+      "name": "Zoltar"
+    },
+    {
+      "expression": "det*(C*U+F*S) / (C*U*F*S)",
+      "formula_id": "harmonic_mean",
+      "name": "Harmonic Mean"
+    },
+    {
+      "expression": "1/4*(ef/C+ef/F+np/S+np/U)",
+      "formula_id": "rogot2",
+      "name": "Rogot2"
+    },
+    {
+      "expression": "(ef+np)/n",
+      "formula_id": "simple_matching",
+      "name": "Simple Matching"
+    },
+    {
+      "expression": "(ef+np) / (ef+np+2*(nf+ep))",
+      "formula_id": "rogers_tanimoto",
+      "name": "Rogers & Tanimoto"
+    },
+    {
+      "expression": "ef+np",
+      "formula_id": "hamming",
+      "name": "Hamming"
+    },
+    {
+      "expression": "(ef+np-nf-ep)/n",
+      "formula_id": "hamann",
+      "name": "Hamann"
+    },
+    {
+      "expression": "2*(ef+np) / (2*(ef+np)+nf+ep)",
+      "formula_id": "sokal",
+      "name": "Sokal"
+    },
+    {
+      "expression": "(4*(ef*np-nf*ep)-(nf-ep)^2) / ((2ef+nf+ep)*(2np+nf+ep))",
+      "formula_id": "scott",
+      "name": "Scott"
+    },
+    {
+      "expression": "1/2*(ef/(2ef+nf+ep)+np/(2np+nf+ep))",
+      "formula_id": "rogot1",
+      "name": "Rogot1"
+    },
+    {
+      "expression": "ef/(nf+ep)",
+      "formula_id": "kulczynski",
+      "name": "Kulczynski"
+    },
+    {
+      "expression": "ef/(ef+2*(nf+ep))",
+      "formula_id": "anderberg",
+      "name": "Anderberg"
+    },
+    {
+      "expression": "2ef/(ef+nf+ep)",
+      "formula_id": "dice",
+      "name": "Dice"
+    },
+    {
+      "expression": "(2ef-nf-ep)/(2ef+nf+ep)",
+      "formula_id": "goodman",
+      "name": "Goodman"
+    },
+    {
+      "expression": "ef/(ef+nf+ep)",
+      "formula_id": "jaccard",
+      "name": "Jaccard"
+    },
+    {
+      "expression": "2ef/(2ef+nf+ep)",
+      "formula_id": "sorensen_dice",
+      "name": "Sorensen-Dice"
+    }
+  ],
+  "origin": [
+    -1.0,
+    -1.0,
+    0.0
+  ],
+  "primary_sample_efficiency_metric": "normalized area under ROC-AUC versus log2(n)",
+  "protocol_sha256": "227c69f6f23ff5f13de326015c11867162a4c6e8773c5d287f74f0430113b01a",
+  "repetitions": 10,
+  "runner_sha256": "e10e03d04912679a959786961f51bc0e06f9954f08dc81f18ed372904536afc8",
+  "sampling": "independent repetitions of nested class-specific permutations",
+  "sampling_seed": 20261024,
+  "split": "one test run, next cyclic run calibration, remaining eight runs pool",
+  "training_sizes": [
+    10,
+    20,
+    50,
+    100,
+    200
+  ],
+  "trajectory_aggregation": "maximum_training_voxel_empirical_percentile",
+  "voxel_sizes": [
+    0.02
+  ]
+}

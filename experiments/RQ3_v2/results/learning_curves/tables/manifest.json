@@ -1,0 +1,45 @@
+{
+  "inputs": {
+    "adjacent_size_tests.csv": "859201d28755c40a1feec4c5f76b4e05db846d525c1d41adbb1b2a9c9dc2391b",
+    "conditional_coverage_tests.csv": "55b2b16d685f43dc9cd8e9c60fa51d7f95dc13b70f4ed7cf98f8536aadbcb02b",
+    "global_sample_efficiency.csv": "5f63de0f1973b3eb33e7b3edb30ec77cc3388b2db69ec5da4fe93c163a727d6d",
+    "learning_curves_by_vla.csv": "2b883bd2a23141c8e65f1f93834e4ef76a60209f36e03b568372a905aceacc13",
+    "sample_efficiency_by_vla.csv": "8731f0fbb3749b09d84a574b3fb4410808be123b003f07d6d99c54ab0c4d6ab9"
+  },
+  "outputs": [
+    "TABLES.md",
+    "rq3v2_main_adjacent_size_effects.csv",
+    "rq3v2_main_adjacent_size_effects.tex",
+    "rq3v2_main_coverage_performance_by_vla.csv",
+    "rq3v2_main_coverage_performance_by_vla.tex",
+    "rq3v2_main_sample_efficiency_by_vla.csv",
+    "rq3v2_main_sample_efficiency_by_vla.tex",
+    "rq3v2_supplementary_conditional_coverage.csv",
+    "rq3v2_supplementary_conditional_coverage.tex",
+    "rq3v2_supplementary_learning_curves_all.csv",
+    "rq3v2_supplementary_learning_curves_eo1.tex",
+    "rq3v2_supplementary_learning_curves_gr00t.tex",
+    "rq3v2_supplementary_learning_curves_pi0.tex",
+    "rq3v2_supplementary_learning_curves_spatialvla.tex",
+    "rq3v2_supplementary_sample_efficiency_all.csv",
+    "rq3v2_supplementary_sample_efficiency_eo1.tex",
+    "rq3v2_supplementary_sample_efficiency_gr00t.tex",
+    "rq3v2_supplementary_sample_efficiency_pi0.tex",
+    "rq3v2_supplementary_sample_efficiency_spatialvla.tex"
+  ],
+  "top_rank_cutoff": 5,
+  "training_sizes": [
+    10,
+    20,
+    50,
+    100,
+    200
+  ],
+  "vlas": [
+    "EO1",
+    "Groot",
+    "Pi0",
+    "SpatialVLA"
+  ],
+  "voxel_size": 0.02
+}

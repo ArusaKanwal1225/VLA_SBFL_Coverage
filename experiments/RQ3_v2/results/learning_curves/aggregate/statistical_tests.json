@@ -1,0 +1,23 @@
+{
+  "adjacent_size_tests": {
+    "multiplicity": "Holm across four adjacent-size tests",
+    "primary_blocks": 16,
+    "reference": "harmonic_mean",
+    "status": "complete",
+    "test": "paired Wilcoxon for four adjacent suite-size changes"
+  },
+  "conditional_coverage_tests": {
+    "multiplicity": "Holm across 31 techniques",
+    "primary_blocks": 16,
+    "status": "complete",
+    "test": "within-size fixed-effect coverage slopes tested against zero"
+  },
+  "sample_efficiency_tests": {
+    "multiplicity": "Holm across 30 non-reference techniques",
+    "practical_margin": 0.01,
+    "primary_blocks": 16,
+    "reference": "harmonic_mean",
+    "status": "complete",
+    "test": "paired Wilcoxon on normalized log-scale learning-curve area"
+  }
+}

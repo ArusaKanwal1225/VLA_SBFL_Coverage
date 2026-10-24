@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{RQ3 sample efficiency for techniques reaching a top-five NAULC rank for at least one VLA. VLA and macro cells report NAULC with rank in parentheses. Bold denotes rank 1 and underlining the remaining top-five ranks. Endpoint and gain are macro ROC-AUC.}
+\label{tab:rq3v2-sample-efficiency}
+{\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcccccrr}
+\toprule
+Technique & EO1 & GR00T & Pi0 & SpatialVLA & Macro & AUC@200 & $\Delta$AUC$_{10\rightarrow200}$ \\
+\midrule
+Dennis & \textbf{0.6000 (1)} & \textbf{0.5646 (1)} & \underline{0.6302 (3)} & \underline{0.6026 (5)} & \textbf{0.5994 (1)} & 0.6501 & +0.0958 \\
+Rogot2 & \underline{0.5941 (2)} & \underline{0.5644 (3)} & 0.6232 (14) & \underline{0.6072 (4)} & \underline{0.5972 (2)} & 0.6534 & +0.1024 \\
+Harmonic Mean & \underline{0.5938 (3)} & \underline{0.5645 (2)} & 0.6227 (15) & \underline{0.6072 (3)} & \underline{0.5971 (3)} & 0.6534 & +0.1036 \\
+Phi (Geometric Mean) & \underline{0.5929 (4)} & \underline{0.5632 (5)} & \underline{0.6310 (2)} & 0.5956 (6) & \underline{0.5957 (4)} & 0.6466 & +0.0969 \\
+Mountford & 0.5910 (8) & \underline{0.5638 (4)} & 0.6130 (16) & \underline{0.6092 (2)} & \underline{0.5942 (5)} & 0.6501 & +0.1032 \\
+Arithmetic Mean & 0.5909 (9) & 0.5585 (7) & \textbf{0.6317 (1)} & 0.5795 (7) & 0.5902 (6) & 0.6294 & +0.0796 \\
+Zoltar & 0.5816 (17) & 0.5621 (6) & 0.6048 (17) & \textbf{0.6108 (1)} & 0.5898 (7) & 0.6484 & +0.1150 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
