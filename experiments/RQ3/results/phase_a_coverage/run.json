@@ -1,0 +1,243 @@
+{
+  "completed_at_utc": "2026-10-23T21:19:02.980519+00:00",
+  "elapsed_seconds": 750.2734871669672,
+  "experiment": "RQ3_phase_a_coverage",
+  "experiment_signature": "ee92d8dafbfe4f74b025f8defb147ab421e7fa2d4bbe95b993a743177ed5cc5d",
+  "git_revision": "0a7434e1af0e963e232fcdb752c553d9e31d572f",
+  "input_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
+  "output_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ3/results/phase_a_coverage",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "signature_details": {
+    "all_unknown_policy": "neutral_0.5",
+    "analysis_sha256": "f4f76f17e58a1a358bff36d9c9f7dde4063fb3c10a8cf14853d0039181c7e2b5",
+    "candidate_subsets": 200,
+    "class_balance": "exactly 50% pass and 50% fail",
+    "coordinate_frame": "robot_base",
+    "coverage_selection_metric": "calibration_unique_coverage",
+    "coverage_targets": {
+      "high": 0.9,
+      "low": 0.1,
+      "medium": 0.5
+    },
+    "formula_catalogue": [
+      {
+        "expression": "ef / max(ef+ep, ef+nf)",
+        "formula_id": "braun_banquet",
+        "name": "Braun-Banquet"
+      },
+      {
+        "expression": "(ef*np-ep*nf) / sqrt(n*(ef+ep)*(ef+nf))",
+        "formula_id": "dennis",
+        "name": "Dennis"
+      },
+      {
+        "expression": "ef / (0.5*(ef*ep+ef*nf)+ep*nf)",
+        "formula_id": "mountford",
+        "name": "Mountford"
+      },
+      {
+        "expression": "n*(ef-0.5)^2 / ((ef+ep)*(ef+nf))",
+        "formula_id": "fossum",
+        "name": "Fossum"
+      },
+      {
+        "expression": "n*(ef*np-ep*nf)^2 / (C*U*S*F)",
+        "formula_id": "pearson",
+        "name": "Pearson"
+      },
+      {
+        "expression": "(ef+np) / sqrt(F*C*U*S)",
+        "formula_id": "gower",
+        "name": "Gower"
+      },
+      {
+        "expression": "4*(ef*np-ep*nf) / ((ef+np)^2+(ep+nf)^2)",
+        "formula_id": "michael",
+        "name": "Michael"
+      },
+      {
+        "expression": "(ef*nf+nf*ep) / (ef*nf+2*nf*np+ep*np)",
+        "formula_id": "pierce",
+        "name": "Pierce"
+      },
+      {
+        "expression": "(sqrt(ef*np)+ef) / (sqrt(ef*np)+ef+ep+nf)",
+        "formula_id": "baroni_urbani_buser",
+        "name": "Baroni-Urbani & Buser"
+      },
+      {
+        "expression": "(n*ef-F*C) / (n*ef+F*C)",
+        "formula_id": "tarwid",
+        "name": "Tarwid"
+      },
+      {
+        "expression": "abs(ef/F - ep/S)",
+        "formula_id": "ample",
+        "name": "Ample"
+      },
+      {
+        "expression": "(ef*np-nf*ep) / sqrt(C*F*S*U)",
+        "formula_id": "phi",
+        "name": "Phi (Geometric Mean)"
+      },
+      {
+        "expression": "2*(ef*np-nf*ep) / (C*U+F*S)",
+        "formula_id": "arithmetic_mean",
+        "name": "Arithmetic Mean"
+      },
+      {
+        "expression": "2*(ef*np-nf*ep) / (C*S+F*U)",
+        "formula_id": "cohen",
+        "name": "Cohen"
+      },
+      {
+        "expression": "(4*(ef*np-nf*ep)-(nf-ep)^2) / ((2ef+nf+ep)+(2np+nf+ep))",
+        "formula_id": "fleiss",
+        "name": "Fleiss"
+      },
+      {
+        "expression": "ef / (ef+nf+ep+10000*nf*ep/ef)",
+        "formula_id": "zoltar",
+        "name": "Zoltar"
+      },
+      {
+        "expression": "det*(C*U+F*S) / (C*U*F*S)",
+        "formula_id": "harmonic_mean",
+        "name": "Harmonic Mean"
+      },
+      {
+        "expression": "1/4*(ef/C+ef/F+np/S+np/U)",
+        "formula_id": "rogot2",
+        "name": "Rogot2"
+      },
+      {
+        "expression": "(ef+np)/n",
+        "formula_id": "simple_matching",
+        "name": "Simple Matching"
+      },
+      {
+        "expression": "(ef+np) / (ef+np+2*(nf+ep))",
+        "formula_id": "rogers_tanimoto",
+        "name": "Rogers & Tanimoto"
+      },
+      {
+        "expression": "ef+np",
+        "formula_id": "hamming",
+        "name": "Hamming"
+      },
+      {
+        "expression": "(ef+np-nf-ep)/n",
+        "formula_id": "hamann",
+        "name": "Hamann"
+      },
+      {
+        "expression": "2*(ef+np) / (2*(ef+np)+nf+ep)",
+        "formula_id": "sokal",
+        "name": "Sokal"
+      },
+      {
+        "expression": "(4*(ef*np-nf*ep)-(nf-ep)^2) / ((2ef+nf+ep)*(2np+nf+ep))",
+        "formula_id": "scott",
+        "name": "Scott"
+      },
+      {
+        "expression": "1/2*(ef/(2ef+nf+ep)+np/(2np+nf+ep))",
+        "formula_id": "rogot1",
+        "name": "Rogot1"
+      },
+      {
+        "expression": "ef/(nf+ep)",
+        "formula_id": "kulczynski",
+        "name": "Kulczynski"
+      },
+      {
+        "expression": "ef/(ef+2*(nf+ep))",
+        "formula_id": "anderberg",
+        "name": "Anderberg"
+      },
+      {
+        "expression": "2ef/(ef+nf+ep)",
+        "formula_id": "dice",
+        "name": "Dice"
+      },
+      {
+        "expression": "(2ef-nf-ep)/(2ef+nf+ep)",
+        "formula_id": "goodman",
+        "name": "Goodman"
+      },
+      {
+        "expression": "ef/(ef+nf+ep)",
+        "formula_id": "jaccard",
+        "name": "Jaccard"
+      },
+      {
+        "expression": "2ef/(2ef+nf+ep)",
+        "formula_id": "sorensen_dice",
+        "name": "Sorensen-Dice"
+      }
+    ],
+    "origin": [
+      -1.0,
+      -1.0,
+      0.0
+    ],
+    "protocol_sha256": "4ac6996ad366d5e9558acb3085fbc727e1f687d2cfd609e3f74eb86e37a907af",
+    "runner_sha256": "d6755eb4262a2f08ae19161032cd6abd5ede8aaea3c8af3960f58debcb632fa1",
+    "selection_replicates": 1,
+    "selection_seed": 20261023,
+    "split": "one test run, next cyclic run calibration, remaining eight runs pool",
+    "training_sizes": [
+      10,
+      20,
+      50,
+      100,
+      200
+    ],
+    "trajectory_aggregation": "maximum_training_voxel_empirical_percentile",
+    "voxel_sizes": [
+      0.02
+    ]
+  },
+  "started_at_utc": "2026-10-23T21:06:32.673541+00:00",
+  "status": "complete",
+  "summary": {
+    "completed_at_utc": "2026-10-23T21:19:02.966250+00:00",
+    "completed_cells": 4800,
+    "expected_cells": 4800,
+    "leaders": [
+      {
+        "coverage_tier": "high",
+        "formula_id": "dennis",
+        "macro_roc_auc": 0.6007547631026126,
+        "technique": "Dennis",
+        "voxel_size": 0.02
+      },
+      {
+        "coverage_tier": "low",
+        "formula_id": "dennis",
+        "macro_roc_auc": 0.5994741574119071,
+        "technique": "Dennis",
+        "voxel_size": 0.02
+      },
+      {
+        "coverage_tier": "medium",
+        "formula_id": "dennis",
+        "macro_roc_auc": 0.598691589233583,
+        "technique": "Dennis",
+        "voxel_size": 0.02
+      }
+    ],
+    "phase": "A: held-out trajectory discrimination under controlled voxel coverage",
+    "selection_status": "trajectory-level failure discrimination; causal voxel localization remains Phase B",
+    "statistical_analysis": {
+      "coverage_effect_practical_margin": 0.01,
+      "multiplicity": "Holm correction across 30 non-reference techniques",
+      "primary_blocks": 16,
+      "status": "complete",
+      "test": "paired Wilcoxon on high-minus-low effects versus Harmonic Mean"
+    },
+    "status": "complete",
+    "techniques": 31
+  }
+}

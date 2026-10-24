@@ -1,0 +1,7 @@
+{
+  "coverage_effect_practical_margin": 0.01,
+  "multiplicity": "Holm correction across 30 non-reference techniques",
+  "primary_blocks": 16,
+  "status": "complete",
+  "test": "paired Wilcoxon on high-minus-low effects versus Harmonic Mean"
+}

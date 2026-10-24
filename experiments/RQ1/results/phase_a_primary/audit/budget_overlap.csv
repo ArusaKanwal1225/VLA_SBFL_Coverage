@@ -1,0 +1,17 @@
+vla,condition,exact_trajectory_overlap,unique_trajectory_hashes_200,unique_trajectory_hashes_400,semantic_scene_overlap_verifiable,reason
+EO1,DH,0,2000,4000,False,input schema has no stable scene identifier
+EO1,DH_HybridDT,0,2000,4000,False,input schema has no stable scene identifier
+EO1,DH_HybridRF,0,2000,4000,False,input schema has no stable scene identifier
+EO1,DH_WeightedRF,0,2000,4000,False,input schema has no stable scene identifier
+Groot,DH,0,2000,4000,False,input schema has no stable scene identifier
+Groot,DH_HybridDT,0,2000,4000,False,input schema has no stable scene identifier
+Groot,DH_HybridRF,0,2000,4000,False,input schema has no stable scene identifier
+Groot,DH_WeightedRF,0,2000,4000,False,input schema has no stable scene identifier
+Pi0,DH,0,2000,4000,False,input schema has no stable scene identifier
+Pi0,DH_HybridDT,0,2000,4000,False,input schema has no stable scene identifier
+Pi0,DH_HybridRF,0,2000,4000,False,input schema has no stable scene identifier
+Pi0,DH_WeightedRF,0,2000,4000,False,input schema has no stable scene identifier
+SpatialVLA,DH,1,1999,3998,False,input schema has no stable scene identifier
+SpatialVLA,DH_HybridDT,1,1999,3997,False,input schema has no stable scene identifier
+SpatialVLA,DH_HybridRF,3,1998,3997,False,input schema has no stable scene identifier
+SpatialVLA,DH_WeightedRF,2,2000,3996,False,input schema has no stable scene identifier

@@ -1,0 +1,4 @@
+first_voxel_size,second_voxel_size,spearman_rank_correlation,techniques
+0.01,0.02,0.9290230471140118,31
+0.01,0.05,0.7767920913229287,31
+0.02,0.05,0.892627719538057,31

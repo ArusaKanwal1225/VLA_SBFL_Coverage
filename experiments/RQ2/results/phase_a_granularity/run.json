@@ -1,0 +1,196 @@
+{
+  "bootstrap_iterations": 10000,
+  "bootstrap_seed": 20261023,
+  "cell_commands": [
+    [
+      "/Users/aitorarrietamarcos/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/run_experiment.py",
+      "--input-root",
+      "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
+      "--output-root",
+      "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p01",
+      "--voxel-size",
+      "0.01",
+      "--origin",
+      "-1.0",
+      "-1.0",
+      "0.0",
+      "--chunk-size",
+      "250000",
+      "--bootstrap-iterations",
+      "10000",
+      "--bootstrap-seed",
+      "20261023",
+      "--resume"
+    ],
+    [
+      "/Users/aitorarrietamarcos/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/run_experiment.py",
+      "--input-root",
+      "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
+      "--output-root",
+      "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p05",
+      "--voxel-size",
+      "0.05",
+      "--origin",
+      "-1.0",
+      "-1.0",
+      "0.0",
+      "--chunk-size",
+      "250000",
+      "--bootstrap-iterations",
+      "10000",
+      "--bootstrap-seed",
+      "20261023",
+      "--resume"
+    ]
+  ],
+  "cell_sources": {
+    "0.01": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p01",
+    "0.02": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary",
+    "0.05": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p05"
+  },
+  "completed_at_utc": "2026-10-23T20:28:22.330436+00:00",
+  "elapsed_seconds": 559.1392174998764,
+  "experiment_signature": "0fb8fb3613a1f428c3591069e944883258fa318c3020bcd5af579ddd046fe6c9",
+  "input_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
+  "numpy": "2.3.5",
+  "output_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity",
+  "pandas": "2.2.3",
+  "python": "3.12.14",
+  "resume": true,
+  "signature_details": {
+    "analysis_sha256": "46fe47ff40d66ef45d9a77803d307de4785b1f20b8f8e0faf56282e776ebe768",
+    "formula_ids": [
+      "braun_banquet",
+      "dennis",
+      "mountford",
+      "fossum",
+      "pearson",
+      "gower",
+      "michael",
+      "pierce",
+      "baroni_urbani_buser",
+      "tarwid",
+      "ample",
+      "phi",
+      "arithmetic_mean",
+      "cohen",
+      "fleiss",
+      "zoltar",
+      "harmonic_mean",
+      "rogot2",
+      "simple_matching",
+      "rogers_tanimoto",
+      "hamming",
+      "hamann",
+      "sokal",
+      "scott",
+      "rogot1",
+      "kulczynski",
+      "anderberg",
+      "dice",
+      "goodman",
+      "jaccard",
+      "sorensen_dice"
+    ],
+    "origin": [
+      -1.0,
+      -1.0,
+      0.0
+    ],
+    "practical_margin": 0.01,
+    "primary_size": 0.02,
+    "protocol_sha256": "299d42f730ae383ca5bed1323cbc434efe4ffa34105854aa77af398e78df0efc",
+    "reference_formula": "harmonic_mean",
+    "rq1_engine": {
+      "analysis_sha256": "ae872d1d49b57dd85fcf7c8e121e00abf5e9877405c977b39c6b9935503db990",
+      "protocol_sha256": "a5e7067f05aec77dbf689261d1bf12cab3d7fec0c8911b070f8bfc22bd3b4fe1",
+      "runner_sha256": "bd7527e9169f7e6c83af17d8c513bcf109f5770273ae3f1e3019d303d6e464c7"
+    },
+    "runner_sha256": "83d6b5ca0eb506a3c89375c8f958ba6de4dc2df02e918268f1a94dc4d6b1f8e3",
+    "voxel_sizes": [
+      0.01,
+      0.02,
+      0.05
+    ]
+  },
+  "smoke": false,
+  "started_at_utc": "2026-10-23T20:19:03.179234+00:00",
+  "status": "complete",
+  "summary": {
+    "cell_sources": {
+      "0.01": {
+        "experiment_signature": "05ba63283c78fd148eb3ddc42376df6131e094bc672a04820a3b2a28bcb131be",
+        "run_status": "complete",
+        "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p01"
+      },
+      "0.02": {
+        "experiment_signature": "458ee90c94eef43508869d433faa803aa80c77ee14e57e89bba57b244e511ada",
+        "run_status": "complete",
+        "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary"
+      },
+      "0.05": {
+        "experiment_signature": "03ed72e6211fbf438c419d8299105dab4d7b7435b132ab8b8525c92aba201a64",
+        "run_status": "complete",
+        "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p05"
+      }
+    },
+    "completed_at_utc": "2026-10-23T20:28:22.328513+00:00",
+    "folds_per_size": 320,
+    "localization_selection_status": "pending Phase B causal/problematic-region ground truth",
+    "meaningful_interactions": 5,
+    "phase": "A: held-out trajectory discrimination",
+    "phase_a_size_leader": 0.02,
+    "phase_a_size_leader_macro_roc_auc": 0.7039416329806212,
+    "primary_blocks": 16,
+    "primary_size": 0.02,
+    "reference_formula": "harmonic_mean",
+    "size_practical_equivalence_group": [
+      0.02,
+      0.01
+    ],
+    "statistical_tests": {
+      "bootstrap": {
+        "iterations": 10000,
+        "method": "matched hierarchical: VLA-condition blocks, then run folds within equal-weight budgets; identical draws across sizes/techniques",
+        "seed": 20261023
+      },
+      "interaction_holm_family": 60,
+      "size_change_holm_family": 62,
+      "size_friedman": {
+        "degrees_of_freedom": 2,
+        "p_value": 0.4437473100810797,
+        "posthoc_performed": false,
+        "primary_blocks": 16,
+        "reference_formula": "harmonic_mean",
+        "statistic": 1.625,
+        "test": "tie-corrected Friedman chi-square approximation"
+      }
+    },
+    "status": "complete",
+    "techniques": 31,
+    "voxel_sizes": [
+      0.01,
+      0.02,
+      0.05
+    ],
+    "winner_by_size": {
+      "0.01": {
+        "formula_id": "harmonic_mean",
+        "macro_roc_auc": 0.6946104134670475,
+        "technique": "Harmonic Mean"
+      },
+      "0.02": {
+        "formula_id": "harmonic_mean",
+        "macro_roc_auc": 0.7039416329806213,
+        "technique": "Harmonic Mean"
+      },
+      "0.05": {
+        "formula_id": "tarwid",
+        "macro_roc_auc": 0.729476866087835,
+        "technique": "Tarwid"
+      }
+    }
+  }
+}

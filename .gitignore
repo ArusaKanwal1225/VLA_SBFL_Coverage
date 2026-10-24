@@ -6,3 +6,8 @@ __pycache__/
 
 # Historical extraction error reports
 output/input_validation/*_errors.txt
+
+# Regenerable experiment intermediates (aggregate results remain versioned)
+experiments/*/results/**/folds/
+experiments/*/results/**/cells/
+experiments/*/results/smoke/

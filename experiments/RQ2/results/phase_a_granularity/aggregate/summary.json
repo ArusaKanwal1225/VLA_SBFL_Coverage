@@ -1,0 +1,75 @@
+{
+  "cell_sources": {
+    "0.01": {
+      "experiment_signature": "05ba63283c78fd148eb3ddc42376df6131e094bc672a04820a3b2a28bcb131be",
+      "run_status": "complete",
+      "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p01"
+    },
+    "0.02": {
+      "experiment_signature": "458ee90c94eef43508869d433faa803aa80c77ee14e57e89bba57b244e511ada",
+      "run_status": "complete",
+      "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary"
+    },
+    "0.05": {
+      "experiment_signature": "03ed72e6211fbf438c419d8299105dab4d7b7435b132ab8b8525c92aba201a64",
+      "run_status": "complete",
+      "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p05"
+    }
+  },
+  "completed_at_utc": "2026-10-23T20:28:22.328513+00:00",
+  "folds_per_size": 320,
+  "localization_selection_status": "pending Phase B causal/problematic-region ground truth",
+  "meaningful_interactions": 5,
+  "phase": "A: held-out trajectory discrimination",
+  "phase_a_size_leader": 0.02,
+  "phase_a_size_leader_macro_roc_auc": 0.7039416329806212,
+  "primary_blocks": 16,
+  "primary_size": 0.02,
+  "reference_formula": "harmonic_mean",
+  "size_practical_equivalence_group": [
+    0.02,
+    0.01
+  ],
+  "statistical_tests": {
+    "bootstrap": {
+      "iterations": 10000,
+      "method": "matched hierarchical: VLA-condition blocks, then run folds within equal-weight budgets; identical draws across sizes/techniques",
+      "seed": 20261023
+    },
+    "interaction_holm_family": 60,
+    "size_change_holm_family": 62,
+    "size_friedman": {
+      "degrees_of_freedom": 2,
+      "p_value": 0.4437473100810797,
+      "posthoc_performed": false,
+      "primary_blocks": 16,
+      "reference_formula": "harmonic_mean",
+      "statistic": 1.625,
+      "test": "tie-corrected Friedman chi-square approximation"
+    }
+  },
+  "status": "complete",
+  "techniques": 31,
+  "voxel_sizes": [
+    0.01,
+    0.02,
+    0.05
+  ],
+  "winner_by_size": {
+    "0.01": {
+      "formula_id": "harmonic_mean",
+      "macro_roc_auc": 0.6946104134670475,
+      "technique": "Harmonic Mean"
+    },
+    "0.02": {
+      "formula_id": "harmonic_mean",
+      "macro_roc_auc": 0.7039416329806213,
+      "technique": "Harmonic Mean"
+    },
+    "0.05": {
+      "formula_id": "tarwid",
+      "macro_roc_auc": 0.729476866087835,
+      "technique": "Tarwid"
+    }
+  }
+}
