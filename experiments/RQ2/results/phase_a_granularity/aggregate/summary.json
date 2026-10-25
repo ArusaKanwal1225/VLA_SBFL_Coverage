@@ -1,25 +1,25 @@
 {
   "cell_sources": {
     "0.01": {
-      "experiment_signature": "05ba63283c78fd148eb3ddc42376df6131e094bc672a04820a3b2a28bcb131be",
+      "experiment_signature": "3cc6b268a230795eb9daaf6bf81370edea64c079baf2c41fdb9a616a6dc6cdfd",
       "run_status": "complete",
       "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p01"
     },
     "0.02": {
-      "experiment_signature": "458ee90c94eef43508869d433faa803aa80c77ee14e57e89bba57b244e511ada",
+      "experiment_signature": "910e24f9b9d91fdd8863ed3353c12dd082a81de824292f140fc39e5435eeda71",
       "run_status": "complete",
       "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary"
     },
     "0.05": {
-      "experiment_signature": "03ed72e6211fbf438c419d8299105dab4d7b7435b132ab8b8525c92aba201a64",
+      "experiment_signature": "08222a8353d0f8f74f56211c67ca995858bd7186d5acd815ad81030163160eff",
       "run_status": "complete",
       "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p05"
     }
   },
-  "completed_at_utc": "2026-10-23T20:28:22.328513+00:00",
+  "completed_at_utc": "2026-10-24T19:25:09.851363+00:00",
   "folds_per_size": 320,
   "localization_selection_status": "pending Phase B causal/problematic-region ground truth",
-  "meaningful_interactions": 5,
+  "meaningful_interactions": 8,
   "phase": "A: held-out trajectory discrimination",
   "phase_a_size_leader": 0.02,
   "phase_a_size_leader_macro_roc_auc": 0.7039416329806212,
@@ -36,8 +36,8 @@
       "method": "matched hierarchical: VLA-condition blocks, then run folds within equal-weight budgets; identical draws across sizes/techniques",
       "seed": 20261023
     },
-    "interaction_holm_family": 60,
-    "size_change_holm_family": 62,
+    "interaction_holm_family": 66,
+    "size_change_holm_family": 68,
     "size_friedman": {
       "degrees_of_freedom": 2,
       "p_value": 0.4437473100810797,
@@ -49,7 +49,7 @@
     }
   },
   "status": "complete",
-  "techniques": 31,
+  "techniques": 34,
   "voxel_sizes": [
     0.01,
     0.02,

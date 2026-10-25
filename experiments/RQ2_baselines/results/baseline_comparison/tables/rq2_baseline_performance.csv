@@ -1,0 +1,10 @@
+Method,Family,EO1,GR00T,Pi0,SpatialVLA,Overall,Rank,task_aware
+TCP Acceleration Instability,Trajectory quality,0.6995220791779382,,,,,,False
+Trajectory Instability,Trajectory quality,0.6891448410686168,,,,,,False
+TCP Velocity Instability,Trajectory quality,0.6782481249774284,,,,,,False
+Optimal Trajectory,Task-aware quality,0.6666350405680418,,,,,,True
+Harmonic Mean,VoxelSBFL,0.6652204175057189,,,,,,False
+TCP Position Instability,Trajectory quality,0.6123595890967329,,,,,,False
+Action Velocity Instability,Action uncertainty,0.5613831634994887,,,,,,False
+Action Acceleration Instability,Action uncertainty,0.5568747109839297,,,,,,False
+Action Position Instability,Action uncertainty,0.5517812145269854,,,,,,False

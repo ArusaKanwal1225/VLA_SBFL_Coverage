@@ -14,7 +14,8 @@ evaluation `run_1`, one nested-suite repetition, and voxel size `0.02`.
 | 200 | 70.9% | 71.8% |
 
 All five suites were exactly outcome-balanced and strictly nested. The run
-produced 155 finite technique-size metric rows (31 techniques at five sizes),
+corresponds to 170 finite technique-size metric rows under the expanded
+catalogue (34 techniques at five sizes),
 and the aggregate learning-curve and sample-efficiency reports completed.
 Confirmatory tests correctly remained disabled because a one-fold,
 one-repetition smoke run is not the complete 16-block design.
@@ -26,12 +27,13 @@ The complete repository test suite passed after the implementation.
 The full primary experiment completed successfully on 2026-10-24:
 
 - 16,000 of 16,000 fitted subset cells;
-- 496,000 finite technique-level metric rows;
+- 544,000 finite technique-level metric rows;
 - 32 VLA/condition/budget configurations, ten folds, ten repetitions, five
-  nested sizes, and all 31 techniques;
-- elapsed fitting and aggregation time: 687.5 seconds;
+  nested sizes, and all 34 techniques;
+- elapsed fitting and aggregation time: 816.1 seconds;
 - all three planned statistical analyses completed;
-- PNG and PDF versions of all three planned figures generated.
+- PNG and PDF versions of all five planned primary and supplementary figures
+  generated.
 
 Across all benchmark blocks, mean calibration coverage increased from 7.1% at
 10 trajectories to 62.2% at 200 trajectories. Harmonic Mean's mean ROC-AUC
@@ -46,10 +48,16 @@ and was not statistically significant after Holm correction (`p = 0.2786`).
 Harmonic Mean led descriptively at 200 trajectories with ROC-AUC `0.6534`.
 
 After controlling for trajectory count through within-size centering, none of
-the 31 technique-specific coverage slopes was significant after Holm
+the 34 technique-specific coverage slopes was significant after Holm
 correction. This supports interpreting the strong across-size improvement as a
 joint test-suite-size/coverage effect rather than a demonstrated independent
 coverage effect.
+
+Among the added techniques, Ochiai2 ranked 15th by global normalized
+learning-curve area (`0.5748`). Tarantula (`0.5435`) and Ochiai (`0.4864`) were
+significantly below Harmonic Mean after Holm correction, whereas Ochiai2's
+difference was not significant after correction. None changed the descriptive
+leaders at any training size.
 
 The completed experiment can be reproduced or resumed from the repository root
 with:

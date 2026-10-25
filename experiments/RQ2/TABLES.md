@@ -23,7 +23,7 @@ LaTeX versions of:
 - coverage and computational diagnostics for every VLA-size combination;
 - the global Friedman size test, meaningful technique-size interactions, and
   ranking-stability correlations; and
-- four complete 31-technique supplementary tables, one per VLA.
+- four complete 34-technique supplementary tables, one per VLA.
 
 The generator validates all experiment dimensions, reconciles VLA aggregates
 against the published macro results, and verifies that per-VLA diagnostics

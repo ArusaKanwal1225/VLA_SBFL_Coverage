@@ -193,6 +193,21 @@
       "expression": "2ef/(2ef+nf+ep)",
       "formula_id": "sorensen_dice",
       "name": "Sorensen-Dice"
+    },
+    {
+      "expression": "(ef/F)/((ef/F)+(ep/S))",
+      "formula_id": "tarantula",
+      "name": "Tarantula"
+    },
+    {
+      "expression": "ef/sqrt(F*C)",
+      "formula_id": "ochiai",
+      "name": "Ochiai"
+    },
+    {
+      "expression": "ef*np/sqrt(C*U*F*S)",
+      "formula_id": "ochiai2",
+      "name": "Ochiai2"
     }
   ],
   "origin": [
@@ -201,9 +216,9 @@
     0.0
   ],
   "primary_sample_efficiency_metric": "normalized area under ROC-AUC versus log2(n)",
-  "protocol_sha256": "227c69f6f23ff5f13de326015c11867162a4c6e8773c5d287f74f0430113b01a",
+  "protocol_sha256": "91c22ca6d7a7b50c06d8946c4210758c29f070cfd942fb98f7fed3fead2e7cf0",
   "repetitions": 10,
-  "runner_sha256": "e10e03d04912679a959786961f51bc0e06f9954f08dc81f18ed372904536afc8",
+  "runner_sha256": "81af75440619d931edba7ce82e1ad57bf80636620f9960357e5acc861c7a6c3d",
   "sampling": "independent repetitions of nested class-specific permutations",
   "sampling_seed": 20261024,
   "split": "one test run, next cyclic run calibration, remaining eight runs pool",

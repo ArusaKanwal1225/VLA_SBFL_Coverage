@@ -21,7 +21,7 @@ import pandas as pd
 VOXEL_SIZES = (0.01, 0.02, 0.05)
 PRIMARY_SIZE = 0.02
 REFERENCE_FORMULA = "harmonic_mean"
-EXPECTED_TECHNIQUES = 31
+EXPECTED_TECHNIQUES = 34
 EXPECTED_CONDITIONS = 4
 EXPECTED_FOLDS_PER_VLA_SIZE = 80
 VLA_ORDER = ("EO1", "Groot", "Pi0", "SpatialVLA")
@@ -171,7 +171,7 @@ def validate_experiment_dimensions(
 
     formula_names = primary[["formula_id", "technique"]].drop_duplicates()
     if formula_names["formula_id"].nunique() != EXPECTED_TECHNIQUES:
-        raise ValueError("primary blocks do not contain 31 techniques")
+        raise ValueError("primary blocks do not contain 34 techniques")
     if formula_names.groupby("formula_id")["technique"].nunique().max() != 1:
         raise ValueError("a formula identifier maps to multiple technique names")
 
@@ -611,10 +611,10 @@ def build_statistical_tables(
         raise ValueError("statistical_tests.json has an incomplete Friedman result")
     if int(size_test["primary_blocks"]) != 16:
         raise ValueError("the global size test must use 16 primary blocks")
-    if int(tests.get("interaction_holm_family", -1)) != 60:
-        raise ValueError("the interaction Holm family must contain 60 contrasts")
-    if int(tests.get("size_change_holm_family", -1)) != 62:
-        raise ValueError("the size-change Holm family must contain 62 contrasts")
+    if int(tests.get("interaction_holm_family", -1)) != 66:
+        raise ValueError("the interaction Holm family must contain 66 contrasts")
+    if int(tests.get("size_change_holm_family", -1)) != 68:
+        raise ValueError("the size-change Holm family must contain 68 contrasts")
 
     size_output = size_comparison[
         [
@@ -664,8 +664,6 @@ def build_statistical_tables(
         ascending=[True, False],
         ignore_index=True,
     )
-    if len(meaningful) != 5:
-        raise ValueError("expected five practically meaningful interactions")
     interaction_csv = output_dir / "rq2_meaningful_interactions.csv"
     write_csv(interaction_csv, meaningful)
 
@@ -726,7 +724,7 @@ def build_statistical_tables(
             r"$, $p=" + "{:.3f}".format(float(size_test["p_value"])) +
             r"$). Panel (b) contains interactions satisfying Holm-corrected "
             r"$p<0.05$ and $|\Delta\Delta\mathrm{AUC}|\geq0.01$. Panel (c) "
-            r"reports tie-aware Spearman rank correlations across all 31 techniques.}",
+            r"reports tie-aware Spearman rank correlations across all 34 techniques.}",
             r"\label{tab:rq2-global-statistics}",
             r"{\scriptsize",
             r"\setlength{\tabcolsep}{4pt}",
@@ -778,7 +776,7 @@ def build_supplementary_tables(
         group = vla_metrics[vla_metrics["vla"] == vla]
         formula_ids = set(group["formula_id"].astype(str))
         if len(formula_ids) != EXPECTED_TECHNIQUES:
-            raise ValueError("{} does not contain all 31 techniques".format(vla))
+            raise ValueError("{} does not contain all 34 techniques".format(vla))
         rows = ordered_technique_rows(group, formula_ids)
         output = pd.DataFrame(rows)
         output.insert(0, "vla", VLA_DISPLAY[vla])

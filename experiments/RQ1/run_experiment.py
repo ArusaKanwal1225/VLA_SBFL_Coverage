@@ -39,7 +39,7 @@ from vla_sbfl.dataset import (
     discover_run_directories,
     load_trajectory_dataset,
 )
-from vla_sbfl.formulas import FORMULA_REGISTRY, TABLE4_FORMULA_IDS
+from vla_sbfl.formulas import FORMULA_REGISTRY, STUDY_FORMULA_IDS
 from vla_sbfl.metrics import evaluate_predictions
 from vla_sbfl.model import SBFLModel, episode_id_hash
 from vla_sbfl.scoring import TrajectoryScorer
@@ -372,7 +372,7 @@ def experiment_signature(grid: VoxelGrid, protocol_path: Path) -> Tuple[str, dic
             "name": FORMULA_REGISTRY[formula_id].name,
             "expression": FORMULA_REGISTRY[formula_id].expression,
         }
-        for formula_id in TABLE4_FORMULA_IDS
+        for formula_id in STUDY_FORMULA_IDS
     ]
     details = {
         "protocol_sha256": sha256_file(protocol_path),
@@ -428,7 +428,7 @@ def run_fold(
         visits=training.visits,
         labels=training.labels,
         grid=grid,
-        formula_ids=TABLE4_FORMULA_IDS,
+        formula_ids=STUDY_FORMULA_IDS,
         metadata={
             "experiment": "RQ1_phase_a_primary",
             "experiment_signature": signature,
@@ -628,7 +628,7 @@ def aggregate_results(
     pd.concat(subgroup_frames, ignore_index=True).to_csv(
         aggregate_directory / "subgroup_metrics.csv", index=False)
 
-    formula_ids = list(TABLE4_FORMULA_IDS)
+    formula_ids = list(STUDY_FORMULA_IDS)
     primary_block_order = sorted(primary_block_metrics["primary_block_id"].unique())
     primary_block_pivot = primary_block_metrics.pivot(
         index="primary_block_id", columns="formula_id", values="roc_auc"

@@ -20,7 +20,7 @@ VLA_ORDER = ("EO1", "Groot", "Pi0", "SpatialVLA")
 VLA_DISPLAY = {"EO1": "EO1", "Groot": "GR00T", "Pi0": "Pi0", "SpatialVLA": "SpatialVLA"}
 REFERENCE_FORMULA = "harmonic_mean"
 TRAINING_SIZES = (10, 20, 50, 100, 200)
-EXPECTED_RANK_MAX = 31
+EXPECTED_RANK_MAX = 34
 
 
 def apply_publication_style() -> None:
@@ -216,7 +216,7 @@ def plot_rank_heatmap(
     output_directory: Path,
     dpi: int,
 ) -> None:
-    """Plot all 31 technique ranks across suite sizes and VLA models."""
+    """Plot all 34 technique ranks across suite sizes and VLA models."""
 
     primary_efficiency = efficiency[
         np.isclose(efficiency["voxel_size"].astype(float), 0.02)
@@ -258,7 +258,7 @@ def plot_rank_heatmap(
     colorbar_axis = figure.add_axes((0.925, 0.25, 0.015, 0.50))
     colorbar = figure.colorbar(image_artist, cax=colorbar_axis)
     colorbar.set_label("ROC-AUC rank (1 = best)")
-    colorbar.set_ticks((1, 5, 10, 15, 20, 25, 31))
+    colorbar.set_ticks((1, 5, 10, 15, 20, 25, 30, 34))
     figure.suptitle(
         "Technique ranks across training-suite sizes", fontsize=13, y=0.995
     )

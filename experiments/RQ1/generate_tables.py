@@ -4,7 +4,7 @@
 The script deliberately depends only on the Python standard library. It reads
 the aggregate artifacts produced by ``run_experiment.py`` and writes:
 
-* the 31-technique cross-VLA ROC-AUC table;
+* the 34-technique cross-VLA ROC-AUC table;
 * the inferential comparison for techniques reaching a VLA top-five; and
 * one detailed supplementary table for each VLA model.
 
@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Mapping, MutableMapping, Sequence, Tuple
 
 
-EXPECTED_TECHNIQUE_COUNT = 31
+EXPECTED_TECHNIQUE_COUNT = 34
 VLA_ORDER = ("EO1", "Groot", "Pi0", "SpatialVLA")
 VLA_DISPLAY_NAMES = {
     "EO1": "EO1",
@@ -286,7 +286,7 @@ def build_cross_vla_table(
         [
             r"\begin{table*}[t]",
             r"\centering",
-            r"\caption{Macro ROC-AUC of the 31 SBFL techniques for each VLA model. "
+            r"\caption{Macro ROC-AUC of the 34 SBFL techniques for each VLA model. "
             r"Parentheses report tie-aware ranks. Bold denotes rank 1 and underlining "
             r"denotes the remaining top-five ranks. Harmonic Mean and Rogot2 are tied "
             r"because they produce identical results in every reported column.}",
@@ -603,7 +603,7 @@ def generate_tables(aggregate_dir: Path, output_dir: Path, top_rank_cutoff: int)
             if group == vla
         }
         if set(vla_by_id[vla]) != formula_ids:
-            raise ValueError("{} subgroup does not contain the same 31 techniques".format(vla))
+            raise ValueError("{} subgroup does not contain the same 34 techniques".format(vla))
     unexpected_vlas = {group for group, _ in vla_index} - set(VLA_ORDER)
     if unexpected_vlas:
         raise ValueError("unexpected VLA subgroups: {}".format(", ".join(sorted(unexpected_vlas))))

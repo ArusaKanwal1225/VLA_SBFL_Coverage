@@ -21,7 +21,7 @@ import pandas as pd
 
 VOXEL_SIZE = 0.02
 REFERENCE_FORMULA = "harmonic_mean"
-EXPECTED_TECHNIQUES = 31
+EXPECTED_TECHNIQUES = 34
 TRAINING_SIZES = (10, 20, 50, 100, 200)
 VLA_ORDER = ("EO1", "Groot", "Pi0", "SpatialVLA")
 VLA_DISPLAY = {
@@ -166,14 +166,14 @@ def validate_dimensions(
     if len(curve_counts) != len(VLA_ORDER) * len(TRAINING_SIZES):
         raise ValueError("the VLA-size learning-curve grid is incomplete")
     if set(curve_counts.astype(int)) != {EXPECTED_TECHNIQUES}:
-        raise ValueError("every VLA-size cell must contain 31 techniques")
+        raise ValueError("every VLA-size cell must contain 34 techniques")
     efficiency_counts = efficiency_by_vla.groupby("vla")["formula_id"].nunique()
     if set(efficiency_counts.astype(int)) != {EXPECTED_TECHNIQUES}:
-        raise ValueError("every VLA must contain 31 sample-efficiency summaries")
+        raise ValueError("every VLA must contain 34 sample-efficiency summaries")
     if global_efficiency["formula_id"].nunique() != EXPECTED_TECHNIQUES:
-        raise ValueError("global sample efficiency must contain 31 techniques")
+        raise ValueError("global sample efficiency must contain 34 techniques")
     if conditional["formula_id"].nunique() != EXPECTED_TECHNIQUES:
-        raise ValueError("conditional coverage tests must contain 31 techniques")
+        raise ValueError("conditional coverage tests must contain 34 techniques")
 
     expected_pairs = set(zip(TRAINING_SIZES[:-1], TRAINING_SIZES[1:]))
     observed_pairs = set(
@@ -678,7 +678,7 @@ def build_supplementary_conditional(
             r"\caption{Complete conditional coverage analysis for RQ3. Effects "
             r"are ROC-AUC changes per ten percentage points of calibration "
             r"coverage after centering within configuration, outer fold, and "
-            r"suite size. Holm correction covered all 31 techniques.}",
+            r"suite size. Holm correction covered all 34 techniques.}",
             r"\label{tab:rq3v2-conditional-coverage}",
             r"{\scriptsize",
             r"\setlength{\tabcolsep}{6pt}",

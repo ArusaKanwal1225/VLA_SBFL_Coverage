@@ -7,6 +7,8 @@ scripts in `src/`. Training, scoring, and held-out evaluation are separate opera
 
 - `table4`: the 31 similarity-coefficient techniques in Table 4 of Wong et al.,
   *A Survey on Software Fault Localization* (2016).
+- `study`: the 31 Table 4 techniques plus Tarantula, Ochiai, and Ochiai2 used by
+  the RQ1--RQ3 experiments (34 unique techniques).
 - `legacy14`: the 14 techniques used by the original repository.
 - `all`: 42 unique techniques. Ample, Jaccard, and Zoltar occur in both catalogues;
   Kulczynski and Kulczynski2 are different formulas.

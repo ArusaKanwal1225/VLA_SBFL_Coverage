@@ -17,7 +17,7 @@ from experiments.RQ3_v2.run_experiment import (
     sample_efficiency_tests,
     stable_seed,
 )
-from vla_sbfl.formulas import FORMULA_REGISTRY, TABLE4_FORMULA_IDS
+from vla_sbfl.formulas import FORMULA_REGISTRY, STUDY_FORMULA_IDS
 
 
 class RQ3V2AnalysisTests(unittest.TestCase):
@@ -112,7 +112,7 @@ class RQ3V2AnalysisTests(unittest.TestCase):
                         "formula_id": "harmonic_mean",
                         "roc_auc": 0.55 + block_offset + 0.01 * size_index,
                     })
-                for formula_index, formula_id in enumerate(TABLE4_FORMULA_IDS):
+                for formula_index, formula_id in enumerate(STUDY_FORMULA_IDS):
                     technique = FORMULA_REGISTRY[formula_id].name
                     efficiency_rows.append({
                         "voxel_size": 0.02,
@@ -145,13 +145,13 @@ class RQ3V2AnalysisTests(unittest.TestCase):
         efficiency, efficiency_metadata = sample_efficiency_tests(
             pd.DataFrame(efficiency_rows))
         self.assertEqual(efficiency_metadata["status"], "complete")
-        self.assertEqual(len(efficiency), 31)
+        self.assertEqual(len(efficiency), 34)
 
         with TemporaryDirectory() as directory:
             effects, coverage_metadata = conditional_coverage_analysis(
                 pd.DataFrame(coverage_rows), Path(directory))
             self.assertEqual(coverage_metadata["status"], "complete")
-            self.assertEqual(len(effects), 16 * 31)
+            self.assertEqual(len(effects), 16 * 34)
             np.testing.assert_allclose(effects["roc_auc_per_10pp_coverage"], 0.02)
 
 

@@ -1,5 +1,5 @@
 {
-  "completed_at_utc": "2026-10-24T15:53:26.808858+00:00",
+  "completed_at_utc": "2026-10-24T20:02:32.819083+00:00",
   "completed_cells": 16000,
   "expected_cells": 16000,
   "interpretation_scope": "trajectory-level failure discrimination; across-size changes combine additional observations and additional coverage",
@@ -60,13 +60,13 @@
       "test": "paired Wilcoxon for four adjacent suite-size changes"
     },
     "conditional_coverage_tests": {
-      "multiplicity": "Holm across 31 techniques",
+      "multiplicity": "Holm across 34 techniques",
       "primary_blocks": 16,
       "status": "complete",
       "test": "within-size fixed-effect coverage slopes tested against zero"
     },
     "sample_efficiency_tests": {
-      "multiplicity": "Holm across 30 non-reference techniques",
+      "multiplicity": "Holm across 33 non-reference techniques",
       "practical_margin": 0.01,
       "primary_blocks": 16,
       "reference": "harmonic_mean",
@@ -75,7 +75,7 @@
     }
   },
   "status": "complete",
-  "techniques": 31,
+  "techniques": 34,
   "training_sizes": [
     10,
     20,

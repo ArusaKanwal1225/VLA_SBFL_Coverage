@@ -1,0 +1,25 @@
+{
+  "available_external_methods": 8,
+  "best_complete_macro_roc_auc": 0.6995220791779382,
+  "best_complete_method": "TCP Acceleration Instability",
+  "complete_comparison_methods_including_reference": 9,
+  "complete_method_ids": [
+    "action_acceleration_instability",
+    "action_position_instability",
+    "action_velocity_instability",
+    "harmonic_mean",
+    "optimal_trajectory",
+    "tcp_acceleration_instability",
+    "tcp_position_instability",
+    "tcp_velocity_instability",
+    "trajectory_instability"
+  ],
+  "episodes": 24000,
+  "folds": 80,
+  "primary_blocks": 4,
+  "reference_macro_roc_auc": 0.6652204175057189,
+  "selected_vlas": [
+    "EO1"
+  ],
+  "status": "complete"
+}

@@ -1,14 +1,14 @@
 {
-  "completed_at_utc": "2026-10-24T15:53:26.846770+00:00",
-  "elapsed_seconds": 687.4531426250469,
+  "completed_at_utc": "2026-10-24T20:02:32.857841+00:00",
+  "elapsed_seconds": 816.103725208,
   "experiment": "RQ3_v2_learning_curves",
-  "experiment_signature": "5c4eb40dc6c59eba1f32c6f6fc0bf647f614eda0b0bd50b647d15510b49c3302",
-  "git_revision": "bad61ac60f618c1dd5ba4b6b38e5abf90fbc289a",
+  "experiment_signature": "6090f9ec6dc33acaa2b4961ab3e3097d55a1d1446f75ad3724ff906654bfc6c1",
+  "git_revision": "940f3368c812fdad3048ecd541b25f21204c79c7",
   "input_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
   "output_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ3_v2/results/learning_curves",
   "planned_cells": 16000,
   "platform": "macOS-15.6.1-arm64-arm-64bit",
-  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "python": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
   "signature_details": {
     "all_unknown_policy": "neutral_0.5",
     "analysis_sha256": "778a0ade2ce52dd6abd1e58000b44067f92b4171c4016bda62edf371937891f3",
@@ -204,6 +204,21 @@
         "expression": "2ef/(2ef+nf+ep)",
         "formula_id": "sorensen_dice",
         "name": "Sorensen-Dice"
+      },
+      {
+        "expression": "(ef/F)/((ef/F)+(ep/S))",
+        "formula_id": "tarantula",
+        "name": "Tarantula"
+      },
+      {
+        "expression": "ef/sqrt(F*C)",
+        "formula_id": "ochiai",
+        "name": "Ochiai"
+      },
+      {
+        "expression": "ef*np/sqrt(C*U*F*S)",
+        "formula_id": "ochiai2",
+        "name": "Ochiai2"
       }
     ],
     "origin": [
@@ -212,9 +227,9 @@
       0.0
     ],
     "primary_sample_efficiency_metric": "normalized area under ROC-AUC versus log2(n)",
-    "protocol_sha256": "227c69f6f23ff5f13de326015c11867162a4c6e8773c5d287f74f0430113b01a",
+    "protocol_sha256": "91c22ca6d7a7b50c06d8946c4210758c29f070cfd942fb98f7fed3fead2e7cf0",
     "repetitions": 10,
-    "runner_sha256": "e10e03d04912679a959786961f51bc0e06f9954f08dc81f18ed372904536afc8",
+    "runner_sha256": "81af75440619d931edba7ce82e1ad57bf80636620f9960357e5acc861c7a6c3d",
     "sampling": "independent repetitions of nested class-specific permutations",
     "sampling_seed": 20261024,
     "split": "one test run, next cyclic run calibration, remaining eight runs pool",
@@ -230,10 +245,10 @@
       0.02
     ]
   },
-  "started_at_utc": "2026-10-24T15:41:59.370593+00:00",
+  "started_at_utc": "2026-10-24T19:25:35.211050+00:00",
   "status": "complete",
   "summary": {
-    "completed_at_utc": "2026-10-24T15:53:26.808858+00:00",
+    "completed_at_utc": "2026-10-24T20:02:32.819083+00:00",
     "completed_cells": 16000,
     "expected_cells": 16000,
     "interpretation_scope": "trajectory-level failure discrimination; across-size changes combine additional observations and additional coverage",
@@ -294,13 +309,13 @@
         "test": "paired Wilcoxon for four adjacent suite-size changes"
       },
       "conditional_coverage_tests": {
-        "multiplicity": "Holm across 31 techniques",
+        "multiplicity": "Holm across 34 techniques",
         "primary_blocks": 16,
         "status": "complete",
         "test": "within-size fixed-effect coverage slopes tested against zero"
       },
       "sample_efficiency_tests": {
-        "multiplicity": "Holm across 30 non-reference techniques",
+        "multiplicity": "Holm across 33 non-reference techniques",
         "practical_margin": 0.01,
         "primary_blocks": 16,
         "reference": "harmonic_mean",
@@ -309,7 +324,7 @@
       }
     },
     "status": "complete",
-    "techniques": 31,
+    "techniques": 34,
     "training_sizes": [
       10,
       20,

@@ -1,9 +1,9 @@
 {
   "audit": {
-    "completed_at_utc": "2026-10-23T18:03:26.841155+00:00",
+    "completed_at_utc": "2026-10-24T19:11:01.824138+00:00",
     "configurations": 32,
     "duplicate_episode_steps": 0,
-    "elapsed_seconds": 25.32671704213135,
+    "elapsed_seconds": 29.948137208,
     "episodes": 96000,
     "exact_trajectory_overlap_200_400": 7,
     "failures": 60392,
@@ -18,7 +18,7 @@
   },
   "bootstrap_iterations": 10000,
   "bootstrap_seed": 20261023,
-  "completed_at_utc": "2026-10-23T18:06:03.438331+00:00",
+  "completed_at_utc": "2026-10-24T19:13:51.393352+00:00",
   "configurations": [
     "EO1__DH__200",
     "EO1__DH__400",
@@ -53,15 +53,15 @@
     "SpatialVLA__DH_WeightedRF__200",
     "SpatialVLA__DH_WeightedRF__400"
   ],
-  "elapsed_seconds": 156.5903768329881,
+  "elapsed_seconds": 169.56040275,
   "expected_folds": 320,
-  "experiment_signature": "458ee90c94eef43508869d433faa803aa80c77ee14e57e89bba57b244e511ada",
-  "git_revision_at_launch": "0a7434e1af0e963e232fcdb752c553d9e31d572f",
+  "experiment_signature": "910e24f9b9d91fdd8863ed3353c12dd082a81de824292f140fc39e5435eeda71",
+  "git_revision_at_launch": "940f3368c812fdad3048ecd541b25f21204c79c7",
   "input_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
-  "numpy": "2.3.5",
+  "numpy": "2.0.2",
   "output_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary",
   "pandas": "2.2.3",
-  "python": "3.12.14",
+  "python": "3.9.6",
   "signature_details": {
     "all_unknown_policy": "neutral_0.5",
     "analysis_sha256": "ae872d1d49b57dd85fcf7c8e121e00abf5e9877405c977b39c6b9935503db990",
@@ -220,9 +220,24 @@
         "expression": "2ef/(2ef+nf+ep)",
         "formula_id": "sorensen_dice",
         "name": "Sorensen-Dice"
+      },
+      {
+        "expression": "(ef/F)/((ef/F)+(ep/S))",
+        "formula_id": "tarantula",
+        "name": "Tarantula"
+      },
+      {
+        "expression": "ef/sqrt(F*C)",
+        "formula_id": "ochiai",
+        "name": "Ochiai"
+      },
+      {
+        "expression": "ef*np/sqrt(C*U*F*S)",
+        "formula_id": "ochiai2",
+        "name": "Ochiai2"
       }
     ],
-    "formula_count": 31,
+    "formula_count": 34,
     "grid": {
       "coordinate_frame": "robot_base",
       "coverage": "binary_per_episode",
@@ -234,15 +249,15 @@
       "rule": "floor((xyz - origin) / voxel_size)",
       "voxel_size": 0.02
     },
-    "protocol_sha256": "a5e7067f05aec77dbf689261d1bf12cab3d7fec0c8911b070f8bfc22bd3b4fe1",
-    "runner_sha256": "bd7527e9169f7e6c83af17d8c513bcf109f5770273ae3f1e3019d303d6e464c7",
+    "protocol_sha256": "0c0279f8c766b46a0d4a865901bc00878f965d8f5345b3338adc5f4558c3c670",
+    "runner_sha256": "0caab7cd069dccfab5c31fdd6db395375b6e7cdbac8336369e69c3e3dfc50688",
     "trajectory_aggregation": "maximum_training_voxel_empirical_percentile"
   },
-  "started_at_utc": "2026-10-23T18:03:01.506887+00:00",
+  "started_at_utc": "2026-10-24T19:10:31.868098+00:00",
   "status": "complete",
   "summary": {
     "budgets_treated_as_sensitivity": true,
-    "completed_at_utc": "2026-10-23T18:06:03.433789+00:00",
+    "completed_at_utc": "2026-10-24T19:13:51.390258+00:00",
     "completed_folds": 320,
     "configurations": 32,
     "friedman": {
@@ -251,14 +266,14 @@
         "method": "hierarchical: VLA-condition blocks, then equal-budget run replicates within sampled blocks",
         "seed": 20261023
       },
-      "degrees_of_freedom": 30,
-      "p_value": 4.611336074934009e-65,
+      "degrees_of_freedom": 33,
+      "p_value": 8.931891215669935e-73,
       "posthoc": "paired Wilcoxon signed-rank versus Phase A leader with Holm correction",
       "posthoc_performed": true,
       "primary_block_definition": "VLA x trajectory condition; budgets averaged within block",
       "primary_blocks": 16,
-      "statistic": 393.9708363153052,
-      "techniques": 31,
+      "statistic": 440.6349871569557,
+      "techniques": 34,
       "test": "tie-corrected Friedman chi-square approximation"
     },
     "leader_formula_id": "harmonic_mean",
@@ -273,6 +288,6 @@
     "primary_blocks": 16,
     "selection_status": "Phase A leader only; final localization winner requires Phase B voxel ground truth",
     "status": "complete",
-    "techniques": 31
+    "techniques": 34
   }
 }

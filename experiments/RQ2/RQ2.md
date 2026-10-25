@@ -43,11 +43,12 @@ Use exactly the RQ1 Phase A benchmark:
 The factors are:
 
 - Voxel size: `0.01`, `0.02`, and `0.05` coordinate units.
-- SBFL technique: all 31 Table 4 techniques frozen in RQ1.
+- SBFL technique: the 34-technique catalogue frozen in RQ1, comprising the 31
+  Table 4 formulas plus Tarantula, Ochiai, and Ochiai2.
 
 Every size uses the same episode IDs, labels, train/test folds, coordinate frame,
 origin, coverage rule, formula catalogue, edge-case policy, normalization, and
-trajectory aggregation. This produces 960 size/fold cells and 29,760
+trajectory aggregation. This produces 960 size/fold cells and 32,640
 technique-size-fold measurements. Only 640 folds are newly fitted because the
 320 `0.02` folds already exist.
 
@@ -120,14 +121,14 @@ For each technique and each non-primary size:
 
    `(technique_size - technique_0.02) - (HM_size - HM_0.02)`.
 
-3. Test the 60 non-reference interaction contrasts using paired Wilcoxon tests
+3. Test the 66 non-reference interaction contrasts using paired Wilcoxon tests
    with one Holm correction family.
 4. Require both corrected `p < 0.05` and an absolute interaction of at least
    `0.01` ROC-AUC to call a practically meaningful interaction.
 5. Report complete technique rankings at every size and their pairwise Spearman
    rank correlations.
 
-Technique-specific size changes are also reported for all 62 contrasts (31
+Technique-specific size changes are also reported for all 68 contrasts (34
 techniques by two non-primary sizes) with a separate Holm correction. They are
 secondary because a size main effect is not itself evidence of an interaction.
 
@@ -169,7 +170,7 @@ and not causal fault localization.
 
 ## Pre-launch checks
 
-- Verify that the completed `0.02` source contains all 320 folds and all 31
+- Verify that the completed `0.02` source contains all 320 folds and all 34
   techniques.
 - Verify identical configuration, held-out run, episode count, failure count,
   and formula identities across sizes.
@@ -183,6 +184,6 @@ and not causal fault localization.
 ### Smoke-validation record
 
 The implementation completed one `EO1/DH/200` held-out fold at both `0.01` and
-`0.05`. Both cells produced all 31 finite formula metrics and reloadable model
+`0.05`. Both cells produced all 34 finite formula metrics and reloadable model
 artifacts. The observed known-voxel fractions (`0.895` and `0.997`, respectively)
 are execution diagnostics only and are not inferential RQ2 results.

@@ -36,7 +36,7 @@ from experiments.RQ3_v2.analysis import (
     summarize_learning_curve,
 )
 from vla_sbfl.dataset import TrajectoryDataset, load_trajectory_dataset
-from vla_sbfl.formulas import FORMULA_REGISTRY, TABLE4_FORMULA_IDS
+from vla_sbfl.formulas import FORMULA_REGISTRY, STUDY_FORMULA_IDS
 from vla_sbfl.metrics import evaluate_predictions
 from vla_sbfl.model import SBFLModel, episode_id_hash
 from vla_sbfl.scoring import TrajectoryScorer
@@ -104,7 +104,7 @@ def experiment_signature(
         "formula_id": formula_id,
         "name": FORMULA_REGISTRY[formula_id].name,
         "expression": FORMULA_REGISTRY[formula_id].expression,
-    } for formula_id in TABLE4_FORMULA_IDS]
+    } for formula_id in STUDY_FORMULA_IDS]
     details = {
         "protocol_sha256": sha256_file(directory / "RQ3_v2.md"),
         "runner_sha256": sha256_file(Path(__file__).resolve()),
@@ -234,7 +234,7 @@ def run_learning_curve_cell(
         visits=training.visits,
         labels=training.labels,
         grid=grid,
-        formula_ids=TABLE4_FORMULA_IDS,
+        formula_ids=STUDY_FORMULA_IDS,
         metadata={
             "experiment": "RQ3_v2_learning_curves",
             "experiment_signature": signature,
@@ -491,7 +491,7 @@ def sample_efficiency_tests(block_efficiency: pd.DataFrame) -> Tuple[pd.DataFram
         np.isclose(block_efficiency["voxel_size"].astype(float), 0.02)]
     pivot = primary.pivot(
         index="primary_block_id", columns="formula_id", values="normalized_log_aulc")
-    formula_ids = list(TABLE4_FORMULA_IDS)
+    formula_ids = list(STUDY_FORMULA_IDS)
     if (
         pivot.shape[0] != 16
         or any(formula_id not in pivot.columns for formula_id in formula_ids)
@@ -539,7 +539,7 @@ def sample_efficiency_tests(block_efficiency: pd.DataFrame) -> Tuple[pd.DataFram
         "status": "complete",
         "reference": REFERENCE_FORMULA,
         "test": "paired Wilcoxon on normalized log-scale learning-curve area",
-        "multiplicity": "Holm across 30 non-reference techniques",
+        "multiplicity": "Holm across 33 non-reference techniques",
         "practical_margin": PRACTICAL_MARGIN,
         "primary_blocks": 16,
     }
@@ -580,7 +580,7 @@ def conditional_coverage_analysis(metrics: pd.DataFrame, aggregate: Path) -> Tup
         }
 
     primary = effects[np.isclose(effects["voxel_size"].astype(float), 0.02)]
-    formula_ids = list(TABLE4_FORMULA_IDS)
+    formula_ids = list(STUDY_FORMULA_IDS)
     counts = primary.groupby("formula_id")["primary_block_id"].nunique()
     if any(int(counts.get(formula_id, 0)) != 16 for formula_id in formula_ids):
         return effects, {
@@ -617,7 +617,7 @@ def conditional_coverage_analysis(metrics: pd.DataFrame, aggregate: Path) -> Tup
     return effects, {
         "status": "complete",
         "test": "within-size fixed-effect coverage slopes tested against zero",
-        "multiplicity": "Holm across 31 techniques",
+        "multiplicity": "Holm across 34 techniques",
         "primary_blocks": 16,
     }
 
@@ -710,7 +710,7 @@ def aggregate_results(output_root: Path) -> dict:
         "phase": "trajectory-count learning curves with measured voxel coverage",
         "completed_cells": completed_cells,
         "expected_cells": expected_cells,
-        "techniques": len(TABLE4_FORMULA_IDS),
+        "techniques": len(STUDY_FORMULA_IDS),
         "training_sizes": list(training_sizes),
         "leaders_by_training_size": leaders,
         "sample_efficiency_leader": sample_leader,

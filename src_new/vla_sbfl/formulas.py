@@ -203,7 +203,8 @@ def _legacy_only_specs() -> Sequence[FormulaSpec]:
         return s.ef-h
 
     return (
-        FormulaSpec("tarantula", "Tarantula", "(ef/F)/((ef/F)+(ep/S))", family,
+        FormulaSpec("tarantula", "Tarantula", "(ef/F)/((ef/F)+(ep/S))",
+                    ("legacy14", "study_extension"),
                     lambda s: _divide(_divide(s.ef,s.failed),
                                       _divide(s.ef,s.failed)+_divide(s.ep,s.passed))),
         FormulaSpec("barinel", "Barinel", "ef/(ef+ep)", family,
@@ -211,10 +212,12 @@ def _legacy_only_specs() -> Sequence[FormulaSpec]:
         FormulaSpec("kulczynski2", "Kulczynski2", "0.5*(ef/F+ef/(ef+ep))", family,
                     lambda s: 0.5*(_divide(s.ef,s.failed)+_divide(s.ef,s.covered))),
         FormulaSpec("wong2", "Wong2", "ef-ep", family, lambda s: s.ef-s.ep),
-        FormulaSpec("ochiai2", "Ochiai2", "ef*np/sqrt(C*U*F*S)", family,
+        FormulaSpec("ochiai2", "Ochiai2", "ef*np/sqrt(C*U*F*S)",
+                    ("legacy14", "study_extension"),
                     lambda s: _divide(s.ef*s.npass,
                                       np.sqrt(s.covered*s.uncovered*s.failed*s.passed))),
-        FormulaSpec("ochiai", "Ochiai", "ef/sqrt(F*C)", family,
+        FormulaSpec("ochiai", "Ochiai", "ef/sqrt(F*C)",
+                    ("legacy14", "study_extension"),
                     lambda s: _divide(s.ef, np.sqrt(s.failed*s.covered))),
         FormulaSpec("dstar2", "DStar2", "ef^2/(ep+nf)", family,
                     lambda s: _divide(s.ef**2, s.ep+s.nf)),
@@ -234,6 +237,9 @@ FORMULA_REGISTRY: Mapping[str, FormulaSpec] = {
 TABLE4_FORMULA_IDS: Tuple[str, ...] = tuple(
     spec.formula_id for spec in _table4_specs()
 )
+STUDY_FORMULA_IDS: Tuple[str, ...] = TABLE4_FORMULA_IDS + (
+    "tarantula", "ochiai", "ochiai2",
+)
 LEGACY14_FORMULA_IDS: Tuple[str, ...] = (
     "tarantula", "barinel", "kulczynski2", "wong2", "ochiai2", "ochiai",
     "dstar2", "jaccard", "wong3", "gp13", "op2", "wong1", "zoltar", "ample",
@@ -248,11 +254,12 @@ def formula_ids_for_set(name: str) -> Tuple[str, ...]:
     normalized = name.strip().lower()
     choices = {
         "table4": TABLE4_FORMULA_IDS,
+        "study": STUDY_FORMULA_IDS,
         "legacy14": LEGACY14_FORMULA_IDS,
         "all": ALL_FORMULA_IDS,
     }
     if normalized not in choices:
-        raise ValueError("formula set must be one of: table4, legacy14, all")
+        raise ValueError("formula set must be one of: table4, study, legacy14, all")
     return choices[normalized]
 
 

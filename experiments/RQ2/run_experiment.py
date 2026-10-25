@@ -27,7 +27,7 @@ from experiments.RQ1.run_experiment import (
     sha256_file,
 )
 from experiments.RQ2.analysis import matched_size_bootstrap, spearman_rank_correlation
-from vla_sbfl.formulas import FORMULA_REGISTRY, TABLE4_FORMULA_IDS
+from vla_sbfl.formulas import FORMULA_REGISTRY, STUDY_FORMULA_IDS
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
@@ -81,7 +81,7 @@ def rq2_signature(origin: Sequence[float]) -> Tuple[str, dict]:
         "primary_size": PRIMARY_SIZE,
         "origin": [float(value) for value in origin],
         "reference_formula": REFERENCE_FORMULA,
-        "formula_ids": list(TABLE4_FORMULA_IDS),
+        "formula_ids": list(STUDY_FORMULA_IDS),
         "practical_margin": PRACTICAL_MARGIN,
     }
     return sha256_payload(details), details
@@ -196,7 +196,7 @@ def load_cell_fold_metrics(
     keys = ["configuration_id", "test_run", "formula_id"]
     if frame.duplicated(keys).any():
         raise ValueError("cell contains duplicate fold/formula rows: " + str(source))
-    if set(frame["formula_id"].astype(str)) != set(TABLE4_FORMULA_IDS):
+    if set(frame["formula_id"].astype(str)) != set(STUDY_FORMULA_IDS):
         raise ValueError("cell formula catalogue differs from RQ1: " + str(source))
     numeric = frame[[
         "roc_auc", "average_precision", "failure_prevalence",
@@ -215,8 +215,8 @@ def load_cell_fold_metrics(
             or set(counts.to_list()) != {10}
         ):
             raise ValueError("cell does not contain ten folds per configuration: " + str(source))
-        if len(frame) != 320 * len(TABLE4_FORMULA_IDS):
-            raise ValueError("cell does not contain 31 metrics per fold: " + str(source))
+        if len(frame) != 320 * len(STUDY_FORMULA_IDS):
+            raise ValueError("cell does not contain 34 metrics per fold: " + str(source))
     frame.insert(0, "voxel_size", float(voxel_size))
     return frame, run_metadata
 
@@ -372,7 +372,7 @@ def aggregate_cross_size(
     primary_metrics = _primary_block_metrics(fold_metrics)
     primary_metrics.to_csv(
         aggregate_directory / "primary_block_metrics.csv", index=False)
-    formula_ids = list(TABLE4_FORMULA_IDS)
+    formula_ids = list(STUDY_FORMULA_IDS)
     sizes = list(VOXEL_SIZES)
     reference_index = formula_ids.index(REFERENCE_FORMULA)
     primary_size_index = sizes.index(PRIMARY_SIZE)

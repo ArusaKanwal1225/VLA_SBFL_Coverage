@@ -3,7 +3,7 @@
   "bootstrap_seed": 20261023,
   "cell_commands": [
     [
-      "/Users/aitorarrietamarcos/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
       "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/run_experiment.py",
       "--input-root",
       "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
@@ -24,7 +24,7 @@
       "--resume"
     ],
     [
-      "/Users/aitorarrietamarcos/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
       "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/run_experiment.py",
       "--input-root",
       "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
@@ -50,14 +50,14 @@
     "0.02": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary",
     "0.05": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p05"
   },
-  "completed_at_utc": "2026-10-23T20:28:22.330436+00:00",
-  "elapsed_seconds": 559.1392174998764,
-  "experiment_signature": "0fb8fb3613a1f428c3591069e944883258fa318c3020bcd5af579ddd046fe6c9",
+  "completed_at_utc": "2026-10-24T19:25:09.853091+00:00",
+  "elapsed_seconds": 622.67735725,
+  "experiment_signature": "0b66cac23fb9ed9982a188b455d2709d2bc6af5704990a52600700f53a850a2d",
   "input_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
-  "numpy": "2.3.5",
+  "numpy": "2.0.2",
   "output_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity",
   "pandas": "2.2.3",
-  "python": "3.12.14",
+  "python": "3.9.6",
   "resume": true,
   "signature_details": {
     "analysis_sha256": "46fe47ff40d66ef45d9a77803d307de4785b1f20b8f8e0faf56282e776ebe768",
@@ -92,7 +92,10 @@
       "dice",
       "goodman",
       "jaccard",
-      "sorensen_dice"
+      "sorensen_dice",
+      "tarantula",
+      "ochiai",
+      "ochiai2"
     ],
     "origin": [
       -1.0,
@@ -101,14 +104,14 @@
     ],
     "practical_margin": 0.01,
     "primary_size": 0.02,
-    "protocol_sha256": "299d42f730ae383ca5bed1323cbc434efe4ffa34105854aa77af398e78df0efc",
+    "protocol_sha256": "53ebe41ae1435843c9dc936fbdaa12a640b28adfee10f4529913402e30fbcd64",
     "reference_formula": "harmonic_mean",
     "rq1_engine": {
       "analysis_sha256": "ae872d1d49b57dd85fcf7c8e121e00abf5e9877405c977b39c6b9935503db990",
-      "protocol_sha256": "a5e7067f05aec77dbf689261d1bf12cab3d7fec0c8911b070f8bfc22bd3b4fe1",
-      "runner_sha256": "bd7527e9169f7e6c83af17d8c513bcf109f5770273ae3f1e3019d303d6e464c7"
+      "protocol_sha256": "0c0279f8c766b46a0d4a865901bc00878f965d8f5345b3338adc5f4558c3c670",
+      "runner_sha256": "0caab7cd069dccfab5c31fdd6db395375b6e7cdbac8336369e69c3e3dfc50688"
     },
-    "runner_sha256": "83d6b5ca0eb506a3c89375c8f958ba6de4dc2df02e918268f1a94dc4d6b1f8e3",
+    "runner_sha256": "31acf2497022761a8a8928002a4029b1090b05d08a553231dc5d5aa919d2ff2a",
     "voxel_sizes": [
       0.01,
       0.02,
@@ -116,30 +119,30 @@
     ]
   },
   "smoke": false,
-  "started_at_utc": "2026-10-23T20:19:03.179234+00:00",
+  "started_at_utc": "2026-10-24T19:14:47.175670+00:00",
   "status": "complete",
   "summary": {
     "cell_sources": {
       "0.01": {
-        "experiment_signature": "05ba63283c78fd148eb3ddc42376df6131e094bc672a04820a3b2a28bcb131be",
+        "experiment_signature": "3cc6b268a230795eb9daaf6bf81370edea64c079baf2c41fdb9a616a6dc6cdfd",
         "run_status": "complete",
         "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p01"
       },
       "0.02": {
-        "experiment_signature": "458ee90c94eef43508869d433faa803aa80c77ee14e57e89bba57b244e511ada",
+        "experiment_signature": "910e24f9b9d91fdd8863ed3353c12dd082a81de824292f140fc39e5435eeda71",
         "run_status": "complete",
         "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary"
       },
       "0.05": {
-        "experiment_signature": "03ed72e6211fbf438c419d8299105dab4d7b7435b132ab8b8525c92aba201a64",
+        "experiment_signature": "08222a8353d0f8f74f56211c67ca995858bd7186d5acd815ad81030163160eff",
         "run_status": "complete",
         "source": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2/results/phase_a_granularity/cells/size_0p05"
       }
     },
-    "completed_at_utc": "2026-10-23T20:28:22.328513+00:00",
+    "completed_at_utc": "2026-10-24T19:25:09.851363+00:00",
     "folds_per_size": 320,
     "localization_selection_status": "pending Phase B causal/problematic-region ground truth",
-    "meaningful_interactions": 5,
+    "meaningful_interactions": 8,
     "phase": "A: held-out trajectory discrimination",
     "phase_a_size_leader": 0.02,
     "phase_a_size_leader_macro_roc_auc": 0.7039416329806212,
@@ -156,8 +159,8 @@
         "method": "matched hierarchical: VLA-condition blocks, then run folds within equal-weight budgets; identical draws across sizes/techniques",
         "seed": 20261023
       },
-      "interaction_holm_family": 60,
-      "size_change_holm_family": 62,
+      "interaction_holm_family": 66,
+      "size_change_holm_family": 68,
       "size_friedman": {
         "degrees_of_freedom": 2,
         "p_value": 0.4437473100810797,
@@ -169,7 +172,7 @@
       }
     },
     "status": "complete",
-    "techniques": 31,
+    "techniques": 34,
     "voxel_sizes": [
       0.01,
       0.02,

@@ -4,6 +4,7 @@
     "rogot2",
     "dennis",
     "phi",
+    "tarantula",
     "tarwid",
     "arithmetic_mean",
     "zoltar"
@@ -31,13 +32,13 @@
   "rank_policy": "descending competition rank with numeric ties",
   "source_directory": "experiments/RQ1/results/phase_a_primary/aggregate",
   "source_sha256": {
-    "overall_ranking.csv": "174fe2549092cdf30eef7a24a03ce67242b10a6bb03eafd07bfa698d509edbfb",
-    "primary_block_metrics.csv": "1b3e689ff0a1183070a76ae67336455a5b216999f313888895602c4df06bab7f",
-    "statistical_comparison.csv": "f991fb900f0dddebbac1dee902aaa09f16aa73a4abbc32e7e376706f041a6a8f",
-    "subgroup_metrics.csv": "4e23f8e5293c130e47bf8b5258178f87cd0edcbc371e8a5d0ceefc68d55cc491"
+    "overall_ranking.csv": "eb15ed382b8defbfce6993d2216a7c069dc4e68d09f28a30c0699778b7fdbd9c",
+    "primary_block_metrics.csv": "3dd6b1b899c81ca7295ac5629c5bf47f8785b93477e3d99483814fa9cfa470c3",
+    "statistical_comparison.csv": "7cc3e7941395a8bf98c586e2497ade951b0a7b92495a08a8f22f6eb1cad132c5",
+    "subgroup_metrics.csv": "d6e6d1047659db864c25e644717f2340d7aa14381b12c501981e0a6268a85997"
   },
   "supplementary_sd_policy": "sample SD across four trajectory-generation conditions",
-  "technique_count": 31,
+  "technique_count": 34,
   "top_rank_cutoff": 5,
   "vla_order": [
     "EO1",

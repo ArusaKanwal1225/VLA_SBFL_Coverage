@@ -4,8 +4,8 @@
     "method": "matched hierarchical: VLA-condition blocks, then run folds within equal-weight budgets; identical draws across sizes/techniques",
     "seed": 20261023
   },
-  "interaction_holm_family": 60,
-  "size_change_holm_family": 62,
+  "interaction_holm_family": 66,
+  "size_change_holm_family": 68,
   "size_friedman": {
     "degrees_of_freedom": 2,
     "p_value": 0.4437473100810797,

@@ -5,6 +5,7 @@
       "harmonic_mean",
       "phi",
       "rogot2",
+      "tarantula",
       "tarwid",
       "zoltar"
     ],
@@ -13,6 +14,7 @@
       "harmonic_mean",
       "phi",
       "rogot2",
+      "tarantula",
       "tarwid",
       "zoltar"
     ],
@@ -22,6 +24,7 @@
       "harmonic_mean",
       "phi",
       "rogot2",
+      "tarantula",
       "tarwid",
       "zoltar"
     ],
@@ -30,12 +33,13 @@
       "harmonic_mean",
       "phi",
       "rogot2",
+      "tarantula",
       "tarwid",
       "zoltar"
     ]
   },
   "descriptive_scope": "stratified by VLA",
-  "meaningful_interactions": 5,
+  "meaningful_interactions": 8,
   "outputs": [
     "rq2_reference_by_vla.csv",
     "rq2_reference_by_vla.tex",
@@ -58,18 +62,18 @@
   ],
   "source_directory": "experiments/RQ2/results/phase_a_granularity/aggregate",
   "source_sha256": {
-    "fold_metrics_by_size.csv.gz": "bb7f58e2267395b3854b24181ae859d117770f5bfa1c817cde1350561b761116",
-    "primary_block_metrics.csv": "b56032d35eb7611b95bf248dc2d8370642b67e5a0d2205d93125fbc42694a3b5",
-    "ranking_stability.csv": "300bb6021283c7c9bbf6b0340a12fb14b55e3e60e949f9abdaf95b177f3c7507",
-    "rankings_by_size.csv": "4b87dcd0fb2f21cf99f3f0c3b29ea011fec1a6e878eaf22fc005e47fb5bab566",
-    "size_diagnostics.csv": "0b49b2c16de6bf2dd8f93819e07bc0269596f2ef1ed963674f1bbfcacc340051",
-    "statistical_tests.json": "6b6c3aac792a1f7658d4a5d09879a6d02b23236686d8f8362f15542e5919d081",
-    "technique_size_effects.csv": "06bd2e2aee6aa1df63e11d74c1361f0c2b1bfea4a67ffd951bafc5ece1a07a31",
-    "technique_size_interactions.csv": "d8338279bd892b0103cbf772897c21fcceb17286c1b87e4d66a077c3de33389c",
+    "fold_metrics_by_size.csv.gz": "1260d5c009ef68961da7c36fe38f6b31b696a411fb953cf303703ec8688473e1",
+    "primary_block_metrics.csv": "b1f71982731f37c242a9bac7f8f811597ab8bc87fe8490444502d4f1a774a465",
+    "ranking_stability.csv": "fefafb0be0e436d3149953b6ef25d7e8ada44e31afaadf5c67b5873a634010f1",
+    "rankings_by_size.csv": "ced80605460b6877fe461940fd0c06080f3404079e1c830920710a60818149a0",
+    "size_diagnostics.csv": "f3afad223a15fa14cc82dd0f6bfdf832cfd70c722343d63060b0c4c733c8e482",
+    "statistical_tests.json": "44d96fa2efbda0c676035b5a9faa1258db8e63845bb41f37b70da94e895ac724",
+    "technique_size_effects.csv": "836a9a814086fe7af1d7b0eede65b7ceec29ab6cbefef3642f16ec36b591ba3b",
+    "technique_size_interactions.csv": "a53cf7e2d93d0efbe9bcd57113489f4b208589de1c5b9b1bfccd754b82025188",
     "voxel_size_comparison.csv": "676b164df9da922cdd7067f05a7670a67d48fc55ef283ddebd1af1d471125b08"
   },
   "statistical_scope": "global over 16 matched VLA-condition blocks",
-  "technique_count": 31,
+  "technique_count": 34,
   "top_rank_cutoff": 5,
   "training_voxel_sources": {
     "0.01": "experiments/RQ2/results/phase_a_granularity/cells/size_0p01",

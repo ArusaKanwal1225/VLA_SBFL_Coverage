@@ -1,7 +1,7 @@
 # RQ2 execution guide
 
 RQ2 compares voxel sizes `0.01`, `0.02`, and `0.05` using exactly the RQ1 folds
-and all 31 spectrum-based techniques. The completed RQ1 `0.02` cell is validated
+and all 34 spectrum-based techniques. The completed RQ1 `0.02` cell is validated
 and reused. The runner computes the 640 new folds for `0.01` and `0.05`, then
 performs the matched cross-size analysis.
 
@@ -46,7 +46,7 @@ The full default output root is `experiments/RQ2/results/phase_a_granularity`.
 Important aggregate files are:
 
 - `aggregate/voxel_size_comparison.csv`: confirmatory Harmonic Mean size test.
-- `aggregate/rankings_by_size.csv`: all 31 techniques at every size.
+- `aggregate/rankings_by_size.csv`: all 34 techniques at every size.
 - `aggregate/technique_size_effects.csv`: each formula's change from `0.02`.
 - `aggregate/technique_size_interactions.csv`: difference-in-differences against
   Harmonic Mean with Holm correction.

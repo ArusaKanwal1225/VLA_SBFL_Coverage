@@ -12,7 +12,7 @@ and `--output-dir` to select another completed RQ1 run.
 
 The generated artifacts comprise:
 
-- one CSV and one LaTeX table comparing all 31 techniques across the four VLA
+- one CSV and one LaTeX table comparing all 34 techniques across the four VLA
   models and overall;
 - one CSV and one LaTeX inferential table containing the union of techniques
   ranked in the top five for at least one VLA; and

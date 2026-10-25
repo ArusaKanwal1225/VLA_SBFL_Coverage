@@ -11,3 +11,6 @@ output/input_validation/*_errors.txt
 experiments/*/results/**/folds/
 experiments/*/results/**/cells/
 experiments/*/results/smoke/
+
+# Local clone of the raw multi-gigabyte EO1 dataset
+VLA_SBFL_EO1/

@@ -1,10 +1,10 @@
 {
   "inputs": {
     "adjacent_size_tests.csv": "859201d28755c40a1feec4c5f76b4e05db846d525c1d41adbb1b2a9c9dc2391b",
-    "conditional_coverage_tests.csv": "55b2b16d685f43dc9cd8e9c60fa51d7f95dc13b70f4ed7cf98f8536aadbcb02b",
-    "global_sample_efficiency.csv": "5f63de0f1973b3eb33e7b3edb30ec77cc3388b2db69ec5da4fe93c163a727d6d",
-    "learning_curves_by_vla.csv": "2b883bd2a23141c8e65f1f93834e4ef76a60209f36e03b568372a905aceacc13",
-    "sample_efficiency_by_vla.csv": "8731f0fbb3749b09d84a574b3fb4410808be123b003f07d6d99c54ab0c4d6ab9"
+    "conditional_coverage_tests.csv": "4d2f59ddcb7b1c74148b75e4bd97b5b1b0c4c7194e4f45dbfdf1991f74de416a",
+    "global_sample_efficiency.csv": "2d62105105cb7038dbb0ce3d1b5a016fa1e10b98156c03eaff5a5204223c8e3b",
+    "learning_curves_by_vla.csv": "4e466811f909c9cc7ca11f46f4f1b39b1d9ddaac30e14f404f645aa03facbd0a",
+    "sample_efficiency_by_vla.csv": "200d7ac2aa1d2d215c6b94c222623a1e2aabb4cb87ca10113af77413cd29c5d2"
   },
   "outputs": [
     "TABLES.md",

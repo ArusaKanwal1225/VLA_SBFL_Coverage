@@ -25,7 +25,7 @@ PYTHONPATH="$PWD:$PWD/src_new" python experiments/RQ3_v2/run_experiment.py
 
 The default design fits 16,000 subset cells: 32 configurations, 10 held-out
 folds, 10 nested-suite repetitions, and 5 suite sizes. Each fit evaluates all
-31 techniques. Execution is deterministic and resumable; fitted models and
+34 techniques. Execution is deterministic and resumable; fitted models and
 prediction tables are not saved unless explicitly requested.
 
 Results are written under `experiments/RQ3_v2/results/learning_curves`.
@@ -66,7 +66,7 @@ Important aggregate outputs are:
 Publication artifacts are written to:
 
 - `results/learning_curves/tables`: the three main-paper tables, complete
-  VLA-specific supplementary tables for all 31 techniques, the conditional
+  VLA-specific supplementary tables for all 34 techniques, the conditional
   coverage table, and a provenance manifest;
 - `results/learning_curves/figures/rq3v2_suite_size_effects.{pdf,png}`: the
   combined main-paper coverage and ROC-AUC learning-curve figure;
@@ -78,5 +78,5 @@ Publication artifacts are written to:
 The generated LaTeX tables require the `booktabs` package. Technique selection
 for the compact main sample-efficiency table is reproducible: it includes the
 union of techniques reaching a top-five NAULC rank for at least one VLA, plus
-the frozen Harmonic Mean reference. Full 31-technique results remain available
+the frozen Harmonic Mean reference. Full 34-technique results remain available
 in the supplementary tables.

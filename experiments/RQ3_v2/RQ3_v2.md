@@ -44,7 +44,8 @@ The frozen RQ1/RQ2 benchmark is retained:
   `DH_WeightedRF`;
 - generation budget: 200 and 400 scenes;
 - runs: ten for every VLA/condition/budget configuration;
-- techniques: the 31 Table 4 formulas frozen in RQ1;
+- techniques: the 34-formula catalogue frozen in RQ1, comprising the 31 Table 4
+  formulas plus Tarantula, Ochiai, and Ochiai2;
 - primary voxel size: `0.02`, origin `(-1, -1, 0)`, frame `robot_base`.
 
 The primary inferential unit is the `VLA x condition` block. The two generation
@@ -80,7 +81,7 @@ configuration, and budgets are then averaged equally inside primary blocks.
 
 ## Model fitting and trajectory scoring
 
-Each nested suite is voxelized and used to fit all 31 formulas simultaneously.
+Each nested suite is voxelized and used to fit all 34 formulas simultaneously.
 The frozen RQ1 policy is retained:
 
 - spectra contain binary trajectory-level voxel visits;
@@ -131,7 +132,7 @@ For the complete primary design:
    primary blocks using paired Wilcoxon signed-rank tests and one Holm
    correction.
 2. Every technique's block-level NAULC is compared with Harmonic Mean using
-   paired Wilcoxon tests and one Holm correction across the 30 comparisons.
+   paired Wilcoxon tests and one Holm correction across the 33 comparisons.
    An absolute difference of `0.01` is the practical-effect threshold.
 3. Technique learning-curve gains are compared descriptively and retained per
    VLA; inferential conclusions use matched primary blocks.
@@ -150,7 +151,7 @@ estimates for voxels that were already known.
   size, faceted by VLA;
 - a VLA-stratified coverage/performance table, a VLA-stratified sample-
   efficiency table, and one matched adjacent-size statistical table;
-- complete supplementary ROC-AUC and NAULC tables for all 31 techniques and
+- complete supplementary ROC-AUC and NAULC tables for all 34 techniques and
   each VLA;
 - a complete technique-rank heatmap across VLA models and suite sizes;
 - an unadjusted ROC-AUC-versus-coverage plot and the full conditional-coverage
@@ -163,6 +164,6 @@ estimates for voxels that were already known.
 - Verify disjoint pool, calibration, and evaluation episode IDs.
 - Verify identical held-out trajectories across suite sizes and techniques.
 - Verify deterministic subset hashes under the frozen seed.
-- Verify finite scores and metrics for all 31 techniques.
+- Verify finite scores and metrics for all 34 techniques.
 - Retain non-monotonic learning curves rather than repairing them.
 - Do not infer causal voxel localization from trajectory-level ROC-AUC.

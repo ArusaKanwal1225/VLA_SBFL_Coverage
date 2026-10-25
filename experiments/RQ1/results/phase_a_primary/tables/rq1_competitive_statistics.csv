@@ -1,8 +1,9 @@
 formula_id,technique,overall_rank,overall_roc_auc,roc_auc_ci_lower,roc_auc_ci_upper,gap_to_leader,gap_ci_lower,gap_ci_upper,holm_adjusted_p_value,rank_biserial_leader_minus_candidate,practically_equivalent,top_five_vlas,is_reference
 harmonic_mean,Harmonic Mean,1,0.703942,0.679627,0.728019,0.000000,0.000000,0.000000,1,0.000000,true,EO1;Groot;Pi0;SpatialVLA,true
 rogot2,Rogot2,1,0.703942,0.679627,0.728019,0.000000,0.000000,0.000000,1,0.000000,true,EO1;Groot;Pi0;SpatialVLA,false
-dennis,Dennis,3,0.688032,0.666802,0.710382,0.015910,0.007090,0.025269,0.0144721,0.838235,false,EO1;Groot;Pi0;SpatialVLA,false
-phi,Phi (Geometric Mean),4,0.681794,0.659455,0.705380,0.022148,0.012271,0.032490,0.0144721,0.882353,false,EO1;Groot;Pi0;SpatialVLA,false
-tarwid,Tarwid,5,0.654861,0.635693,0.675370,0.049080,0.030631,0.069365,0.0144721,0.985294,false,EO1;Groot,false
-arithmetic_mean,Arithmetic Mean,6,0.653006,0.632341,0.676089,0.050936,0.035845,0.066780,0.0144721,1.000000,false,Pi0,false
-zoltar,Zoltar,9,0.642811,0.614218,0.672345,0.061131,0.048745,0.074936,0.0144721,1.000000,false,SpatialVLA,false
+dennis,Dennis,3,0.688032,0.666802,0.710382,0.015910,0.007090,0.025269,0.0159193,0.838235,false,EO1;Groot;Pi0;SpatialVLA,false
+phi,Phi (Geometric Mean),4,0.681794,0.659455,0.705380,0.022148,0.012271,0.032490,0.0159193,0.882353,false,Groot;Pi0;SpatialVLA,false
+tarantula,Tarantula,5,0.654865,0.635694,0.675404,0.049077,0.030630,0.069375,0.0159193,0.985294,false,EO1,false
+tarwid,Tarwid,6,0.654861,0.635693,0.675370,0.049080,0.030631,0.069365,0.0159193,0.985294,false,EO1;Groot,false
+arithmetic_mean,Arithmetic Mean,7,0.653006,0.632341,0.676089,0.050936,0.035845,0.066780,0.0159193,1.000000,false,Pi0,false
+zoltar,Zoltar,10,0.642811,0.614218,0.672345,0.061131,0.048745,0.074936,0.0159193,1.000000,false,SpatialVLA,false

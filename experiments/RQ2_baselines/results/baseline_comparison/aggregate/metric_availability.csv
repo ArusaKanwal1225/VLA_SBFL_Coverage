@@ -1,0 +1,14 @@
+vla,method_id,method,episodes,available,empty,missing_file,invalid,folds,availability_fraction
+EO1,action_acceleration_instability,Action Acceleration Instability,24000,24000,0,0,0,80,1.0
+EO1,action_position_instability,Action Position Instability,24000,24000,0,0,0,80,1.0
+EO1,action_velocity_instability,Action Velocity Instability,24000,24000,0,0,0,80,1.0
+EO1,deepgini,DeepGini,24000,0,24000,0,0,80,0.0
+EO1,entropy,Entropy,24000,0,24000,0,0,80,0.0
+EO1,execution_variability,Execution Variability,24000,0,24000,0,0,80,0.0
+EO1,optimal_trajectory,Optimal Trajectory,24000,24000,0,0,0,80,1.0
+EO1,pcs,Prediction Confidence Score (PCS),24000,0,24000,0,0,80,0.0
+EO1,tcp_acceleration_instability,TCP Acceleration Instability,24000,24000,0,0,0,80,1.0
+EO1,tcp_position_instability,TCP Position Instability,24000,24000,0,0,0,80,1.0
+EO1,tcp_velocity_instability,TCP Velocity Instability,24000,24000,0,0,0,80,1.0
+EO1,token_probability,Token Probability,24000,0,24000,0,0,80,0.0
+EO1,trajectory_instability,Trajectory Instability,24000,24000,0,0,0,80,1.0

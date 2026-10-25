@@ -1,0 +1,183 @@
+{
+  "analysis_only": true,
+  "bootstrap_iterations": 10000,
+  "bootstrap_seed": 20261025,
+  "completed_at_utc": "2026-10-25T14:13:43.368506+00:00",
+  "configurations": [
+    "EO1__DH_HybridDT__200",
+    "EO1__DH_HybridDT__400",
+    "EO1__DH_HybridRF__200",
+    "EO1__DH_HybridRF__400",
+    "EO1__DH_WeightedRF__200",
+    "EO1__DH_WeightedRF__400",
+    "EO1__DH__200",
+    "EO1__DH__400"
+  ],
+  "experiment_signature": "c5c16a85c980d84dcbad45a88048227d3fbf5f8839602ed83e6a8b3f33d033d3",
+  "git_revision_at_launch": "940f3368c812fdad3048ecd541b25f21204c79c7",
+  "input_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/input",
+  "numpy": "2.3.5",
+  "output_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2_baselines/results/baseline_comparison",
+  "pandas": "2.2.3",
+  "python": "3.12.14",
+  "raw_root": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/VLA_SBFL_EO1/Data",
+  "rq1_fold_metrics": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ1/results/phase_a_primary/aggregate/fold_metrics.csv.gz",
+  "signature_details": {
+    "analysis_sha256": "36dcdde2f1e24a6f70091b9c873f7eaff0bc0d16e0ef10bfbb1cb6f40fee73e8",
+    "catalogue_sha256": "e643d53273e7a74a689587d10e5b3feb88de4cf3e05d03688e35b83a67fda86e",
+    "metric_catalogue": [
+      {
+        "direction": -1,
+        "family": "Token uncertainty",
+        "filename": "Token_based_token_prob.json",
+        "metric_id": "token_probability",
+        "name": "Token Probability",
+        "observability": "model internals",
+        "task_aware": false
+      },
+      {
+        "direction": -1,
+        "family": "Token uncertainty",
+        "filename": "Token_based_pcs.json",
+        "metric_id": "pcs",
+        "name": "Prediction Confidence Score (PCS)",
+        "observability": "model internals",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Token uncertainty",
+        "filename": "Token_based_deepgini.json",
+        "metric_id": "deepgini",
+        "name": "DeepGini",
+        "observability": "model internals",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Token uncertainty",
+        "filename": "Token_based_entropy.json",
+        "metric_id": "entropy",
+        "name": "Entropy",
+        "observability": "model internals",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Action uncertainty",
+        "filename": "position_instability.json",
+        "metric_id": "action_position_instability",
+        "name": "Action Position Instability",
+        "observability": "VLA action stream",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Action uncertainty",
+        "filename": "velocity_instability.json",
+        "metric_id": "action_velocity_instability",
+        "name": "Action Velocity Instability",
+        "observability": "VLA action stream",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Action uncertainty",
+        "filename": "acceleration_instability.json",
+        "metric_id": "action_acceleration_instability",
+        "name": "Action Acceleration Instability",
+        "observability": "VLA action stream",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Action uncertainty",
+        "filename": "Execution_Variability.json",
+        "metric_id": "execution_variability",
+        "name": "Execution Variability",
+        "observability": "repeated VLA inference",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Trajectory quality",
+        "filename": "TCP_position_instability.json",
+        "metric_id": "tcp_position_instability",
+        "name": "TCP Position Instability",
+        "observability": "executed TCP trajectory",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Trajectory quality",
+        "filename": "TCP_velocity_instability.json",
+        "metric_id": "tcp_velocity_instability",
+        "name": "TCP Velocity Instability",
+        "observability": "executed TCP trajectory",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Trajectory quality",
+        "filename": "TCP_acceleration_instability.json",
+        "metric_id": "tcp_acceleration_instability",
+        "name": "TCP Acceleration Instability",
+        "observability": "executed TCP trajectory",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Trajectory quality",
+        "filename": "Trajectory_Instability_Gradients.json",
+        "metric_id": "trajectory_instability",
+        "name": "Trajectory Instability",
+        "observability": "executed TCP trajectory",
+        "task_aware": false
+      },
+      {
+        "direction": 1,
+        "family": "Task-aware quality",
+        "filename": "Optimal_Trajectory.json",
+        "metric_id": "optimal_trajectory",
+        "name": "Optimal Trajectory",
+        "observability": "object/goal state",
+        "task_aware": true
+      }
+    ],
+    "positive_class": "failure",
+    "protocol_sha256": "4678b5726ba908d674d9831d7244262003c7593321817a37a2483197180118da",
+    "runner_sha256": "328eab166bc5c5d5be84f4fbc90f0fd0959a5d6d58bec645b452aa302a2ec1d6",
+    "sbfl_reference": "harmonic_mean from frozen RQ1 folds",
+    "trajectory_aggregation": "arithmetic mean over all finite scalar JSON leaves"
+  },
+  "started_at_utc": "2026-10-25T14:13:42.485102+00:00",
+  "status": "complete",
+  "summary": {
+    "available_external_methods": 8,
+    "best_complete_macro_roc_auc": 0.6995220791779382,
+    "best_complete_method": "TCP Acceleration Instability",
+    "complete_comparison_methods_including_reference": 9,
+    "complete_method_ids": [
+      "action_acceleration_instability",
+      "action_position_instability",
+      "action_velocity_instability",
+      "harmonic_mean",
+      "optimal_trajectory",
+      "tcp_acceleration_instability",
+      "tcp_position_instability",
+      "tcp_velocity_instability",
+      "trajectory_instability"
+    ],
+    "episodes": 24000,
+    "folds": 80,
+    "primary_blocks": 4,
+    "reference_macro_roc_auc": 0.6652204175057189,
+    "selected_vlas": [
+      "EO1"
+    ],
+    "status": "complete"
+  },
+  "vlas": [
+    "EO1"
+  ]
+}

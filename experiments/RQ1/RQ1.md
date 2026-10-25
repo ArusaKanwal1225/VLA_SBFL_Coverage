@@ -49,9 +49,10 @@ are reported separately as a sensitivity analysis. All 32 configurations and
 
 ## Techniques under comparison
 
-Compare the 31 techniques from Table 4. The list, formulas, numerical edge-case
-policy, and implementation version are frozen before any confirmatory result is
-examined. Every technique receives exactly the same folds and preprocessing.
+Compare 34 techniques: the 31 formulas from Table 4 plus Tarantula, Ochiai, and
+Ochiai2. The list, formulas, numerical edge-case policy, and implementation
+version are frozen before any confirmatory result is examined. Every technique
+receives exactly the same folds and preprocessing.
 
 ## Phase A: held-out trajectory discrimination
 
@@ -82,7 +83,7 @@ stored in every artifact so overlap can be rejected automatically.
 - Unknown voxels: ignored when known voxels exist; an all-unknown trajectory gets
   the neutral score 0.5 and is reported as unsupported.
 
-The aggregation rule is fixed for all 31 techniques. It is not tuned separately
+The aggregation rule is fixed for all 34 techniques. It is not tuned separately
 for each technique.
 
 ### Outcomes
@@ -163,7 +164,7 @@ expected to transfer to another, even when the technique itself is robust.
   and coordinate ranges for all 32 configurations.
 - Verify whether the 200- and 400-scene datasets overlap.
 - Verify that every train and test fold contains both outcome classes.
-- Freeze the 31-formula catalogue, voxelization, aggregation, and edge-case policy.
+- Freeze the 34-formula catalogue, voxelization, aggregation, and edge-case policy.
 - Generate and hash all fold manifests before computing any technique metrics.
 - Specify the Phase B ground-truth source and its sample-size/power analysis.
 - Freeze the analysis script and expected output schema.

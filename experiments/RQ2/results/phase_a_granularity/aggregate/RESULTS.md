@@ -20,6 +20,6 @@ Friedman: statistic=1.6250, df=2, p=0.443747.
 | 0.02 | Harmonic Mean | 0.7039 |
 | 0.05 | Tarwid | 0.7295 |
 
-Practically meaningful technique-by-size interactions: **5**.
+Practically meaningful technique-by-size interactions: **8**.
 
 Final wording must remain **failure-associated voxel ranking** until Phase B is completed.

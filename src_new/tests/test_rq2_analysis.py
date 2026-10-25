@@ -23,7 +23,7 @@ from experiments.RQ2.run_experiment import (
     size_slug,
     validate_matched_fold_identities,
 )
-from vla_sbfl.formulas import FORMULA_REGISTRY, TABLE4_FORMULA_IDS
+from vla_sbfl.formulas import FORMULA_REGISTRY, STUDY_FORMULA_IDS
 
 
 class RQ2AnalysisTests(unittest.TestCase):
@@ -119,7 +119,7 @@ class RQ2AnalysisTests(unittest.TestCase):
         conditions = ("DH", "DH_HybridDT", "DH_HybridRF", "DH_WeightedRF")
         budgets = (200, 400)
         runs = tuple("run_" + str(index) for index in range(1, 11))
-        formula_ids = list(TABLE4_FORMULA_IDS)
+        formula_ids = list(STUDY_FORMULA_IDS)
         reference_index = formula_ids.index(REFERENCE_FORMULA)
 
         with tempfile.TemporaryDirectory() as temporary:
@@ -222,8 +222,8 @@ class RQ2AnalysisTests(unittest.TestCase):
                 output / "aggregate" / "technique_size_effects.csv")
             interactions = pd.read_csv(
                 output / "aggregate" / "technique_size_interactions.csv")
-            self.assertEqual(len(effects), 62)
-            self.assertEqual(len(interactions), 60)
+            self.assertEqual(len(effects), 68)
+            self.assertEqual(len(interactions), 66)
 
 
 if __name__ == "__main__":

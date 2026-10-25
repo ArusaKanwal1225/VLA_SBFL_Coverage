@@ -6,6 +6,7 @@ from vla_sbfl.formulas import (
     ALL_FORMULA_IDS,
     FORMULA_REGISTRY,
     LEGACY14_FORMULA_IDS,
+    STUDY_FORMULA_IDS,
     TABLE4_FORMULA_IDS,
     Spectrum,
     evaluate_formula_set,
@@ -16,8 +17,14 @@ class FormulaRegistryTests(unittest.TestCase):
     def test_catalogue_sizes_and_names(self):
         self.assertEqual(len(TABLE4_FORMULA_IDS), 31)
         self.assertEqual(len(LEGACY14_FORMULA_IDS), 14)
+        self.assertEqual(len(STUDY_FORMULA_IDS), 34)
         self.assertEqual(len(ALL_FORMULA_IDS), 42)
         self.assertEqual(len(set(TABLE4_FORMULA_IDS)), 31)
+        self.assertEqual(len(set(STUDY_FORMULA_IDS)), 34)
+        self.assertEqual(
+            set(STUDY_FORMULA_IDS) - set(TABLE4_FORMULA_IDS),
+            {"tarantula", "ochiai", "ochiai2"},
+        )
         expected_names = {
             "Braun-Banquet", "Dennis", "Mountford", "Fossum", "Pearson",
             "Gower", "Michael", "Pierce", "Baroni-Urbani & Buser", "Tarwid",
@@ -48,6 +55,24 @@ class FormulaRegistryTests(unittest.TestCase):
         self.assertAlmostEqual(
             values["zoltar"].scores[0],
             3/(3+1+2+(10000*1*2/3)),
+        )
+
+    def test_study_extension_values(self):
+        # ef=3, ep=2, nf=1, np=4; F=4, S=6, C=5, U=5.
+        spectrum = Spectrum(
+            ef=np.asarray([3]), ep=np.asarray([2]),
+            nf=np.asarray([1]), npass=np.asarray([4]),
+        )
+        values = evaluate_formula_set(
+            ("tarantula", "ochiai", "ochiai2"), spectrum)
+        self.assertAlmostEqual(
+            values["tarantula"].scores[0],
+            (3/4) / ((3/4) + (2/6)),
+        )
+        self.assertAlmostEqual(values["ochiai"].scores[0], 3/np.sqrt(4*5))
+        self.assertAlmostEqual(
+            values["ochiai2"].scores[0],
+            (3*4)/np.sqrt(5*5*4*6),
         )
 
     def test_every_formula_produces_finite_output_for_edge_spectra(self):
@@ -85,4 +110,3 @@ class FormulaRegistryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

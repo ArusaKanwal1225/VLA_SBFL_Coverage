@@ -1,6 +1,6 @@
 {
   "budgets_treated_as_sensitivity": true,
-  "completed_at_utc": "2026-10-23T18:06:03.433789+00:00",
+  "completed_at_utc": "2026-10-24T19:13:51.390258+00:00",
   "completed_folds": 320,
   "configurations": 32,
   "friedman": {
@@ -9,14 +9,14 @@
       "method": "hierarchical: VLA-condition blocks, then equal-budget run replicates within sampled blocks",
       "seed": 20261023
     },
-    "degrees_of_freedom": 30,
-    "p_value": 4.611336074934009e-65,
+    "degrees_of_freedom": 33,
+    "p_value": 8.931891215669935e-73,
     "posthoc": "paired Wilcoxon signed-rank versus Phase A leader with Holm correction",
     "posthoc_performed": true,
     "primary_block_definition": "VLA x trajectory condition; budgets averaged within block",
     "primary_blocks": 16,
-    "statistic": 393.9708363153052,
-    "techniques": 31,
+    "statistic": 440.6349871569557,
+    "techniques": 34,
     "test": "tie-corrected Friedman chi-square approximation"
   },
   "leader_formula_id": "harmonic_mean",
@@ -31,5 +31,5 @@
   "primary_blocks": 16,
   "selection_status": "Phase A leader only; final localization winner requires Phase B voxel ground truth",
   "status": "complete",
-  "techniques": 31
+  "techniques": 34
 }
