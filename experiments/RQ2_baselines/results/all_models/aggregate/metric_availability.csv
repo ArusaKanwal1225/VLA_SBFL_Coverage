@@ -1,0 +1,53 @@
+vla,method_id,method,episodes,available,empty,missing_file,invalid,folds,availability_fraction
+EO1,action_acceleration_instability,Action Acceleration Instability,24000,24000,0,0,0,80,1.0
+EO1,action_position_instability,Action Position Instability,24000,24000,0,0,0,80,1.0
+EO1,action_velocity_instability,Action Velocity Instability,24000,24000,0,0,0,80,1.0
+EO1,deepgini,DeepGini,24000,0,24000,0,0,80,0.0
+EO1,entropy,Entropy,24000,0,24000,0,0,80,0.0
+EO1,execution_variability,Execution Variability,24000,0,24000,0,0,80,0.0
+EO1,optimal_trajectory,Optimal Trajectory,24000,24000,0,0,0,80,1.0
+EO1,pcs,Prediction Confidence Score (PCS),24000,0,24000,0,0,80,0.0
+EO1,tcp_acceleration_instability,TCP Acceleration Instability,24000,24000,0,0,0,80,1.0
+EO1,tcp_position_instability,TCP Position Instability,24000,24000,0,0,0,80,1.0
+EO1,tcp_velocity_instability,TCP Velocity Instability,24000,24000,0,0,0,80,1.0
+EO1,token_probability,Token Probability,24000,0,24000,0,0,80,0.0
+EO1,trajectory_instability,Trajectory Instability,24000,24000,0,0,0,80,1.0
+Groot,action_acceleration_instability,Action Acceleration Instability,24000,24000,0,0,0,80,1.0
+Groot,action_position_instability,Action Position Instability,24000,24000,0,0,0,80,1.0
+Groot,action_velocity_instability,Action Velocity Instability,24000,24000,0,0,0,80,1.0
+Groot,deepgini,DeepGini,24000,0,24000,0,0,80,0.0
+Groot,entropy,Entropy,24000,0,24000,0,0,80,0.0
+Groot,execution_variability,Execution Variability,24000,0,24000,0,0,80,0.0
+Groot,optimal_trajectory,Optimal Trajectory,24000,24000,0,0,0,80,1.0
+Groot,pcs,Prediction Confidence Score (PCS),24000,0,24000,0,0,80,0.0
+Groot,tcp_acceleration_instability,TCP Acceleration Instability,24000,24000,0,0,0,80,1.0
+Groot,tcp_position_instability,TCP Position Instability,24000,24000,0,0,0,80,1.0
+Groot,tcp_velocity_instability,TCP Velocity Instability,24000,24000,0,0,0,80,1.0
+Groot,token_probability,Token Probability,24000,0,24000,0,0,80,0.0
+Groot,trajectory_instability,Trajectory Instability,24000,24000,0,0,0,80,1.0
+Pi0,action_acceleration_instability,Action Acceleration Instability,24000,24000,0,0,0,80,1.0
+Pi0,action_position_instability,Action Position Instability,24000,24000,0,0,0,80,1.0
+Pi0,action_velocity_instability,Action Velocity Instability,24000,24000,0,0,0,80,1.0
+Pi0,deepgini,DeepGini,24000,0,24000,0,0,80,0.0
+Pi0,entropy,Entropy,24000,0,24000,0,0,80,0.0
+Pi0,execution_variability,Execution Variability,24000,0,24000,0,0,80,0.0
+Pi0,optimal_trajectory,Optimal Trajectory,24000,24000,0,0,0,80,1.0
+Pi0,pcs,Prediction Confidence Score (PCS),24000,0,24000,0,0,80,0.0
+Pi0,tcp_acceleration_instability,TCP Acceleration Instability,24000,24000,0,0,0,80,1.0
+Pi0,tcp_position_instability,TCP Position Instability,24000,24000,0,0,0,80,1.0
+Pi0,tcp_velocity_instability,TCP Velocity Instability,24000,24000,0,0,0,80,1.0
+Pi0,token_probability,Token Probability,24000,0,24000,0,0,80,0.0
+Pi0,trajectory_instability,Trajectory Instability,24000,24000,0,0,0,80,1.0
+SpatialVLA,action_acceleration_instability,Action Acceleration Instability,24000,24000,0,0,0,80,1.0
+SpatialVLA,action_position_instability,Action Position Instability,24000,24000,0,0,0,80,1.0
+SpatialVLA,action_velocity_instability,Action Velocity Instability,24000,24000,0,0,0,80,1.0
+SpatialVLA,deepgini,DeepGini,24000,0,24000,0,0,80,0.0
+SpatialVLA,entropy,Entropy,24000,0,24000,0,0,80,0.0
+SpatialVLA,execution_variability,Execution Variability,24000,0,24000,0,0,80,0.0
+SpatialVLA,optimal_trajectory,Optimal Trajectory,24000,24000,0,0,0,80,1.0
+SpatialVLA,pcs,Prediction Confidence Score (PCS),24000,0,24000,0,0,80,0.0
+SpatialVLA,tcp_acceleration_instability,TCP Acceleration Instability,24000,24000,0,0,0,80,1.0
+SpatialVLA,tcp_position_instability,TCP Position Instability,24000,24000,0,0,0,80,1.0
+SpatialVLA,tcp_velocity_instability,TCP Velocity Instability,24000,24000,0,0,0,80,1.0
+SpatialVLA,token_probability,Token Probability,24000,0,24000,0,0,80,0.0
+SpatialVLA,trajectory_instability,Trajectory Instability,24000,24000,0,0,0,80,1.0

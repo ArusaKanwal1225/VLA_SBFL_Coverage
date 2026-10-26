@@ -1,5 +1,5 @@
 {
-  "aggregate_directory": "/Users/aitorarrietamarcos/MGEP Dropbox/aitor arrieta marcos/Repositorios_MAC/Arusa/SBFL_VLA/experiments/RQ2_baselines/results/baseline_comparison/aggregate",
+  "aggregate_directory": "/home/ubuntu/VLA_SBFL_Coverage/experiments/RQ2_baselines/results/baseline_comparison/aggregate",
   "generated_files": [
     {
       "path": "experiments/RQ2_baselines/results/baseline_comparison/tables/rq2_baseline_performance.csv",
@@ -7,7 +7,7 @@
     },
     {
       "path": "experiments/RQ2_baselines/results/baseline_comparison/tables/rq2_baseline_performance.tex",
-      "sha256": "a7977bd5ef30d405afdc4511852a50037e8d99a5e508ce462d8731c9d95111ae"
+      "sha256": "857088225e3f379c540ddbd619fe6b4deaa17d23e85524f4249ad3686da216fc"
     },
     {
       "path": "experiments/RQ2_baselines/results/baseline_comparison/tables/rq2_baseline_statistics.csv",

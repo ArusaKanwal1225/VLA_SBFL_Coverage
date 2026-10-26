@@ -1,0 +1,145 @@
+vla,condition,method_id,method,family,source,task_aware,roc_auc,average_precision,budgets,configurations,primary_block_id,roc_auc_rank
+EO1,DH,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.599777558471588,0.437056124690581,2,2,EO1__DH,9.0
+EO1,DH,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.6039688040818396,0.45228016779826563,2,2,EO1__DH,8.0
+EO1,DH,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.6061644690333194,0.4461961894900671,2,2,EO1__DH,7.0
+EO1,DH,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7266625841673006,0.5641449574944482,2,2,EO1__DH,3.0
+EO1,DH,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.7120367297127367,0.5352659531414963,2,2,EO1__DH,5.0
+EO1,DH,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.7398856504007196,0.6129421316795292,2,2,EO1__DH,1.0
+EO1,DH,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6561208533168275,0.5326642471210681,2,2,EO1__DH,6.0
+EO1,DH,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.716574728928485,0.585058926324464,2,2,EO1__DH,4.0
+EO1,DH,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.7289684988603639,0.5974935597227686,2,2,EO1__DH,2.0
+EO1,DH_HybridDT,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5451223532334379,0.6129784303667045,2,2,EO1__DH_HybridDT,8.0
+EO1,DH_HybridDT,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.5410540518439633,0.6150282932968985,2,2,EO1__DH_HybridDT,9.0
+EO1,DH_HybridDT,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5492536651317915,0.6178738332929921,2,2,EO1__DH_HybridDT,7.0
+EO1,DH_HybridDT,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.657809699809309,0.7037388811788974,2,2,EO1__DH_HybridDT,4.0
+EO1,DH_HybridDT,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.6534947475623534,0.6777576538989005,2,2,EO1__DH_HybridDT,5.0
+EO1,DH_HybridDT,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.7058754259376033,0.7540012175778372,2,2,EO1__DH_HybridDT,1.0
+EO1,DH_HybridDT,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6221093718618339,0.7041597162020523,2,2,EO1__DH_HybridDT,6.0
+EO1,DH_HybridDT,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6888166230261152,0.7425039485647358,2,2,EO1__DH_HybridDT,3.0
+EO1,DH_HybridDT,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6945306001672632,0.743350609010446,2,2,EO1__DH_HybridDT,2.0
+EO1,DH_HybridRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5552927751353955,0.6635167559835771,2,2,EO1__DH_HybridRF,8.0
+EO1,DH_HybridRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.541759426700279,0.6613740528643957,2,2,EO1__DH_HybridRF,9.0
+EO1,DH_HybridRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5584308211229703,0.6675353197947087,2,2,EO1__DH_HybridRF,7.0
+EO1,DH_HybridRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.6109482950963021,0.715490729994713,2,2,EO1__DH_HybridRF,5.0
+EO1,DH_HybridRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.6373903918185673,0.7093077804134309,2,2,EO1__DH_HybridRF,3.0
+EO1,DH_HybridRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6538743565228117,0.751031805152611,2,2,EO1__DH_HybridRF,1.0
+EO1,DH_HybridRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5785565540693438,0.7064802651073834,2,2,EO1__DH_HybridRF,6.0
+EO1,DH_HybridRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6360139223673213,0.7408587794121055,2,2,EO1__DH_HybridRF,4.0
+EO1,DH_HybridRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6469095184298733,0.7457075618641807,2,2,EO1__DH_HybridRF,2.0
+EO1,DH_WeightedRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5273061570952975,0.6118315176141453,2,2,EO1__DH_WeightedRF,8.0
+EO1,DH_WeightedRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.5203425754818596,0.6092191939180949,2,2,EO1__DH_WeightedRF,9.0
+EO1,DH_WeightedRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5316836987098736,0.6162336094238001,2,2,EO1__DH_WeightedRF,7.0
+EO1,DH_WeightedRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.6654610909499641,0.7327110500341314,2,2,EO1__DH_WeightedRF,4.0
+EO1,DH_WeightedRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.6636182931785097,0.6950977231387496,2,2,EO1__DH_WeightedRF,5.0
+EO1,DH_WeightedRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6984528838506181,0.766366839514369,2,2,EO1__DH_WeightedRF,1.0
+EO1,DH_WeightedRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5926515771389267,0.6953609785051824,2,2,EO1__DH_WeightedRF,6.0
+EO1,DH_WeightedRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6715872255877917,0.7512279351538107,2,2,EO1__DH_WeightedRF,3.0
+EO1,DH_WeightedRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6861707468169671,0.7602817487698406,2,2,EO1__DH_WeightedRF,2.0
+Groot,DH,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.6265446747026946,0.4805885247808606,2,2,Groot__DH,6.0
+Groot,DH,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.6470851700399438,0.5004566632497417,2,2,Groot__DH,3.0
+Groot,DH,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.629929920906559,0.4836368572779245,2,2,Groot__DH,5.0
+Groot,DH,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7020744863707502,0.569259737227698,2,2,Groot__DH,2.0
+Groot,DH,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.7147864610581918,0.580524411091876,2,2,Groot__DH,1.0
+Groot,DH,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.5505056971189777,0.43480633748374364,2,2,Groot__DH,8.0
+Groot,DH,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6391140196079625,0.5513764104349164,2,2,Groot__DH,4.0
+Groot,DH,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.5877802141996097,0.4700413570085681,2,2,Groot__DH,7.0
+Groot,DH,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.5356637695465272,0.4213238099494063,2,2,Groot__DH,9.0
+Groot,DH_HybridDT,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5347447045043512,0.6808116649089677,2,2,Groot__DH_HybridDT,9.0
+Groot,DH_HybridDT,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.557951084151805,0.6963764390594365,2,2,Groot__DH_HybridDT,5.0
+Groot,DH_HybridDT,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5382198580074478,0.6819408450292537,2,2,Groot__DH_HybridDT,7.0
+Groot,DH_HybridDT,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.6601512682118458,0.7727973506862784,2,2,Groot__DH_HybridDT,2.0
+Groot,DH_HybridDT,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.7139450927746265,0.7987639023913063,2,2,Groot__DH_HybridDT,1.0
+Groot,DH_HybridDT,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.5532312547876247,0.7013524185516116,2,2,Groot__DH_HybridDT,6.0
+Groot,DH_HybridDT,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6481740055515306,0.7829857652595529,2,2,Groot__DH_HybridDT,3.0
+Groot,DH_HybridDT,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.5872760093770439,0.7237725340210072,2,2,Groot__DH_HybridDT,4.0
+Groot,DH_HybridDT,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.5365968138626821,0.6884764072470311,2,2,Groot__DH_HybridDT,8.0
+Groot,DH_HybridRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5255116605732546,0.6928890231099618,2,2,Groot__DH_HybridRF,9.0
+Groot,DH_HybridRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.550631563768289,0.7120122337591727,2,2,Groot__DH_HybridRF,6.0
+Groot,DH_HybridRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5311404174213852,0.6961212226545795,2,2,Groot__DH_HybridRF,8.0
+Groot,DH_HybridRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.6364661987869271,0.7746008539600993,2,2,Groot__DH_HybridRF,3.0
+Groot,DH_HybridRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.706425431288694,0.8151882240402575,2,2,Groot__DH_HybridRF,1.0
+Groot,DH_HybridRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.5736482526011959,0.7346391187507977,2,2,Groot__DH_HybridRF,5.0
+Groot,DH_HybridRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6440852668618584,0.7935887301407456,2,2,Groot__DH_HybridRF,2.0
+Groot,DH_HybridRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6049923266997972,0.7558067796487663,2,2,Groot__DH_HybridRF,4.0
+Groot,DH_HybridRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.5493505686591345,0.7193764117425594,2,2,Groot__DH_HybridRF,7.0
+Groot,DH_WeightedRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.535281011877712,0.6603724319756766,2,2,Groot__DH_WeightedRF,9.0
+Groot,DH_WeightedRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.5627728138058135,0.6803648527537351,2,2,Groot__DH_WeightedRF,5.0
+Groot,DH_WeightedRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5403095866807521,0.6638957871015412,2,2,Groot__DH_WeightedRF,8.0
+Groot,DH_WeightedRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.6931157748812937,0.7958168192311035,2,2,Groot__DH_WeightedRF,2.0
+Groot,DH_WeightedRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.7171845077352843,0.7839034869581616,2,2,Groot__DH_WeightedRF,1.0
+Groot,DH_WeightedRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.5618073089429132,0.6875129422818964,2,2,Groot__DH_WeightedRF,6.0
+Groot,DH_WeightedRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6670906265126493,0.7779330105450871,2,2,Groot__DH_WeightedRF,3.0
+Groot,DH_WeightedRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6056281193537898,0.719677400407195,2,2,Groot__DH_WeightedRF,4.0
+Groot,DH_WeightedRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.5511625675073162,0.6826713665114171,2,2,Groot__DH_WeightedRF,7.0
+Pi0,DH,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5488603800304586,0.574699949605842,2,2,Pi0__DH,9.0
+Pi0,DH,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.5505273395295684,0.5835668672836676,2,2,Pi0__DH,8.0
+Pi0,DH,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5530275142979759,0.5801538963262408,2,2,Pi0__DH,7.0
+Pi0,DH,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7775626696996483,0.7811084331939848,2,2,Pi0__DH,2.0
+Pi0,DH,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.7979886035091569,0.8022468878215772,2,2,Pi0__DH,1.0
+Pi0,DH,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6646334420297852,0.7208414919930124,2,2,Pi0__DH,3.0
+Pi0,DH,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5816062267129383,0.6423428174082835,2,2,Pi0__DH,6.0
+Pi0,DH,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6102566195067671,0.6702258695808104,2,2,Pi0__DH,5.0
+Pi0,DH,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6151255176448207,0.672020074545953,2,2,Pi0__DH,4.0
+Pi0,DH_HybridDT,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5539066269491859,0.7079188799161509,2,2,Pi0__DH_HybridDT,8.0
+Pi0,DH_HybridDT,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.5552668353934632,0.7112349087755078,2,2,Pi0__DH_HybridDT,7.0
+Pi0,DH_HybridDT,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5578071726569729,0.711635317591055,2,2,Pi0__DH_HybridDT,6.0
+Pi0,DH_HybridDT,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7386294907901527,0.8359358477104272,2,2,Pi0__DH_HybridDT,2.0
+Pi0,DH_HybridDT,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.8009918788274961,0.8699463328970749,2,2,Pi0__DH_HybridDT,1.0
+Pi0,DH_HybridDT,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6605768938970941,0.8085911553840242,2,2,Pi0__DH_HybridDT,3.0
+Pi0,DH_HybridDT,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5513815198064653,0.7339459621974651,2,2,Pi0__DH_HybridDT,9.0
+Pi0,DH_HybridDT,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6076552491083376,0.7747358591684764,2,2,Pi0__DH_HybridDT,5.0
+Pi0,DH_HybridDT,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.615227540483489,0.7780057701317902,2,2,Pi0__DH_HybridDT,4.0
+Pi0,DH_HybridRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5613069452377346,0.7420567918891277,2,2,Pi0__DH_HybridRF,7.0
+Pi0,DH_HybridRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.5593918990317329,0.7457949171526699,2,2,Pi0__DH_HybridRF,8.0
+Pi0,DH_HybridRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5640515143773932,0.7443740249732735,2,2,Pi0__DH_HybridRF,6.0
+Pi0,DH_HybridRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.6981939249114096,0.8281239635384441,2,2,Pi0__DH_HybridRF,2.0
+Pi0,DH_HybridRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.7961450787291684,0.8791832998367775,2,2,Pi0__DH_HybridRF,1.0
+Pi0,DH_HybridRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6553538751206851,0.8240626397370114,2,2,Pi0__DH_HybridRF,3.0
+Pi0,DH_HybridRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5546822423666506,0.7597480811109778,2,2,Pi0__DH_HybridRF,9.0
+Pi0,DH_HybridRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6063073751611545,0.794732620715471,2,2,Pi0__DH_HybridRF,5.0
+Pi0,DH_HybridRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6101411389434495,0.7943351630307915,2,2,Pi0__DH_HybridRF,4.0
+Pi0,DH_WeightedRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5634339547450722,0.7441151356314848,2,2,Pi0__DH_WeightedRF,7.0
+Pi0,DH_WeightedRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.5631517729642632,0.7472950054722041,2,2,Pi0__DH_WeightedRF,8.0
+Pi0,DH_WeightedRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5673361283471581,0.7466697569047285,2,2,Pi0__DH_WeightedRF,6.0
+Pi0,DH_WeightedRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7698331593207072,0.8848460514325787,2,2,Pi0__DH_WeightedRF,2.0
+Pi0,DH_WeightedRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.8165221290619002,0.9019270686829794,2,2,Pi0__DH_WeightedRF,1.0
+Pi0,DH_WeightedRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6879675973747392,0.8513758577301282,2,2,Pi0__DH_WeightedRF,3.0
+Pi0,DH_WeightedRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5619773205120903,0.7770441337291053,2,2,Pi0__DH_WeightedRF,9.0
+Pi0,DH_WeightedRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6302072298748251,0.820591598321452,2,2,Pi0__DH_WeightedRF,5.0
+Pi0,DH_WeightedRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6373760572952447,0.8225918869384135,2,2,Pi0__DH_WeightedRF,4.0
+SpatialVLA,DH,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.7264414192996074,0.793877762742545,2,2,SpatialVLA__DH,5.0
+SpatialVLA,DH,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.7375834759657145,0.8042040396590933,2,2,SpatialVLA__DH,3.0
+SpatialVLA,DH,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.7320220294913595,0.7993904928583895,2,2,SpatialVLA__DH,4.0
+SpatialVLA,DH,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.748647710807822,0.7996551043660974,2,2,SpatialVLA__DH,2.0
+SpatialVLA,DH,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.8519594799452781,0.8396863899426353,2,2,SpatialVLA__DH,1.0
+SpatialVLA,DH,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.7137353090127739,0.7921858270049758,2,2,SpatialVLA__DH,6.0
+SpatialVLA,DH,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6161611198184366,0.744154666279155,2,2,SpatialVLA__DH,9.0
+SpatialVLA,DH,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6946508157837068,0.7814677073293507,2,2,SpatialVLA__DH,7.0
+SpatialVLA,DH,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6938333758714266,0.7779046337510463,2,2,SpatialVLA__DH,8.0
+SpatialVLA,DH_HybridDT,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.693107100833152,0.8482327606845006,2,2,SpatialVLA__DH_HybridDT,5.0
+SpatialVLA,DH_HybridDT,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.7029894548324935,0.8551018879685786,2,2,SpatialVLA__DH_HybridDT,3.0
+SpatialVLA,DH_HybridDT,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.6986052439743891,0.8517526774935483,2,2,SpatialVLA__DH_HybridDT,4.0
+SpatialVLA,DH_HybridDT,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7163336003846072,0.8593013385707208,2,2,SpatialVLA__DH_HybridDT,2.0
+SpatialVLA,DH_HybridDT,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.8437505358834911,0.8971974324596452,2,2,SpatialVLA__DH_HybridDT,1.0
+SpatialVLA,DH_HybridDT,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6901583295745045,0.8486076764215315,2,2,SpatialVLA__DH_HybridDT,6.0
+SpatialVLA,DH_HybridDT,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5902767000772178,0.8146771968708526,2,2,SpatialVLA__DH_HybridDT,9.0
+SpatialVLA,DH_HybridDT,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.671857631086461,0.8428470975679023,2,2,SpatialVLA__DH_HybridDT,8.0
+SpatialVLA,DH_HybridDT,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6725854030390996,0.8414515396596167,2,2,SpatialVLA__DH_HybridDT,7.0
+SpatialVLA,DH_HybridRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.6730711950577204,0.8470023282187169,2,2,SpatialVLA__DH_HybridRF,5.0
+SpatialVLA,DH_HybridRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.6811875577583599,0.8531335666466404,2,2,SpatialVLA__DH_HybridRF,3.0
+SpatialVLA,DH_HybridRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.6773786571268806,0.8497035255374517,2,2,SpatialVLA__DH_HybridRF,4.0
+SpatialVLA,DH_HybridRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.6879268664096839,0.8606898519659433,2,2,SpatialVLA__DH_HybridRF,2.0
+SpatialVLA,DH_HybridRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.8318140615650971,0.8890060779013076,2,2,SpatialVLA__DH_HybridRF,1.0
+SpatialVLA,DH_HybridRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6627097780166804,0.846721537525463,2,2,SpatialVLA__DH_HybridRF,6.0
+SpatialVLA,DH_HybridRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.5786448441207033,0.8176733685076685,2,2,SpatialVLA__DH_HybridRF,9.0
+SpatialVLA,DH_HybridRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6448707652798071,0.8401960906321466,2,2,SpatialVLA__DH_HybridRF,7.0
+SpatialVLA,DH_HybridRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6423027843109161,0.8371734309101833,2,2,SpatialVLA__DH_HybridRF,8.0
+SpatialVLA,DH_WeightedRF,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.6838616298538864,0.8869575014996869,2,2,SpatialVLA__DH_WeightedRF,8.0
+SpatialVLA,DH_WeightedRF,action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.6933695110580201,0.8918129177684626,2,2,SpatialVLA__DH_WeightedRF,4.0
+SpatialVLA,DH_WeightedRF,action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.6889770554103537,0.8891360801384427,2,2,SpatialVLA__DH_WeightedRF,6.0
+SpatialVLA,DH_WeightedRF,harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7732493070922164,0.91047436108967,2,2,SpatialVLA__DH_WeightedRF,2.0
+SpatialVLA,DH_WeightedRF,optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.8358318314026809,0.9156444455727353,2,2,SpatialVLA__DH_WeightedRF,1.0
+SpatialVLA,DH_WeightedRF,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.706948031778978,0.8957911226811517,2,2,SpatialVLA__DH_WeightedRF,3.0
+SpatialVLA,DH_WeightedRF,tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6011059670335079,0.8683997465761341,2,2,SpatialVLA__DH_WeightedRF,9.0
+SpatialVLA,DH_WeightedRF,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6867907654567034,0.8903548667986259,2,2,SpatialVLA__DH_WeightedRF,7.0
+SpatialVLA,DH_WeightedRF,trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6912609982101191,0.8895574508934738,2,2,SpatialVLA__DH_WeightedRF,5.0

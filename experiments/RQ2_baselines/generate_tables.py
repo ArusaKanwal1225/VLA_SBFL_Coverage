@@ -130,6 +130,14 @@ def performance_table(
         column: frame[column].max() if frame[column].notna().any() else float("nan")
         for column in numeric_columns
     }
+    second_best_by_column = {}
+    for column in numeric_columns:
+        values = sorted(set(frame[column].dropna().astype(float)), reverse=True)
+        second_best_by_column[column] = next(
+            (value for value in values
+             if abs(value - float(best_by_column[column])) >= 1e-12),
+            float("nan"),
+        )
     header = " & ".join(["Method", *[VLA_DISPLAY[vla] for vla in VLA_ORDER], "Overall", "Rank"])
     pending_note = (
         " Blank cells denote VLA results that have not yet been executed."
@@ -138,7 +146,7 @@ def performance_table(
     lines = [
         r"\begin{table*}[t]",
         r"\centering",
-        r"\caption{RQ2 -- Trajectory-level failure-discrimination ROC-AUC. Harmonic Mean is the frozen VoxelSBFL reference from RQ1. Bold denotes the best result in each populated column. $^{\dagger}$ denotes a task-aware metric using object/goal state."
+        r"\caption{RQ2 -- Trajectory-level failure-discrimination ROC-AUC. Harmonic Mean is the frozen VoxelSBFL reference from RQ1. Bold denotes the best result and underlining denotes the second-best result in each populated column. $^{\dagger}$ denotes a task-aware metric using object/goal state."
         + pending_note + "}",
         r"\label{tab:rq2-baseline-performance}",
         r"{\scriptsize",
@@ -158,6 +166,8 @@ def performance_table(
             cell = "{:.4f}".format(float(value))
             if abs(float(value) - float(best_by_column[column])) < 1e-12:
                 cell = r"\textbf{" + cell + "}"
+            elif abs(float(value) - float(second_best_by_column[column])) < 1e-12:
+                cell = r"\underline{" + cell + "}"
             cells.append(cell)
         cells.append("" if pd.isna(row["Rank"]) else str(int(row["Rank"])))
         lines.append(" & ".join(cells) + r" \\")

@@ -1,0 +1,28 @@
+{
+  "available_external_methods": 8,
+  "best_complete_macro_roc_auc": 0.755867828378327,
+  "best_complete_method": "Optimal Trajectory",
+  "complete_comparison_methods_including_reference": 9,
+  "complete_method_ids": [
+    "action_acceleration_instability",
+    "action_position_instability",
+    "action_velocity_instability",
+    "harmonic_mean",
+    "optimal_trajectory",
+    "tcp_acceleration_instability",
+    "tcp_position_instability",
+    "tcp_velocity_instability",
+    "trajectory_instability"
+  ],
+  "episodes": 96000,
+  "folds": 320,
+  "primary_blocks": 16,
+  "reference_macro_roc_auc": 0.7039416329806212,
+  "selected_vlas": [
+    "EO1",
+    "Groot",
+    "Pi0",
+    "SpatialVLA"
+  ],
+  "status": "complete"
+}

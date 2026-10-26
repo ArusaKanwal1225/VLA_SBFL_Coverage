@@ -1,0 +1,10 @@
+method_id,method,family,source,task_aware,macro_roc_auc,macro_average_precision,mean_rank,primary_blocks,vlas,complete_primary_comparison,overall_rank
+optimal_trajectory,Optimal Trajectory,Task-aware quality,external_baseline,True,0.755867828378327,0.786915441886807,1.875,16,4,True,1.0
+harmonic_mean,Harmonic Mean,VoxelSBFL,rq1_reference,False,0.7039416329806213,0.7742934582297022,2.5625,16,4,True,2.0
+tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,external_baseline,False,0.6549602554354815,0.7519268824668559,3.875,16,4,True,3.0
+tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,external_baseline,False,0.6407041012998573,0.7440062106659305,5.125,16,4,True,4.0
+trajectory_instability,Trajectory Instability,Trajectory quality,external_baseline,False,0.6317003687280432,0.7357325890424324,5.1875,16,4,True,5.0
+tcp_position_instability,TCP Position Instability,Trajectory quality,external_baseline,False,0.6052336384605589,0.7314084434997269,6.5625,16,4,True,6.0
+action_position_instability,Action Position Instability,Action uncertainty,external_baseline,False,0.598064583525463,0.6949535004641603,6.125,16,4,True,7.0
+action_velocity_instability,Action Velocity Instability,Action uncertainty,external_baseline,False,0.5952711095435363,0.6903905897429998,6.1875,16,4,True,8.0
+action_acceleration_instability,Action Acceleration Instability,Action uncertainty,external_baseline,False,0.5908481342250343,0.6865565989761581,7.5,16,4,True,9.0

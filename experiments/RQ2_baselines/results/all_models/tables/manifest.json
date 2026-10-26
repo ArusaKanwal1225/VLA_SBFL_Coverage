@@ -1,0 +1,29 @@
+{
+  "aggregate_directory": "/home/ubuntu/VLA_SBFL_Coverage/experiments/RQ2_baselines/results/all_models/aggregate",
+  "generated_files": [
+    {
+      "path": "experiments/RQ2_baselines/results/all_models/tables/rq2_baseline_performance.csv",
+      "sha256": "5af5f7eb8b8f71695fa59033fd8be03beb00507fd8ad6bdda31380fa5c8a0b21"
+    },
+    {
+      "path": "experiments/RQ2_baselines/results/all_models/tables/rq2_baseline_performance.tex",
+      "sha256": "d8acd5ab89a43c2cbd93e5bccc69db45b018879c283ad7f93ce089e81c044778"
+    },
+    {
+      "path": "experiments/RQ2_baselines/results/all_models/tables/rq2_baseline_statistics.csv",
+      "sha256": "b1eafcf24dab0c0e881227769ed45f013cea1a10522d32a64dbc00d38e876ba3"
+    },
+    {
+      "path": "experiments/RQ2_baselines/results/all_models/tables/rq2_baseline_statistics.tex",
+      "sha256": "858e4fad83d20e5582b4c0ab1bd9e8016c526d0d2c673f6732aaf2dfeafd40d1"
+    },
+    {
+      "path": "experiments/RQ2_baselines/results/all_models/tables/rq2_metric_availability.csv",
+      "sha256": "9f0c2c787b478caf6e37d6e8d4083c014e8b4a4454505710e91b0ac9c83b9887"
+    },
+    {
+      "path": "experiments/RQ2_baselines/results/all_models/tables/rq2_metric_availability.tex",
+      "sha256": "90d381a3dd00fb034d5b35c71859ec772519e8a54c42c3180a04952095b92029"
+    }
+  ]
+}
