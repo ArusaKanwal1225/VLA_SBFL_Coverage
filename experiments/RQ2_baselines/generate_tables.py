@@ -26,6 +26,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--aggregate-dir", type=Path, default=result_root / "aggregate")
     parser.add_argument("--output-dir", type=Path, default=result_root / "tables")
+    parser.add_argument("--rq1-aggregate-dir", type=Path, default=root / "experiments" / "RQ1" / "results" / "phase_a_primary" / "aggregate")
     return parser.parse_args()
 
 
@@ -287,7 +288,13 @@ def main() -> int:
         *statistics_table(comparisons, output),
         *availability_table(availability, output),
     ]
+    try:
+        from experiments.RQ2_baselines.generate_rq2_top5_rq1 import generate as generate_top5
+    except ModuleNotFoundError:
+        from generate_rq2_top5_rq1 import generate as generate_top5
+    generated.extend(generate_top5(args.rq1_aggregate_dir, aggregate, output))
     manifest = {
+        "rq1_aggregate_directory": str(args.rq1_aggregate_dir.expanduser().resolve()),
         "generated_files": [
             {"path": str(path.relative_to(repository_root())), "sha256": sha256_file(path)}
             for path in generated
