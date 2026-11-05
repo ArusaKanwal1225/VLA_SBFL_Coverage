@@ -44,6 +44,7 @@ except ModuleNotFoundError:  # Direct execution with this directory on sys.path.
     from catalogue import METRIC_BY_ID, METRIC_SPECS  # type: ignore
 
 from vla_sbfl.metrics import average_precision, roc_auc
+from experiments.RQ1.run_experiment import validate_primary_block_metrics
 
 
 CONFIGURATION_PATTERN = re.compile(
@@ -694,6 +695,114 @@ def aggregate_results(
     return summary
 
 
+def regenerate_statistical_review(
+    aggregate_directory: Path,
+    method: str = "exact",
+) -> dict:
+    """Recompute the eight paired baseline contrasts across 16 VLA-strategy blocks.
+
+    Holm covers all eight comparisons. Practical equivalence is a descriptive
+    mean-gap/non-significance rule, not a formal equivalence test. Retained
+    bootstrap intervals are pointwise and not adjusted for Holm or selection.
+    """
+
+    if method not in {"approximate", "exact"}:
+        raise ValueError("Wilcoxon method must be 'approximate' or 'exact'")
+    aggregate_directory = aggregate_directory.expanduser().resolve()
+    primary_path = aggregate_directory / "primary_block_metrics.csv"
+    historical_path = aggregate_directory / "statistical_comparison.csv"
+    if not primary_path.is_file() or not historical_path.is_file():
+        raise FileNotFoundError("final baseline aggregate inputs are incomplete")
+    primary = pd.read_csv(primary_path)
+    historical = pd.read_csv(historical_path)
+    expected_ids = (
+        "action_acceleration_instability", "action_position_instability",
+        "action_velocity_instability", "optimal_trajectory",
+        "tcp_acceleration_instability", "tcp_position_instability",
+        "tcp_velocity_instability", "trajectory_instability",
+    )
+    names = {key: METRIC_BY_ID[key].name for key in expected_ids}
+    names["harmonic_mean"] = "Harmonic Mean"
+    validate_primary_block_metrics(primary.rename(columns={
+        "method_id": "formula_id", "method": "technique"}), names)
+    required = {"primary_block_id", "method_id", "method", "family", "roc_auc"}
+    if required - set(primary.columns):
+        raise ValueError("baseline primary block metrics have an incompatible schema")
+    if primary["primary_block_id"].nunique() != 16:
+        raise ValueError("the final baseline review requires 16 primary blocks")
+    methods = sorted(primary["method_id"].astype(str).unique())
+    if len(methods) != 9 or "harmonic_mean" not in methods:
+        raise ValueError("the final baseline review requires Harmonic Mean plus eight baselines")
+    pivot = primary.pivot(
+        index="primary_block_id", columns="method_id", values="roc_auc"
+    ).reindex(columns=methods)
+    if pivot.shape != (16, 9) or pivot.isna().any().any():
+        raise ValueError("the final baseline paired design is incomplete")
+    historical = historical.set_index("method_id", drop=False)
+    candidates = [method_id for method_id in methods if method_id != "harmonic_mean"]
+    if set(historical.index.astype(str)) != set(candidates):
+        raise ValueError("historical baseline comparisons do not match the final design")
+
+    reference = pivot["harmonic_mean"].to_numpy(dtype=np.float64)
+    tests = {}
+    raw = {}
+    for method_id in candidates:
+        result = wilcoxon_signed_rank(
+            pivot[method_id].to_numpy(dtype=np.float64), reference, method=method)
+        tests[method_id] = result
+        raw[method_id] = result.p_value
+    adjusted = holm_adjust(raw)
+    rows = []
+    for method_id in candidates:
+        old = historical.loc[method_id].to_dict()
+        candidate_mean = float(pivot[method_id].mean())
+        reference_mean = float(reference.mean())
+        if not math.isclose(
+            candidate_mean, float(old["candidate_macro_roc_auc"]), rel_tol=0.0, abs_tol=1e-15
+        ) or not math.isclose(
+            reference_mean, float(old["reference_macro_roc_auc"]), rel_tol=0.0, abs_tol=1e-15
+        ):
+            raise ValueError("historical baseline ROC-AUC values do not reconcile")
+        result = tests[method_id]
+        old.update({
+            "raw_p": result.p_value,
+            "rank_biserial": result.rank_biserial,
+            "nonzero_pairs": result.nonzero_pairs,
+            "holm_p": adjusted[method_id],
+            "practically_equivalent": bool(
+                abs(float(old["auc_gap_candidate_minus_reference"])) < 0.01
+                and adjusted[method_id] >= 0.05),
+            "wilcoxon_method": method,
+            "holm_family_size": len(candidates),
+            "significant_0p05": adjusted[method_id] < 0.05,
+        })
+        rows.append(old)
+    revised = pd.DataFrame(rows).sort_values(
+        ["candidate_macro_roc_auc", "method_id"], ascending=[False, True])
+    output_path = aggregate_directory / "statistical_comparison_{}.csv".format(method)
+    revised.to_csv(output_path, index=False)
+    payload = {
+        "status": "complete",
+        "wilcoxon_method": method,
+        "wilcoxon_alternative": "two-sided",
+        "post_hoc_reference": "harmonic_mean",
+        "holm_family_size": len(candidates),
+        "primary_blocks": 16,
+        "comparison_count": len(revised),
+        "significant_comparisons_0p05": int(revised["significant_0p05"].sum()),
+        "source_sha256": {
+            primary_path.name: sha256_file(primary_path),
+            historical_path.name: sha256_file(historical_path),
+        },
+        "output": output_path.name,
+        "output_sha256": sha256_file(output_path),
+        "z_score_reported": False,
+    }
+    atomic_json(
+        aggregate_directory / "statistical_review_{}.json".format(method), payload)
+    return payload
+
+
 def parse_args() -> argparse.Namespace:
     root = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description=__doc__)
@@ -723,6 +832,13 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Rebuild aggregate statistics from already completed fold artifacts.",
     )
+    parser.add_argument(
+        "--statistical-review-only",
+        action="store_true",
+        help="Recompute only method-labelled statistics from aggregate block metrics.",
+    )
+    parser.add_argument(
+        "--wilcoxon-method", choices=("approximate", "exact"), default="exact")
     return parser.parse_args()
 
 
@@ -734,11 +850,19 @@ def main() -> int:
         raise ValueError("--max-runs must be positive")
     if args.bootstrap_iterations < 100:
         raise ValueError("--bootstrap-iterations must be at least 100")
-    if args.extract_only and args.analysis_only:
-        raise ValueError("--extract-only and --analysis-only are mutually exclusive")
+    selected_modes = sum((args.extract_only, args.analysis_only, args.statistical_review_only))
+    if selected_modes > 1:
+        raise ValueError("extraction, aggregation, and statistical review modes are exclusive")
     input_root = args.input_root.expanduser().resolve()
     raw_root = args.raw_root.expanduser().resolve()
     output_root = args.output_root.expanduser().resolve()
+    if args.statistical_review_only:
+        if not output_root.is_dir():
+            raise FileNotFoundError(output_root)
+        summary = regenerate_statistical_review(
+            output_root / "aggregate", method=args.wilcoxon_method)
+        print(json.dumps(summary, indent=2, sort_keys=True), flush=True)
+        return 0
     output_root.mkdir(parents=True, exist_ok=True)
     vlas = discover_models(input_root, raw_root, args.vla)
     configurations = discover_configurations(input_root, raw_root, vlas)

@@ -26,6 +26,11 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--aggregate-dir", type=Path, default=result_root / "aggregate")
     parser.add_argument("--output-dir", type=Path, default=result_root / "tables")
+    parser.add_argument(
+        "--statistical-review-method",
+        choices=("approximate", "exact"),
+        help="Generate only the method-labelled statistical review table.",
+    )
     return parser.parse_args()
 
 
@@ -183,17 +188,24 @@ def performance_table(
     return csv_path, tex_path
 
 
-def statistics_table(comparisons: pd.DataFrame, output_dir: Path) -> Tuple[Path, Path]:
+def statistics_table(
+    comparisons: pd.DataFrame,
+    output_dir: Path,
+    suffix: str = "",
+    wilcoxon_method: str | None = None,
+) -> Tuple[Path, Path]:
     frame = comparisons.sort_values(
         ["candidate_macro_roc_auc", "method_id"], ascending=[False, True]
     ).copy()
-    csv_path = output_dir / "rq2_baseline_statistics.csv"
+    csv_path = output_dir / ("rq2_baseline_statistics" + suffix + ".csv")
     write_csv(csv_path, frame)
     lines = [
         r"\begin{table*}[t]",
         r"\centering",
-        r"\caption{RQ2 -- Paired comparison of complete trajectory-level baselines against Harmonic Mean. The gap is baseline minus VoxelSBFL ROC-AUC; $p$-values use Holm correction and $r_{rb}$ is paired rank-biserial effect size.}",
-        r"\label{tab:rq2-baseline-statistics}",
+        r"\caption{RQ2 -- Paired comparison of complete trajectory-level baselines against Harmonic Mean. The gap is baseline minus VoxelSBFL ROC-AUC; $p$-values use "
+        + ("two-sided exact Wilcoxon signed-rank tests and " if wilcoxon_method == "exact" else "")
+        + r"Holm correction across the eight comparisons, and $r_{rb}$ is paired rank-biserial effect size.}",
+        r"\label{tab:rq2-baseline-statistics" + suffix.replace("_", "-") + "}",
         r"{\scriptsize",
         r"\setlength{\tabcolsep}{4pt}",
         r"\begin{tabular}{lccccc}",
@@ -216,7 +228,7 @@ def statistics_table(comparisons: pd.DataFrame, output_dir: Path) -> Tuple[Path,
         ]
         lines.append(" & ".join(cells) + r" \\")
     lines.extend([r"\bottomrule", r"\end{tabular}", r"}", r"\end{table*}", ""])
-    tex_path = output_dir / "rq2_baseline_statistics.tex"
+    tex_path = output_dir / ("rq2_baseline_statistics" + suffix + ".tex")
     atomic_text(tex_path, "\n".join(lines))
     return csv_path, tex_path
 
@@ -266,6 +278,45 @@ def main() -> int:
     args = parse_args()
     aggregate = args.aggregate_dir.expanduser().resolve()
     output = args.output_dir.expanduser().resolve()
+    if args.statistical_review_method:
+        method = args.statistical_review_method
+        comparisons = read_csv(
+            aggregate / ("statistical_comparison_" + method + ".csv"),
+            {
+                "method_id", "method", "candidate_macro_roc_auc",
+                "auc_gap_candidate_minus_reference", "gap_ci_low", "gap_ci_high",
+                "holm_p", "rank_biserial", "practically_equivalent",
+                "wilcoxon_method", "holm_family_size",
+            },
+        )
+        if len(comparisons) != 8 or set(comparisons["holm_family_size"]) != {8}:
+            raise ValueError("the baseline statistical review must contain one family of eight")
+        if set(comparisons["wilcoxon_method"].astype(str)) != {method}:
+            raise ValueError("the requested Wilcoxon method does not match the review file")
+        review_path = aggregate / ("statistical_review_" + method + ".json")
+        if not review_path.is_file():
+            raise FileNotFoundError(review_path)
+        metadata = json.loads(review_path.read_text())
+        if metadata.get("wilcoxon_method") != method or metadata.get("holm_family_size") != 8:
+            raise ValueError("inconsistent baseline review metadata")
+        generated = statistics_table(
+            comparisons, output, suffix="_" + method, wilcoxon_method=method)
+        manifest = {
+            "statistical_review_method": method,
+            "source_files": {
+                review_path.name: sha256_file(review_path),
+                "statistical_comparison_" + method + ".csv":
+                    sha256_file(aggregate / ("statistical_comparison_" + method + ".csv")),
+            },
+            "generated_files": [
+                {"path": path.name, "sha256": sha256_file(path)}
+                for path in generated
+            ],
+        }
+        manifest_path = output / ("statistical_review_" + method + "_manifest.json")
+        atomic_text(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+        print(json.dumps(manifest, indent=2, sort_keys=True))
+        return 0
     by_vla = read_csv(
         aggregate / "performance_by_vla.csv",
         {"vla", "method_id", "method", "family", "task_aware", "macro_roc_auc"},

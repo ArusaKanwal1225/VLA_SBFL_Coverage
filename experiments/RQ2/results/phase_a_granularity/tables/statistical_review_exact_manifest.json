@@ -1,0 +1,30 @@
+{
+  "holm_families": {
+    "interactions": 66,
+    "technique_size_effects": 68
+  },
+  "outputs": [
+    {
+      "path": "rq3_technique_size_effects_exact.csv",
+      "sha256": "70a5c8d9b244ba8db880c24fa9436193cf733c495b53ef24122409803e477e1d"
+    },
+    {
+      "path": "rq3_technique_size_effects_exact.tex",
+      "sha256": "c5dcb9486193660982df8f5f49b985aa49eddc39a6ad13c9e052150af44b3c9d"
+    },
+    {
+      "path": "rq3_technique_size_interactions_exact.csv",
+      "sha256": "7cc1e71eb72cf581459b3724cf27278d2f0f4b828d49a597dd887d43962f5a3a"
+    },
+    {
+      "path": "rq3_technique_size_interactions_exact.tex",
+      "sha256": "442ff0b5bc164174a7c00411d6e37cbe2847067fc41ce7f9c2bf434e39bd01c3"
+    }
+  ],
+  "source_sha256": {
+    "statistical_review_exact.json": "807109603ed9e6708e6aa2320e185459c6bf4c14d2ab84a4aaef4e1a3ec96858",
+    "technique_size_effects_exact.csv": "7250d03fc8d7d944a7412e37621668bbc41ff025e1a183e453e4e966fdcb1843",
+    "technique_size_interactions_exact.csv": "cf4df3e396337340dea8bbc822862731c9e786d36de86fe40c7c084b3b840c60"
+  },
+  "statistical_review_method": "exact"
+}

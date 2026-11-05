@@ -69,6 +69,11 @@ def parse_args() -> argparse.Namespace:
         default=5,
         help="Include a technique in a VLA panel if it reaches this rank at any size.",
     )
+    parser.add_argument(
+        "--statistical-review-method",
+        choices=("approximate", "exact"),
+        help="Generate only method-labelled statistical review tables.",
+    )
     return parser.parse_args()
 
 
@@ -976,9 +981,103 @@ def generate_tables(args: argparse.Namespace) -> List[Path]:
     return outputs
 
 
+def generate_statistical_review_tables(args: argparse.Namespace) -> List[Path]:
+    method = args.statistical_review_method
+    aggregate_dir = args.aggregate_dir.expanduser().resolve()
+    output_dir = args.output_dir.expanduser().resolve()
+    effects_path = aggregate_dir / ("technique_size_effects_" + method + ".csv")
+    interactions_path = aggregate_dir / (
+        "technique_size_interactions_" + method + ".csv")
+    effects = read_csv(effects_path, (
+        "voxel_size", "reference_voxel_size", "formula_id", "technique",
+        "delta_macro_roc_auc", "wilcoxon_p_value", "holm_adjusted_p_value",
+        "rank_biserial_size_minus_primary", "wilcoxon_method", "holm_family_size",
+        "significant_0p05",
+    ))
+    interactions = read_csv(interactions_path, (
+        "voxel_size", "reference_voxel_size", "formula_id", "technique",
+        "difference_in_differences_roc_auc", "wilcoxon_p_value",
+        "holm_adjusted_p_value", "rank_biserial_interaction", "wilcoxon_method",
+        "holm_family_size", "significant_0p05",
+    ))
+    if len(effects) != 68 or set(effects["holm_family_size"]) != {68}:
+        raise ValueError("the technique-size review must contain one family of 68")
+    if len(interactions) != 66 or set(interactions["holm_family_size"]) != {66}:
+        raise ValueError("the interaction review must contain one family of 66")
+    if set(effects["wilcoxon_method"].astype(str)) != {method} or set(
+        interactions["wilcoxon_method"].astype(str)) != {method}:
+        raise ValueError("the requested Wilcoxon method does not match the review files")
+
+    review_path = aggregate_dir / ("statistical_review_" + method + ".json")
+    metadata = read_json(review_path)
+    if metadata.get("wilcoxon_method") != method:
+        raise ValueError("inconsistent voxel-size review metadata")
+
+    def write_review(frame: pd.DataFrame, stem: str, delta_column: str,
+                     effect_column: str, family_size: int) -> Tuple[Path, Path]:
+        ordered = frame.sort_values(["voxel_size", "formula_id"]).copy()
+        csv_path = output_dir / (stem + "_" + method + ".csv")
+        write_csv(csv_path, ordered)
+        lines = [
+            r"\begin{longtable}{llrrrr}",
+            r"\caption{RQ3 -- " + ("Technique--size effects" if family_size == 68 else "Technique--size interactions")
+            + r" using two-sided " + latex_escape(method)
+            + r" Wilcoxon signed-rank tests and Holm correction over the complete family of "
+            + str(family_size) + r" comparisons.}\\",
+            r"\toprule",
+            r"Size & Technique & $\Delta$ ROC-AUC & Raw $p$ & Holm $p$ & $r_{rb}$ \\",
+            r"\midrule",
+            r"\endfirsthead",
+            r"\toprule",
+            r"Size & Technique & $\Delta$ ROC-AUC & Raw $p$ & Holm $p$ & $r_{rb}$ \\",
+            r"\midrule",
+            r"\endhead",
+        ]
+        for row in ordered.itertuples(index=False):
+            lines.append("{} & {} & {:+.6f} & {:.6g} & {:.6g} & {:+.3f} {}".format(
+                getattr(row, "voxel_size"), latex_escape(str(getattr(row, "technique"))),
+                float(getattr(row, delta_column)), float(getattr(row, "wilcoxon_p_value")),
+                float(getattr(row, "holm_adjusted_p_value")),
+                float(getattr(row, effect_column)), r"\\"))
+        lines.extend([r"\bottomrule", r"\end{longtable}", ""])
+        tex_path = output_dir / (stem + "_" + method + ".tex")
+        atomic_text(tex_path, "\n".join(lines))
+        return csv_path, tex_path
+
+    outputs = [
+        *write_review(
+            effects, "rq3_technique_size_effects", "delta_macro_roc_auc",
+            "rank_biserial_size_minus_primary", 68),
+        *write_review(
+            interactions, "rq3_technique_size_interactions",
+            "difference_in_differences_roc_auc", "rank_biserial_interaction", 66),
+    ]
+    review_path = aggregate_dir / ("statistical_review_" + method + ".json")
+    if not review_path.is_file():
+        raise FileNotFoundError(review_path)
+    manifest = {
+        "statistical_review_method": method,
+        "holm_families": {"technique_size_effects": 68, "interactions": 66},
+        "source_sha256": {
+            effects_path.name: sha256_file(effects_path),
+            interactions_path.name: sha256_file(interactions_path),
+            review_path.name: sha256_file(review_path),
+        },
+        "outputs": [
+            {"path": path.name, "sha256": sha256_file(path)} for path in outputs
+        ],
+    }
+    manifest_path = output_dir / ("statistical_review_" + method + "_manifest.json")
+    atomic_text(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    outputs.append(manifest_path)
+    return outputs
+
+
 def main() -> None:
     args = parse_args()
-    outputs = generate_tables(args)
+    outputs = (
+        generate_statistical_review_tables(args)
+        if args.statistical_review_method else generate_tables(args))
     print("Generated {} RQ2 table artifacts in {}".format(len(outputs), args.output_dir.resolve()))
     for path in outputs:
         print("- {}".format(path.resolve()))

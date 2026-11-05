@@ -1,0 +1,17 @@
+{
+  "comparison_count": 8,
+  "holm_family_size": 8,
+  "output": "statistical_comparison_exact.csv",
+  "output_sha256": "92702aa83d538e775ebf8f20ccb74fa3a487ef2d25e72f3e81024e84b4865a10",
+  "post_hoc_reference": "harmonic_mean",
+  "primary_blocks": 16,
+  "significant_comparisons_0p05": 8,
+  "source_sha256": {
+    "primary_block_metrics.csv": "1545b123c28d6a99ec72c9cb793133a532fb50e0b897b788b8f8ece376cad269",
+    "statistical_comparison.csv": "9af94bd47cd5d1716f65223696f4daae46136d048580f78ac5cef93cfcf9f690"
+  },
+  "status": "complete",
+  "wilcoxon_alternative": "two-sided",
+  "wilcoxon_method": "exact",
+  "z_score_reported": false
+}

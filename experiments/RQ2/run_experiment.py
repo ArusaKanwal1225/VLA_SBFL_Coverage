@@ -25,6 +25,7 @@ from experiments.RQ1.run_experiment import (
     EXPECTED_BUDGETS,
     EXPECTED_RUNS,
     sha256_file,
+    validate_primary_block_metrics,
 )
 from experiments.RQ2.analysis import matched_size_bootstrap, spearman_rank_correlation
 from vla_sbfl.formulas import FORMULA_REGISTRY, STUDY_FORMULA_IDS
@@ -731,6 +732,177 @@ def aggregate_cross_size(
     return summary
 
 
+def regenerate_statistical_review(
+    aggregate_directory: Path,
+    method: str = "exact",
+) -> dict:
+    """Recompute paired tests across the frozen 4-VLA x 4-strategy design.
+
+    Holm covers 68 size effects and 66 interactions separately. Retained
+    bootstrap intervals are pointwise, not simultaneous or selection-adjusted.
+    Practical-meaningfulness labels combine observed mean contrasts with the
+    corrected signed-rank decision; they are not formal equivalence tests.
+    """
+
+    if method not in {"approximate", "exact"}:
+        raise ValueError("Wilcoxon method must be 'approximate' or 'exact'")
+    aggregate_directory = aggregate_directory.expanduser().resolve()
+    primary_path = aggregate_directory / "primary_block_metrics.csv"
+    effects_history_path = aggregate_directory / "technique_size_effects.csv"
+    interactions_history_path = aggregate_directory / "technique_size_interactions.csv"
+    for path in (primary_path, effects_history_path, interactions_history_path):
+        if not path.is_file():
+            raise FileNotFoundError(path)
+
+    primary = pd.read_csv(primary_path)
+    effects_history = pd.read_csv(effects_history_path)
+    interactions_history = pd.read_csv(interactions_history_path)
+    required = {"voxel_size", "primary_block_id", "formula_id", "technique", "roc_auc"}
+    if required - set(primary.columns):
+        raise ValueError("voxel-size primary block metrics have an incompatible schema")
+    sizes = sorted(primary["voxel_size"].astype(float).unique())
+    formula_ids = sorted(primary["formula_id"].astype(str).unique())
+    if tuple(sizes) != VOXEL_SIZES:
+        raise ValueError("the frozen voxel-size design requires exactly 0.01, 0.02 and 0.05")
+    for size in sizes:
+        validate_primary_block_metrics(primary.loc[primary.voxel_size == size])
+    if len(formula_ids) != 34 or primary["primary_block_id"].nunique() != 16:
+        raise ValueError("the frozen voxel-size review requires 34 techniques and 16 blocks")
+    pivot = primary.pivot(
+        index="primary_block_id", columns=["voxel_size", "formula_id"], values="roc_auc")
+    expected_columns = pd.MultiIndex.from_product([sizes, formula_ids])
+    pivot = pivot.reindex(columns=expected_columns)
+    if pivot.shape != (16, 102) or pivot.isna().any().any():
+        raise ValueError("the frozen voxel-size paired design is incomplete")
+
+    nonprimary_sizes = [size for size in sizes if not same_size(size, PRIMARY_SIZE)]
+    effect_results = {}
+    for size in nonprimary_sizes:
+        for formula_id in formula_ids:
+            key = (float(size), formula_id)
+            effect_results[key] = wilcoxon_signed_rank(
+                pivot[(size, formula_id)].to_numpy(dtype=np.float64),
+                pivot[(PRIMARY_SIZE, formula_id)].to_numpy(dtype=np.float64),
+                method=method,
+            )
+    if len(effect_results) != 68:
+        raise AssertionError("the technique-size family must contain 68 comparisons")
+    effect_adjusted = holm_adjust({str(key): value.p_value for key, value in effect_results.items()})
+    effect_rows = []
+    effect_history = effects_history.set_index(["voxel_size", "formula_id"], drop=False)
+    for key, result in effect_results.items():
+        if key not in effect_history.index:
+            raise ValueError("historical technique-size results do not match the frozen design")
+        row = effect_history.loc[key].to_dict()
+        observed_delta = float((pivot[key] - pivot[(PRIMARY_SIZE, key[1])]).mean())
+        if not math.isclose(observed_delta, float(row["delta_macro_roc_auc"]), rel_tol=0.0, abs_tol=1e-15):
+            raise ValueError("historical technique-size ROC-AUC deltas do not reconcile")
+        adjusted_p = effect_adjusted[str(key)]
+        row.update({
+            "wilcoxon_p_value": result.p_value,
+            "holm_adjusted_p_value": adjusted_p,
+            "rank_biserial_size_minus_primary": result.rank_biserial,
+            "practically_meaningful_change": bool(
+                abs(observed_delta) >= PRACTICAL_MARGIN and adjusted_p < 0.05),
+            "nonzero_pairs": result.nonzero_pairs,
+            "wilcoxon_method": method,
+            "holm_family_size": 68,
+            "significant_0p05": adjusted_p < 0.05,
+        })
+        effect_rows.append(row)
+    revised_effects = pd.DataFrame(effect_rows).sort_values(
+        ["voxel_size", "delta_macro_roc_auc", "formula_id"],
+        ascending=[True, False, True], ignore_index=True)
+
+    interaction_results = {}
+    for size in nonprimary_sizes:
+        reference_delta = (
+            pivot[(size, REFERENCE_FORMULA)] - pivot[(PRIMARY_SIZE, REFERENCE_FORMULA)])
+        for formula_id in formula_ids:
+            if formula_id == REFERENCE_FORMULA:
+                continue
+            technique_delta = pivot[(size, formula_id)] - pivot[(PRIMARY_SIZE, formula_id)]
+            contrast = (technique_delta - reference_delta).to_numpy(dtype=np.float64)
+            key = (float(size), formula_id)
+            interaction_results[key] = wilcoxon_signed_rank(
+                contrast, np.zeros_like(contrast), method=method)
+    if len(interaction_results) != 66:
+        raise AssertionError("the technique-size interaction family must contain 66 comparisons")
+    interaction_adjusted = holm_adjust({
+        str(key): value.p_value for key, value in interaction_results.items()})
+    interaction_rows = []
+    interaction_history = interactions_history.set_index(
+        ["voxel_size", "formula_id"], drop=False)
+    for key, result in interaction_results.items():
+        if key not in interaction_history.index:
+            raise ValueError("historical size interactions do not match the frozen design")
+        row = interaction_history.loc[key].to_dict()
+        reference_delta = (
+            pivot[(key[0], REFERENCE_FORMULA)] - pivot[(PRIMARY_SIZE, REFERENCE_FORMULA)])
+        technique_delta = pivot[key] - pivot[(PRIMARY_SIZE, key[1])]
+        observed_interaction = float((technique_delta - reference_delta).mean())
+        if not math.isclose(
+            observed_interaction, float(row["difference_in_differences_roc_auc"]),
+            rel_tol=0.0, abs_tol=1e-15,
+        ):
+            raise ValueError("historical technique-size interactions do not reconcile")
+        adjusted_p = interaction_adjusted[str(key)]
+        row.update({
+            "wilcoxon_p_value": result.p_value,
+            "holm_adjusted_p_value": adjusted_p,
+            "rank_biserial_interaction": result.rank_biserial,
+            "practically_meaningful_interaction": bool(
+                abs(observed_interaction) >= PRACTICAL_MARGIN and adjusted_p < 0.05),
+            "nonzero_pairs": result.nonzero_pairs,
+            "wilcoxon_method": method,
+            "holm_family_size": 66,
+            "significant_0p05": adjusted_p < 0.05,
+        })
+        interaction_rows.append(row)
+    revised_interactions = pd.DataFrame(interaction_rows).sort_values(
+        ["voxel_size", "difference_in_differences_roc_auc", "formula_id"],
+        ascending=[True, False, True], ignore_index=True)
+
+    effects_output = aggregate_directory / ("technique_size_effects_" + method + ".csv")
+    interactions_output = aggregate_directory / (
+        "technique_size_interactions_" + method + ".csv")
+    revised_effects.to_csv(effects_output, index=False)
+    revised_interactions.to_csv(interactions_output, index=False)
+    payload = {
+        "status": "complete",
+        "wilcoxon_method": method,
+        "wilcoxon_alternative": "two-sided",
+        "primary_blocks": 16,
+        "families": {
+            "technique_size_effects": {
+                "comparison_count": 68,
+                "holm_family_size": 68,
+                "significant_comparisons_0p05": int(revised_effects["significant_0p05"].sum()),
+                "output": effects_output.name,
+            },
+            "technique_size_interactions": {
+                "comparison_count": 66,
+                "holm_family_size": 66,
+                "significant_comparisons_0p05": int(
+                    revised_interactions["significant_0p05"].sum()),
+                "output": interactions_output.name,
+            },
+        },
+        "friedman_test": "unchanged; retained in the historical statistical_tests.json",
+        "source_sha256": {
+            path.name: sha256_file(path)
+            for path in (primary_path, effects_history_path, interactions_history_path)
+        },
+        "output_sha256": {
+            effects_output.name: sha256_file(effects_output),
+            interactions_output.name: sha256_file(interactions_output),
+        },
+        "z_score_reported": False,
+    }
+    atomic_json(aggregate_directory / ("statistical_review_" + method + ".json"), payload)
+    return payload
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-root", type=Path, default=Path("input"))
@@ -751,6 +923,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--analysis-only", action="store_true")
     parser.add_argument(
+        "--statistical-review-only",
+        action="store_true",
+        help="Recompute only method-labelled tests from frozen aggregate block metrics.",
+    )
+    parser.add_argument(
+        "--wilcoxon-method", choices=("approximate", "exact"), default="exact")
+    parser.add_argument(
         "--rerun-primary",
         action="store_true",
         help="Recompute 0.02 inside RQ2 instead of reusing the complete RQ1 cell.",
@@ -767,6 +946,16 @@ def main() -> int:
     args = parse_args()
     if args.bootstrap_iterations < 100:
         raise ValueError("--bootstrap-iterations must be at least 100")
+    if args.statistical_review_only:
+        if args.analysis_only or args.smoke or args.rerun_primary:
+            raise ValueError("statistical review cannot be combined with experiment modes")
+        output_root = args.output_root.expanduser().resolve()
+        if not output_root.is_dir():
+            raise FileNotFoundError(output_root)
+        summary = regenerate_statistical_review(
+            output_root / "aggregate", method=args.wilcoxon_method)
+        print(json.dumps(summary, indent=2, sort_keys=True), flush=True)
+        return 0
     if args.analysis_only and args.smoke:
         raise ValueError("--analysis-only and --smoke cannot be combined")
     output_root = args.output_root.expanduser().resolve()
