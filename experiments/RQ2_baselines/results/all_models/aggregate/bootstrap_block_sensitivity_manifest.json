@@ -1,0 +1,23 @@
+{
+  "blocks": 16,
+  "confidence_level": 0.95,
+  "holm_adjusted": false,
+  "intervals": 16,
+  "iterations": 10000,
+  "maximum_reproduction_error": 8.326672684688674e-17,
+  "method": "paired complete-block percentile bootstrap",
+  "numpy_version": "2.2.6",
+  "output_sha256": {
+    "bootstrap_block_sensitivity.csv": "432df29021f032135201d688cd6864710d808b64bf631f2804cf1e63affcde07"
+  },
+  "pandas_version": "2.3.3",
+  "rq": "RQ2",
+  "simultaneous": false,
+  "source_sha256": {
+    "fold_metrics.csv.gz": "788a705a17473dc27a536d9f0954b9727c99f57bfb94629f8d90f3723f7e275e",
+    "primary_block_metrics.csv": "1545b123c28d6a99ec72c9cb793133a532fb50e0b897b788b8f8ece376cad269",
+    "statistical_comparison.csv": "9af94bd47cd5d1716f65223696f4daae46136d048580f78ac5cef93cfcf9f690",
+    "statistical_tests.json": "ea1e3f0fbeb41336a51683af5b0dc39fcd211e56156b6cd90b3d6b6a24481dfb"
+  },
+  "zero_inclusion_changes": 0
+}
