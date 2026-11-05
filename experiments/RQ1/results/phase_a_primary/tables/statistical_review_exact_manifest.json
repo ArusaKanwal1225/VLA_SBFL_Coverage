@@ -1,0 +1,29 @@
+{
+  "displayed_reference_comparisons": 33,
+  "holm_family_size": 561,
+  "output_sha256": {
+    "rq1_ranking_sensitivity.csv": "dc40c07d0cdf48813a42cdaf149fddcf661440cc7701f2aee3545bac065761ca",
+    "rq1_ranking_sensitivity.tex": "f907286cd619f08b710a78164942e3073a71544f23d055e3ae4c72e18f2b58ab",
+    "rq1_reference_comparisons_exact.csv": "7ea981c0d5ba9bee72bc35cc2cce54aa87d439be98d333c0d1044cdb42256e81",
+    "rq1_reference_comparisons_exact.tex": "b171d3a41d5a1161f9421c69d0d0381fa36585c25e50724056308d9f70da3b10"
+  },
+  "outputs": [
+    "rq1_reference_comparisons_exact.csv",
+    "rq1_reference_comparisons_exact.tex",
+    "rq1_ranking_sensitivity.csv",
+    "rq1_ranking_sensitivity.tex"
+  ],
+  "presentation_reference": "harmonic_mean",
+  "sensitivity_is_descriptive": true,
+  "source_directory": "experiments/RQ1/results/phase_a_primary/aggregate",
+  "source_sha256": {
+    "pairwise_comparisons_exact.csv": "199eb5e0092d81309bd52bf2af4879b6ab80d9b8436f4968b5a3bb96b0150ae8",
+    "ranking_sensitivity.csv": "1c66554ff6d9e74a3653cc70e810b03408276af0968bfca3b9688a4c13658183",
+    "ranking_sensitivity_summary.csv": "dc40c07d0cdf48813a42cdaf149fddcf661440cc7701f2aee3545bac065761ca",
+    "reference_comparisons_exact.csv": "7ea981c0d5ba9bee72bc35cc2cce54aa87d439be98d333c0d1044cdb42256e81",
+    "statistical_review_exact.json": "1d64e4de8ebfaeeda7fdbe651833a8d931ee3e8a562df07cdcf1ca6fa5b8d287"
+  },
+  "wilcoxon_alternative": "two-sided",
+  "wilcoxon_method": "exact",
+  "z_score_reported": false
+}

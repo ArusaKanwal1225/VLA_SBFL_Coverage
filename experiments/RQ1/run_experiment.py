@@ -22,6 +22,8 @@ import pandas as pd
 
 try:
     from experiments.RQ1.analysis import (
+        all_pairwise_wilcoxon,
+        competition_ranks,
         friedman_test,
         hierarchical_budget_bootstrap,
         holm_adjust,
@@ -29,6 +31,8 @@ try:
     )
 except ModuleNotFoundError:  # Direct execution places this directory on sys.path.
     from analysis import (  # type: ignore
+        all_pairwise_wilcoxon,
+        competition_ranks,
         friedman_test,
         hierarchical_budget_bootstrap,
         holm_adjust,
@@ -54,6 +58,7 @@ EXPECTED_VLAS = ("EO1", "Groot", "Pi0", "SpatialVLA")
 EXPECTED_CONDITIONS = ("DH", "DH_HybridDT", "DH_HybridRF", "DH_WeightedRF")
 EXPECTED_BUDGETS = (200, 400)
 EXPECTED_RUNS = tuple("run_" + str(index) for index in range(1, 11))
+PRESENTATION_REFERENCE = "harmonic_mean"
 
 
 @dataclass(frozen=True)
@@ -511,6 +516,294 @@ def run_fold(
     return completion
 
 
+def validate_primary_block_metrics(primary: pd.DataFrame, technique_names=None) -> None:
+    """Validate the frozen 4-VLA x 4-strategy paired grid and technique identities."""
+
+    if technique_names is None:
+        technique_names = {key: FORMULA_REGISTRY[key].name for key in STUDY_FORMULA_IDS}
+
+    required = {
+        "primary_block_id", "vla", "condition", "formula_id", "technique", "roc_auc",
+    }
+    missing = required - set(primary.columns)
+    if missing:
+        raise ValueError(
+            "primary_block_metrics.csv is missing columns: " + ", ".join(sorted(missing)))
+    expected_rows = len(EXPECTED_VLAS) * len(EXPECTED_CONDITIONS) * len(technique_names)
+    if len(primary) != expected_rows:
+        raise ValueError(
+            "primary_block_metrics.csv expected {} rows, found {}".format(
+                expected_rows, len(primary)))
+    if primary.duplicated(["primary_block_id", "formula_id"]).any():
+        raise ValueError("primary block metrics contain duplicate block/formula rows")
+    if set(primary["vla"].astype(str)) != set(EXPECTED_VLAS):
+        raise ValueError("primary block metrics do not contain the expected VLA models")
+    if set(primary["condition"].astype(str)) != set(EXPECTED_CONDITIONS):
+        raise ValueError("primary block metrics do not contain the expected conditions")
+    if set(primary["formula_id"].astype(str)) != set(technique_names):
+        raise ValueError("primary block metrics do not contain the expected techniques")
+    expected_block_ids = (
+        primary["vla"].astype(str) + "__" + primary["condition"].astype(str))
+    if not expected_block_ids.equals(primary["primary_block_id"].astype(str)):
+        raise ValueError("primary_block_id is inconsistent with VLA and condition")
+    block_counts = primary.groupby("primary_block_id")["formula_id"].nunique()
+    if len(block_counts) != 16 or not (block_counts == len(technique_names)).all():
+        raise ValueError("each primary block must contain all expected techniques")
+    auc = pd.to_numeric(primary["roc_auc"], errors="coerce").to_numpy(dtype=np.float64)
+    if not np.isfinite(auc).all():
+        raise ValueError("primary block ROC-AUC values must be finite")
+    for formula_id, technique in primary[["formula_id", "technique"]].drop_duplicates().itertuples(
+        index=False
+    ):
+        if str(technique) != technique_names[str(formula_id)]:
+            raise ValueError("inconsistent technique name for " + str(formula_id))
+
+
+def ranking_sensitivity(primary: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """Build descriptive leave-one-factor-out and within-factor RQ1 rankings."""
+
+    validate_primary_block_metrics(primary)
+    formula_ids = list(STUDY_FORMULA_IDS)
+    long_rows = []
+    summary_rows = []
+
+    def append_analysis(
+        analysis: str,
+        dimension: str,
+        group: str,
+        selected: pd.DataFrame,
+    ) -> None:
+        grouped = selected.groupby(
+            ["formula_id", "technique"], as_index=False
+        ).agg(macro_roc_auc=("roc_auc", "mean"))
+        by_id = grouped.set_index("formula_id")
+        if set(by_id.index.astype(str)) != set(formula_ids):
+            raise ValueError("sensitivity subset is missing one or more techniques")
+        scores = np.asarray(
+            [float(by_id.loc[formula_id, "macro_roc_auc"]) for formula_id in formula_ids],
+            dtype=np.float64,
+        )
+        ranks = competition_ranks(scores, descending=True)
+        score_by_id = dict(zip(formula_ids, scores))
+        rank_by_id = dict(zip(formula_ids, (int(value) for value in ranks)))
+        leaders = [formula_id for formula_id in formula_ids if rank_by_id[formula_id] == 1]
+        harmonic_auc = float(score_by_id[PRESENTATION_REFERENCE])
+        blocks = int(selected["primary_block_id"].nunique())
+        for formula_id in formula_ids:
+            long_rows.append({
+                "analysis": analysis,
+                "dimension": dimension,
+                "group": group,
+                "primary_blocks": blocks,
+                "formula_id": formula_id,
+                "technique": FORMULA_REGISTRY[formula_id].name,
+                "macro_roc_auc": float(score_by_id[formula_id]),
+                "rank": rank_by_id[formula_id],
+                "is_joint_leader": rank_by_id[formula_id] == 1,
+                "delta_harmonic_mean_minus_technique": (
+                    harmonic_auc - float(score_by_id[formula_id])),
+            })
+        summary_rows.append({
+            "analysis": analysis,
+            "dimension": dimension,
+            "group": group,
+            "primary_blocks": blocks,
+            "leader_formula_ids": ";".join(leaders),
+            "harmonic_mean_roc_auc": harmonic_auc,
+            "harmonic_mean_rank": rank_by_id[PRESENTATION_REFERENCE],
+            "rogot2_roc_auc": float(score_by_id["rogot2"]),
+            "rogot2_rank": rank_by_id["rogot2"],
+            "dennis_roc_auc": float(score_by_id["dennis"]),
+            "dennis_rank": rank_by_id["dennis"],
+            "phi_roc_auc": float(score_by_id["phi"]),
+            "phi_rank": rank_by_id["phi"],
+            "delta_harmonic_mean_minus_dennis": (
+                harmonic_auc - float(score_by_id["dennis"])),
+            "delta_harmonic_mean_minus_phi": (
+                harmonic_auc - float(score_by_id["phi"])),
+        })
+
+    for dimension, groups in (("vla", EXPECTED_VLAS), ("condition", EXPECTED_CONDITIONS)):
+        for group in groups:
+            append_analysis(
+                "leave_one_out", dimension, group,
+                primary[primary[dimension].astype(str) != group],
+            )
+        for group in groups:
+            append_analysis(
+                "within_group", dimension, group,
+                primary[primary[dimension].astype(str) == group],
+            )
+    return pd.DataFrame(long_rows), pd.DataFrame(summary_rows)
+
+
+def regenerate_statistical_review(aggregate_directory: Path, method: str = "exact") -> dict:
+    """Regenerate RQ1 statistical derivatives from frozen primary-block metrics only."""
+
+    if method not in {"approximate", "exact"}:
+        raise ValueError("Wilcoxon method must be 'approximate' or 'exact'")
+    aggregate_directory = aggregate_directory.expanduser().resolve()
+    source_path = aggregate_directory / "primary_block_metrics.csv"
+    if not source_path.is_file():
+        raise FileNotFoundError(source_path)
+    primary = pd.read_csv(source_path)
+    validate_primary_block_metrics(primary)
+    formula_ids = list(STUDY_FORMULA_IDS)
+    block_order = sorted(primary["primary_block_id"].astype(str).unique())
+    pivot = primary.pivot(
+        index="primary_block_id", columns="formula_id", values="roc_auc"
+    ).reindex(index=block_order, columns=formula_ids)
+    if pivot.shape != (16, len(formula_ids)) or pivot.isna().any().any():
+        raise ValueError("primary-block ROC-AUC matrix is incomplete")
+    values = pivot.to_numpy(dtype=np.float64)
+    grouped_means = primary.groupby("formula_id")["roc_auc"].mean()
+    means = np.asarray(
+        [float(grouped_means.loc[formula_id]) for formula_id in formula_ids],
+        dtype=np.float64,
+    )
+    mean_by_id = dict(zip(formula_ids, (float(value) for value in means)))
+    ranks = competition_ranks(means, descending=True)
+    rank_by_id = dict(zip(formula_ids, (int(value) for value in ranks)))
+    joint_leaders = [formula_id for formula_id in formula_ids if rank_by_id[formula_id] == 1]
+    if PRESENTATION_REFERENCE not in joint_leaders:
+        raise ValueError("Harmonic Mean is not a joint ROC-AUC leader")
+
+    pairwise = all_pairwise_wilcoxon(values, formula_ids, method=method)
+    expected_pairs = len(formula_ids) * (len(formula_ids) - 1) // 2
+    if len(pairwise) != expected_pairs:
+        raise ArithmeticError("the all-pairs Wilcoxon family is incomplete")
+    pairwise_path = aggregate_directory / "pairwise_comparisons_{}.csv".format(method)
+    pairwise_rows = []
+    pair_lookup = {}
+    for result in pairwise:
+        pair_lookup[(result.first_id, result.second_id)] = result
+        pairwise_rows.append({
+            "first_formula_id": result.first_id,
+            "first_technique": FORMULA_REGISTRY[result.first_id].name,
+            "second_formula_id": result.second_id,
+            "second_technique": FORMULA_REGISTRY[result.second_id].name,
+            "first_macro_roc_auc": mean_by_id[result.first_id],
+            "second_macro_roc_auc": mean_by_id[result.second_id],
+            "delta_auc_first_minus_second": (
+                mean_by_id[result.first_id] - mean_by_id[result.second_id]),
+            "wilcoxon_statistic": result.statistic,
+            "wilcoxon_p_value": result.p_value,
+            "holm_adjusted_p_value": result.holm_adjusted_p_value,
+            "rank_biserial_first_minus_second": (
+                result.rank_biserial_first_minus_second),
+            "nonzero_primary_block_pairs": result.nonzero_pairs,
+            "significant_0p05": result.holm_adjusted_p_value < 0.05,
+            "wilcoxon_method": method,
+            "holm_family_size": expected_pairs,
+        })
+    pd.DataFrame(pairwise_rows).to_csv(pairwise_path, index=False)
+
+    reference_auc = mean_by_id[PRESENTATION_REFERENCE]
+    reference_rows = []
+    candidate_ids = sorted(
+        (formula_id for formula_id in formula_ids if formula_id != PRESENTATION_REFERENCE),
+        key=lambda formula_id: (-mean_by_id[formula_id], formula_id),
+    )
+    for candidate_id in candidate_ids:
+        if (PRESENTATION_REFERENCE, candidate_id) in pair_lookup:
+            result = pair_lookup[(PRESENTATION_REFERENCE, candidate_id)]
+            effect = result.rank_biserial_first_minus_second
+        else:
+            result = pair_lookup[(candidate_id, PRESENTATION_REFERENCE)]
+            effect = -result.rank_biserial_first_minus_second
+        delta = reference_auc - mean_by_id[candidate_id]
+        reference_rows.append({
+            "reference_formula_id": PRESENTATION_REFERENCE,
+            "reference_technique": FORMULA_REGISTRY[PRESENTATION_REFERENCE].name,
+            "candidate_formula_id": candidate_id,
+            "candidate_technique": FORMULA_REGISTRY[candidate_id].name,
+            "candidate_rank": rank_by_id[candidate_id],
+            "reference_macro_roc_auc": reference_auc,
+            "candidate_macro_roc_auc": mean_by_id[candidate_id],
+            "delta_auc_reference_minus_candidate": delta,
+            "wilcoxon_statistic": result.statistic,
+            "wilcoxon_p_value": result.p_value,
+            "holm_adjusted_p_value": result.holm_adjusted_p_value,
+            "rank_biserial_reference_minus_candidate": effect,
+            "nonzero_primary_block_pairs": result.nonzero_pairs,
+            "significant_0p05": result.holm_adjusted_p_value < 0.05,
+            "practically_equivalent": bool(
+                abs(delta) < 0.01 and result.holm_adjusted_p_value >= 0.05),
+            "wilcoxon_method": method,
+            "holm_family_size": expected_pairs,
+        })
+    reference_path = aggregate_directory / "reference_comparisons_{}.csv".format(method)
+    reference = pd.DataFrame(reference_rows)
+    if len(reference) != len(formula_ids) - 1:
+        raise ArithmeticError("the Harmonic Mean presentation view is incomplete")
+    reference.to_csv(reference_path, index=False)
+
+    sensitivity, sensitivity_summary = ranking_sensitivity(primary)
+    sensitivity_path = aggregate_directory / "ranking_sensitivity.csv"
+    sensitivity_summary_path = aggregate_directory / "ranking_sensitivity_summary.csv"
+    sensitivity.to_csv(sensitivity_path, index=False)
+    sensitivity_summary.to_csv(sensitivity_summary_path, index=False)
+
+    friedman = friedman_test(values)
+    significant_reference = reference.loc[
+        reference["significant_0p05"], "candidate_formula_id"].astype(str).tolist()
+    non_significant_reference = reference.loc[
+        ~reference["significant_0p05"], "candidate_formula_id"].astype(str).tolist()
+    harmonic_index = formula_ids.index(PRESENTATION_REFERENCE)
+    rogot2_index = formula_ids.index("rogot2")
+    leaders_in_all_sensitivity_analyses = bool(
+        sensitivity_summary["leader_formula_ids"].map(
+            lambda value: set(str(value).split(";"))
+            == {PRESENTATION_REFERENCE, "rogot2"}
+        ).all()
+    )
+    output_paths = [
+        pairwise_path, reference_path, sensitivity_path, sensitivity_summary_path,
+    ]
+    payload = {
+        "status": "complete",
+        "source_file": source_path.name,
+        "source_sha256": sha256_file(source_path),
+        "primary_blocks": len(block_order),
+        "techniques": len(formula_ids),
+        "friedman": {
+            "statistic": friedman.statistic,
+            "degrees_of_freedom": friedman.degrees_of_freedom,
+            "p_value": friedman.p_value,
+        },
+        "wilcoxon_method": method,
+        "wilcoxon_alternative": "two-sided",
+        "wilcoxon_exact_definition": (
+            "conditional exhaustive sign enumeration of min(W+, W-) after removing "
+            "zero differences and assigning average absolute ranks"),
+        "z_score_reported": False,
+        "holm_scope": "all unordered pairs among 34 techniques",
+        "holm_family_size": expected_pairs,
+        "presentation_reference": PRESENTATION_REFERENCE,
+        "presentation_reference_is_joint_leader": True,
+        "reference_comparison_count": len(reference),
+        "joint_leader_formula_ids": joint_leaders,
+        "harmonic_mean_rogot2_identical_in_all_blocks": bool(
+            np.array_equal(values[:, harmonic_index], values[:, rogot2_index])),
+        "significant_reference_comparisons_0p05": len(significant_reference),
+        "significant_reference_formula_ids": significant_reference,
+        "non_significant_reference_formula_ids": non_significant_reference,
+        "sensitivity": {
+            "analysis_count": len(sensitivity_summary),
+            "ranking_rows": len(sensitivity),
+            "inferential_tests_performed": False,
+            "harmonic_mean_and_rogot2_lead_all_analyses": (
+                leaders_in_all_sensitivity_analyses),
+        },
+        "outputs": {
+            path.name: sha256_file(path) for path in output_paths
+        },
+    }
+    metadata_path = aggregate_directory / "statistical_review_{}.json".format(method)
+    atomic_json(metadata_path, payload)
+    return payload
+
+
 def aggregate_results(
     output_root: Path,
     bootstrap_iterations: int,
@@ -850,6 +1143,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bootstrap-iterations", type=int, default=10_000)
     parser.add_argument("--bootstrap-seed", type=int, default=20261023)
     parser.add_argument("--audit-only", action="store_true")
+    parser.add_argument(
+        "--analysis-only",
+        action="store_true",
+        help=(
+            "Regenerate only method-labelled statistical review artifacts from "
+            "aggregate/primary_block_metrics.csv; never load trajectories or run folds."),
+    )
+    parser.add_argument(
+        "--wilcoxon-method",
+        choices=("approximate", "exact"),
+        default="exact",
+        help="Wilcoxon method used by --analysis-only (default: exact).",
+    )
     parser.add_argument("--configuration", action="append", default=[])
     parser.add_argument("--max-folds", type=int)
     parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
@@ -858,9 +1164,18 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    if args.analysis_only and args.audit_only:
+        raise ValueError("--analysis-only and --audit-only are mutually exclusive")
     if args.max_folds is not None and args.max_folds <= 0:
         raise ValueError("--max-folds must be positive")
     output_root = args.output_root.expanduser().resolve()
+    if args.analysis_only:
+        if not output_root.is_dir():
+            raise FileNotFoundError(output_root)
+        summary = regenerate_statistical_review(
+            output_root / "aggregate", method=args.wilcoxon_method)
+        print(json.dumps(summary, indent=2, sort_keys=True), flush=True)
+        return 0
     output_root.mkdir(parents=True, exist_ok=True)
     protocol_path = Path(__file__).resolve().with_name("RQ1.md")
     grid = VoxelGrid(args.voxel_size, tuple(args.origin), "robot_base")

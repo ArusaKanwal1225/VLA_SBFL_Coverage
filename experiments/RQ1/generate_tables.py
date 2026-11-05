@@ -8,6 +8,10 @@ the aggregate artifacts produced by ``run_experiment.py`` and writes:
 * the inferential comparison for techniques reaching a VLA top-five; and
 * one detailed supplementary table for each VLA model.
 
+With ``--statistical-review-method``, the script instead generates the
+method-labelled all-pairs statistical review table and descriptive ranking
+sensitivity table without replacing any historical table or manifest.
+
 Both CSV and LaTeX versions are generated. All ranks are recomputed with ties
 receiving the same minimum rank, so exactly equal techniques are not ordered
 arbitrarily in the paper tables.
@@ -67,6 +71,13 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=5,
         help="Include a technique in the statistical table if it reaches this rank for any VLA.",
+    )
+    parser.add_argument(
+        "--statistical-review-method",
+        choices=("approximate", "exact"),
+        help=(
+            "Generate only the method-labelled RQ1 statistical-review tables; "
+            "leave the historical tables and manifest unchanged."),
     )
     return parser.parse_args()
 
@@ -739,9 +750,300 @@ def generate_tables(aggregate_dir: Path, output_dir: Path, top_rank_cutoff: int)
     return outputs
 
 
+def generate_statistical_review_tables(
+    aggregate_dir: Path,
+    output_dir: Path,
+    method: str,
+) -> List[Path]:
+    """Generate new review tables without replacing historical RQ1 artifacts."""
+
+    if method not in {"approximate", "exact"}:
+        raise ValueError("statistical review method must be approximate or exact")
+    aggregate_dir = aggregate_dir.expanduser().resolve()
+    output_dir = output_dir.expanduser().resolve()
+    pairwise_name = "pairwise_comparisons_{}.csv".format(method)
+    reference_name = "reference_comparisons_{}.csv".format(method)
+    metadata_name = "statistical_review_{}.json".format(method)
+    sensitivity_name = "ranking_sensitivity.csv"
+    sensitivity_summary_name = "ranking_sensitivity_summary.csv"
+    input_names = (
+        pairwise_name,
+        reference_name,
+        metadata_name,
+        sensitivity_name,
+        sensitivity_summary_name,
+    )
+
+    pairwise_rows = read_csv(
+        aggregate_dir / pairwise_name,
+        (
+            "first_formula_id", "second_formula_id", "wilcoxon_p_value",
+            "holm_adjusted_p_value", "rank_biserial_first_minus_second",
+            "nonzero_primary_block_pairs", "wilcoxon_method", "holm_family_size",
+        ),
+    )
+    if len(pairwise_rows) != 561:
+        raise ValueError("the all-pairs statistical review must contain 561 comparisons")
+    pairwise_index = keyed_rows(
+        pairwise_rows, ("first_formula_id", "second_formula_id"), pairwise_name)
+    formula_ids = {
+        row["first_formula_id"] for row in pairwise_rows
+    } | {
+        row["second_formula_id"] for row in pairwise_rows
+    }
+    if len(formula_ids) != EXPECTED_TECHNIQUE_COUNT:
+        raise ValueError("the all-pairs statistical review must contain 34 techniques")
+    if any(
+        row["wilcoxon_method"] != method
+        or integer(row, "holm_family_size", pairwise_name) != 561
+        for row in pairwise_rows
+    ):
+        raise ValueError("pairwise comparison method or Holm family is inconsistent")
+    if any("z_score" in row for row in pairwise_rows):
+        raise ValueError("exact-review outputs must not report z_score as an exact statistic")
+
+    reference_rows = read_csv(
+        aggregate_dir / reference_name,
+        (
+            "reference_formula_id", "reference_technique", "candidate_formula_id",
+            "candidate_technique", "candidate_rank", "reference_macro_roc_auc",
+            "candidate_macro_roc_auc", "delta_auc_reference_minus_candidate",
+            "wilcoxon_statistic", "wilcoxon_p_value", "holm_adjusted_p_value",
+            "rank_biserial_reference_minus_candidate", "nonzero_primary_block_pairs",
+            "significant_0p05", "practically_equivalent", "wilcoxon_method",
+            "holm_family_size",
+        ),
+    )
+    if len(reference_rows) != EXPECTED_TECHNIQUE_COUNT - 1:
+        raise ValueError("the presentation view must contain 33 reference comparisons")
+    reference_by_candidate = keyed_rows(
+        reference_rows, ("candidate_formula_id",), reference_name)
+    if set(reference_by_candidate) != {(formula_id,) for formula_id in formula_ids - {"harmonic_mean"}}:
+        raise ValueError("the presentation view does not contain every non-reference technique")
+    for row in reference_rows:
+        context = "reference comparison " + row["candidate_formula_id"]
+        if (
+            row["reference_formula_id"] != "harmonic_mean"
+            or row["wilcoxon_method"] != method
+            or integer(row, "holm_family_size", context) != 561
+        ):
+            raise ValueError(context + " has inconsistent reference metadata")
+        candidate = row["candidate_formula_id"]
+        pair = pairwise_index.get(("harmonic_mean", candidate))
+        orientation = 1.0
+        if pair is None:
+            pair = pairwise_index.get((candidate, "harmonic_mean"))
+            orientation = -1.0
+        if pair is None:
+            raise ValueError(context + " is missing from the 561-pair family")
+        comparisons = (
+            ("wilcoxon_p_value", 1.0),
+            ("holm_adjusted_p_value", 1.0),
+            ("rank_biserial_reference_minus_candidate", orientation),
+        )
+        for field, sign in comparisons:
+            pair_field = (
+                "rank_biserial_first_minus_second"
+                if field == "rank_biserial_reference_minus_candidate" else field)
+            if not math.isclose(
+                finite_float(row, field, context),
+                sign * finite_float(pair, pair_field, context),
+                rel_tol=0.0,
+                abs_tol=1e-15,
+            ):
+                raise ValueError(context + " does not reconcile to the all-pairs family")
+
+    sensitivity_rows = read_csv(
+        aggregate_dir / sensitivity_name,
+        (
+            "analysis", "dimension", "group", "primary_blocks", "formula_id",
+            "technique", "macro_roc_auc", "rank", "is_joint_leader",
+            "delta_harmonic_mean_minus_technique",
+        ),
+    )
+    sensitivity_summary = read_csv(
+        aggregate_dir / sensitivity_summary_name,
+        (
+            "analysis", "dimension", "group", "primary_blocks", "leader_formula_ids",
+            "harmonic_mean_roc_auc", "harmonic_mean_rank", "rogot2_roc_auc",
+            "rogot2_rank", "dennis_roc_auc", "dennis_rank", "phi_roc_auc", "phi_rank",
+            "delta_harmonic_mean_minus_dennis", "delta_harmonic_mean_minus_phi",
+        ),
+    )
+    if len(sensitivity_rows) != 16 * EXPECTED_TECHNIQUE_COUNT:
+        raise ValueError("ranking_sensitivity.csv must contain 16 complete rankings")
+    if len(sensitivity_summary) != 16:
+        raise ValueError("ranking_sensitivity_summary.csv must contain 16 analyses")
+    keyed_rows(
+        sensitivity_rows,
+        ("analysis", "dimension", "group", "formula_id"),
+        sensitivity_name,
+    )
+    keyed_rows(
+        sensitivity_summary,
+        ("analysis", "dimension", "group"),
+        sensitivity_summary_name,
+    )
+
+    metadata_path = aggregate_dir / metadata_name
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    if (
+        metadata.get("wilcoxon_method") != method
+        or metadata.get("holm_family_size") != 561
+        or metadata.get("reference_comparison_count") != 33
+        or metadata.get("z_score_reported") is not False
+    ):
+        raise ValueError("statistical review metadata is inconsistent")
+
+    ordered_reference = sorted(
+        reference_rows,
+        key=lambda row: (
+            integer(row, "candidate_rank", row["candidate_formula_id"]),
+            -finite_float(row, "candidate_macro_roc_auc", row["candidate_formula_id"]),
+            row["candidate_formula_id"],
+        ),
+    )
+    reference_fields = (
+        "reference_formula_id", "reference_technique", "candidate_formula_id",
+        "candidate_technique", "candidate_rank", "reference_macro_roc_auc",
+        "candidate_macro_roc_auc", "delta_auc_reference_minus_candidate",
+        "wilcoxon_statistic", "wilcoxon_p_value", "holm_adjusted_p_value",
+        "rank_biserial_reference_minus_candidate", "nonzero_primary_block_pairs",
+        "significant_0p05", "practically_equivalent", "wilcoxon_method",
+        "holm_family_size",
+    )
+    reference_csv = output_dir / "rq1_reference_comparisons_{}.csv".format(method)
+    write_csv(reference_csv, ordered_reference, reference_fields)
+    latex_rows = []
+    for row in ordered_reference:
+        candidate = latex_escape(row["candidate_technique"])
+        rank = integer(row, "candidate_rank", row["candidate_formula_id"])
+        if rank == 1:
+            candidate = r"\textbf{" + candidate + "}"
+        latex_rows.append(
+            " & ".join([
+                candidate,
+                "{:.3f}".format(finite_float(
+                    row, "candidate_macro_roc_auc", row["candidate_formula_id"])),
+                "{:.3f}".format(finite_float(
+                    row, "delta_auc_reference_minus_candidate", row["candidate_formula_id"])),
+                p_value_text(finite_float(
+                    row, "wilcoxon_p_value", row["candidate_formula_id"])),
+                p_value_text(finite_float(
+                    row, "holm_adjusted_p_value", row["candidate_formula_id"])),
+                "{:.3f}".format(finite_float(
+                    row, "rank_biserial_reference_minus_candidate",
+                    row["candidate_formula_id"])),
+                "Yes" if boolean(row, "significant_0p05", row["candidate_formula_id"])
+                else "No",
+            ]) + r" \\"
+        )
+    method_label = "exact sign-enumeration" if method == "exact" else "normal-approximation"
+    reference_latex = output_dir / "rq1_reference_comparisons_{}.tex".format(method)
+    atomic_text(reference_latex, "\n".join([
+        r"\begin{table*}[t]",
+        r"\centering",
+        (r"\caption{Paired comparison of Harmonic Mean with the other 33 techniques. "
+         + "Two-sided " + method_label
+         + " Wilcoxon values are shown; Holm adjustment is applied to the "
+         "complete family of 561 unordered technique pairs, although only the 33 "
+         "Harmonic Mean comparisons are displayed. Harmonic Mean is a presentation "
+         "reference and is tied with Rogot2 in all 16 blocks.}"),
+        r"\label{tab:rq1-reference-comparisons-" + method + "}",
+        r"{\scriptsize",
+        r"\setlength{\tabcolsep}{3pt}",
+        r"\begin{tabular}{lrrrrrc}",
+        r"\toprule",
+        "Candidate & ROC-AUC & $\\Delta$AUC & Raw $p$ & Holm $p$ & $r_{rb}$ & Significant \\\\",
+        r"\midrule",
+        *latex_rows,
+        r"\bottomrule",
+        r"\end{tabular}",
+        r"}",
+        r"\end{table*}",
+        "",
+    ]))
+
+    sensitivity_fields = (
+        "analysis", "dimension", "group", "primary_blocks", "leader_formula_ids",
+        "harmonic_mean_roc_auc", "harmonic_mean_rank", "rogot2_roc_auc", "rogot2_rank",
+        "dennis_roc_auc", "dennis_rank", "phi_roc_auc", "phi_rank",
+        "delta_harmonic_mean_minus_dennis", "delta_harmonic_mean_minus_phi",
+    )
+    sensitivity_csv = output_dir / "rq1_ranking_sensitivity.csv"
+    write_csv(sensitivity_csv, sensitivity_summary, sensitivity_fields)
+    sensitivity_latex_rows = []
+    for row in sensitivity_summary:
+        analysis = "Leave one out" if row["analysis"] == "leave_one_out" else "Within group"
+        dimension = "VLA" if row["dimension"] == "vla" else "Strategy"
+        group = VLA_DISPLAY_NAMES.get(row["group"], row["group"].replace("DH_", ""))
+        sensitivity_latex_rows.append(
+            " & ".join([
+                analysis,
+                dimension,
+                latex_escape(group),
+                latex_escape(row["leader_formula_ids"]),
+                "{:.3f}".format(finite_float(row, "harmonic_mean_roc_auc", group)),
+                "{:.3f}".format(finite_float(
+                    row, "delta_harmonic_mean_minus_dennis", group)),
+                "{:.3f}".format(finite_float(
+                    row, "delta_harmonic_mean_minus_phi", group)),
+            ]) + r" \\"
+        )
+    sensitivity_latex = output_dir / "rq1_ranking_sensitivity.tex"
+    atomic_text(sensitivity_latex, "\n".join([
+        r"\begin{table*}[t]",
+        r"\centering",
+        r"\caption{Descriptive RQ1 ranking sensitivity. Leave-one-factor-out analyses "
+        r"use 12 blocks and within-group analyses use four blocks. No additional "
+        r"inferential tests are performed on these overlapping subsets.}",
+        r"\label{tab:rq1-ranking-sensitivity}",
+        r"{\scriptsize",
+        r"\begin{tabular}{lllrrrr}",
+        r"\toprule",
+        "Analysis & Factor & Group & Joint leaders & HM AUC & HM--Dennis & HM--Phi \\\\",
+        r"\midrule",
+        *sensitivity_latex_rows,
+        r"\bottomrule",
+        r"\end{tabular}",
+        r"}",
+        r"\end{table*}",
+        "",
+    ]))
+
+    outputs = [reference_csv, reference_latex, sensitivity_csv, sensitivity_latex]
+    try:
+        source_directory = str(aggregate_dir.relative_to(repository_root()))
+    except ValueError:
+        source_directory = str(aggregate_dir)
+    manifest = {
+        "source_directory": source_directory,
+        "source_sha256": {
+            filename: sha256_file(aggregate_dir / filename) for filename in input_names
+        },
+        "wilcoxon_method": method,
+        "wilcoxon_alternative": "two-sided",
+        "holm_family_size": 561,
+        "displayed_reference_comparisons": 33,
+        "presentation_reference": "harmonic_mean",
+        "z_score_reported": False,
+        "sensitivity_is_descriptive": True,
+        "outputs": [path.name for path in outputs],
+        "output_sha256": {path.name: sha256_file(path) for path in outputs},
+    }
+    manifest_path = output_dir / "statistical_review_{}_manifest.json".format(method)
+    atomic_text(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    outputs.append(manifest_path)
+    return outputs
+
+
 def main() -> None:
     args = parse_args()
-    outputs = generate_tables(args.aggregate_dir, args.output_dir, args.top_rank_cutoff)
+    if args.statistical_review_method:
+        outputs = generate_statistical_review_tables(
+            args.aggregate_dir, args.output_dir, args.statistical_review_method)
+    else:
+        outputs = generate_tables(args.aggregate_dir, args.output_dir, args.top_rank_cutoff)
     print("Generated {} RQ1 table artifacts in {}".format(len(outputs), args.output_dir.resolve()))
     for path in outputs:
         print("- {}".format(path.resolve()))
