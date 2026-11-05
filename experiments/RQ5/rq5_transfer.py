@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Rebuild RQ1 pick-up maps or evaluate them on balanced move-near episodes."""
+"""Reconstruct pick-up maps with the RQ1 protocol; transfer frozen maps to move-near."""
 import argparse
 import hashlib
 import json
 import random
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT), str(ROOT / 'src_new')]
@@ -42,6 +43,51 @@ def signature():
 def selected_configs(input_root, models):
     wanted = {MODEL_NAMES[m] for m in models}
     return [c for c in discover_configurations(input_root) if c.vla in wanted]
+
+
+
+def frozen_configurations(models):
+    """Recover the evaluation design from the frozen audit, without pickup inputs."""
+    wanted = {MODEL_NAMES[m] for m in models}
+    folds = pd.read_csv(RQ1 / 'audit/fold_manifest.csv', dtype={'test_run': str})
+    subset = folds[folds.vla.isin(wanted)]
+    configs = []
+    for cid, group in subset.groupby('configuration_id', sort=True):
+        columns = ['configuration_id', 'vla', 'condition', 'budget']
+        rows = group[columns].drop_duplicates()
+        if len(rows) != 1 or len(group) != len(RUNS) or set(group.test_run) != set(RUNS):
+            raise ValueError('Invalid frozen RQ1 configuration: ' + cid)
+        row = rows.iloc[0]
+        configs.append(SimpleNamespace(configuration_id=str(cid), vla=str(row.vla),
+                                       condition=str(row.condition), budget=int(row.budget)))
+    if any(sum(c.vla == vla for c in configs) != 8 for vla in wanted):
+        raise ValueError('Expected eight frozen RQ1 configurations per requested model')
+    return configs
+
+
+def map_provenance_report(needed):
+    """Report the origins of the actual map files, without changing their bytes."""
+    configs = {}
+    for config, run, folder in needed:
+        raw = json.loads((folder / 'metadata.json').read_text())
+        training = raw['training']
+        record = {'configuration_id': config.configuration_id, 'vla': config.vla,
+                  'training_source': training.get('training_source', 'rq1_original_artifact'),
+                  'current_input_sha256': training.get('current_input_sha256'),
+                  'historical_audit_comparison': training.get('historical_audit_comparison')}
+        previous = configs.setdefault(config.configuration_id, record)
+        if previous != record:
+            raise ValueError('Inconsistent map origins within ' + config.configuration_id)
+    sources = sorted({r['training_source'] for r in configs.values()})
+    reconstructed = sources == ['current_sbfl_pickup_input']
+    return {'map_count': len(needed), 'configuration_count': len(configs),
+            'training_sources': sources, 'reconstructed_from_current_pickup': reconstructed,
+            'historical_original_map_identity_verified': False if reconstructed else None,
+            'target_task_training_or_calibration': False,
+            'interpretation': ('Maps reconstructed from current pickup inputs using the frozen RQ1 protocol; '
+                               'historical original map files were not reused.' if reconstructed
+                               else 'Consult per-configuration training sources.'),
+            'configurations': list(configs.values())}
 
 
 def compare_training_audit(dataset, config, audit, hashes):
@@ -159,11 +205,12 @@ def select_target(path, model, seed, sample_manifest=None):
 
 def evaluate(args):
     sig = signature()
-    configs = selected_configs(args.input, args.models)
+    configs = frozen_configurations(args.models)
     needed = [(c, run, args.maps / 'folds' / c.configuration_id / run / 'model') for c in configs for run in RUNS]
     missing = [str(path) for _, _, path in needed if not (path / 'metadata.json').is_file()]
     if missing:
         raise FileNotFoundError(f'{len(missing)} RQ1 map artifacts missing. Run prepare first; example: {missing[0]}')
+    provenance = map_provenance_report(needed)
     datasets, counts = {}, {}
     supplied_sample = None
     if args.sample_manifest is not None:
@@ -192,8 +239,10 @@ def evaluate(args):
                 'selected_class_counts': {m: {str(k): int(v) for k, v in d.episodes.failure.value_counts().items()} for m, d in datasets.items()},
                 'target_signatures': configs_hash, 'rq1_signature': sig,
                 'grid': GRID.to_dict(), 'models': args.models,
+                'map_provenance_file': 'map_provenance.json', 'training_sources': provenance['training_sources'],
                 'selection': ('100 per outcome per model without replacement' if supplied_sample is None else 'provided sample manifest') + '; same sample for every RQ1 map and formula'}
     (args.output / 'analysis_config.json').write_text(json.dumps(metadata, indent=2) + '\n')
+    (args.output / 'map_provenance.json').write_text(json.dumps(provenance, indent=2) + '\n')
     folds = pd.read_csv(RQ1 / 'audit/fold_manifest.csv', dtype={'test_run': str})
     metrics, predictions = [], []
     for c, run, path in needed:
@@ -249,7 +298,7 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     for command in ('prepare','evaluate'):
         p = sub.add_parser(command)
-        p.add_argument('--input', type=Path, default=ROOT/'input', help='RQ1 pick-up input root')
+        p.add_argument('--input', type=Path, default=ROOT/'input', help='Pick-up input root for prepare; evaluate uses the frozen fold audit')
         p.add_argument('--maps', type=Path, required=True, help='RQ1 map artifact root')
         p.add_argument('--models', choices=tuple(MODEL_NAMES), nargs='+', default=list(MODEL_NAMES))
         if command == 'evaluate':

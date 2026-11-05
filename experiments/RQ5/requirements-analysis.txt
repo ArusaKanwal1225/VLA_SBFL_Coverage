@@ -1,0 +1,7 @@
+# Analysis only; no model checkpoints, simulator or GPU required.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+scikit-learn==1.6.1
+joblib==1.6.0
+threadpoolctl==3.7.0
