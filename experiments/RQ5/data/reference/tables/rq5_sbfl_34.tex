@@ -1,0 +1,49 @@
+\begin{table*}[t]
+\centering
+\caption{Move-near ROC-AUC of 34 SBFL techniques on samples with 100 passes per VLA and failure counts selected to approximate RQ1 proportions. Overall is the equal-weight mean across the four VLA models. Parentheses show tie-aware ranks; bold denotes rank 1 and underlining denotes ranks 2--5.}
+\label{tab:rq5-transfer-roc-auc}
+{\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.96}
+\begin{tabular}{lccccc}
+\toprule
+Technique & EO1 & GR00T & Pi0 & SpatialVLA & Overall \\
+\midrule
+Zoltar & 0.604 (15) & \underline{0.571 (4)} & \textbf{0.677 (1)} & \underline{0.504 (3)} & \textbf{0.589 (1)} \\
+Mountford & 0.593 (20) & \underline{0.568 (5)} & \underline{0.632 (2)} & 0.494 (7) & \underline{0.572 (2)} \\
+Harmonic Mean & 0.618 (6) & \underline{0.574 (2)} & \underline{0.585 (4)} & \textbf{0.511 (1)} & \underline{0.572 (3)} \\
+Rogot2 & 0.618 (6) & \underline{0.574 (2)} & \underline{0.585 (4)} & \textbf{0.511 (1)} & \underline{0.572 (3)} \\
+Gower & 0.535 (33) & \textbf{0.605 (1)} & \underline{0.606 (3)} & 0.497 (6) & \underline{0.561 (5)} \\
+Dennis & \underline{0.650 (2)} & 0.537 (9) & 0.521 (9) & \underline{0.502 (4)} & 0.552 (6) \\
+Phi (Geometric Mean) & \textbf{0.650 (1)} & 0.538 (8) & 0.521 (8) & \underline{0.499 (5)} & 0.552 (7) \\
+Tarwid & 0.608 (13) & 0.551 (6) & 0.525 (7) & 0.493 (9) & 0.544 (8) \\
+Tarantula & 0.608 (14) & 0.551 (7) & 0.525 (6) & 0.493 (8) & 0.544 (9) \\
+Arithmetic Mean & \underline{0.645 (3)} & 0.533 (13) & 0.513 (12) & 0.480 (10) & 0.543 (10) \\
+Michael & \underline{0.643 (4)} & 0.533 (12) & 0.514 (11) & 0.473 (12) & 0.541 (11) \\
+Cohen & \underline{0.639 (5)} & 0.533 (11) & 0.514 (10) & 0.472 (13) & 0.540 (12) \\
+Hamann & 0.612 (8) & 0.517 (15) & 0.493 (13) & 0.452 (29) & 0.519 (13) \\
+Hamming & 0.612 (8) & 0.517 (15) & 0.493 (13) & 0.452 (29) & 0.519 (13) \\
+Rogers \& Tanimoto & 0.612 (8) & 0.517 (15) & 0.493 (13) & 0.452 (29) & 0.519 (13) \\
+Simple Matching & 0.612 (8) & 0.517 (15) & 0.493 (13) & 0.452 (29) & 0.519 (13) \\
+Sokal & 0.612 (8) & 0.517 (15) & 0.493 (13) & 0.452 (29) & 0.519 (13) \\
+Ochiai2 & 0.604 (16) & 0.511 (20) & 0.492 (18) & 0.452 (28) & 0.515 (18) \\
+Fleiss & 0.604 (17) & 0.501 (23) & 0.484 (19) & 0.452 (25) & 0.510 (19) \\
+Ochiai & 0.592 (21) & 0.504 (21) & 0.482 (20) & 0.453 (15) & 0.508 (20) \\
+Fossum & 0.591 (22) & 0.504 (22) & 0.481 (21) & 0.453 (16) & 0.507 (21) \\
+Rogot1 & 0.599 (18) & 0.495 (24) & 0.479 (22) & 0.452 (26) & 0.506 (22) \\
+Scott & 0.599 (18) & 0.495 (24) & 0.479 (22) & 0.452 (26) & 0.506 (22) \\
+Baroni-Urbani \& Buser & 0.580 (23) & 0.487 (26) & 0.473 (30) & 0.453 (24) & 0.498 (24) \\
+Anderberg & 0.576 (25) & 0.486 (27) & 0.473 (24) & 0.453 (17) & 0.497 (25) \\
+Dice & 0.576 (25) & 0.486 (27) & 0.473 (24) & 0.453 (17) & 0.497 (25) \\
+Goodman & 0.576 (25) & 0.486 (27) & 0.473 (24) & 0.453 (17) & 0.497 (25) \\
+Jaccard & 0.576 (25) & 0.486 (27) & 0.473 (24) & 0.453 (17) & 0.497 (25) \\
+Kulczynski & 0.576 (25) & 0.486 (27) & 0.473 (24) & 0.453 (17) & 0.497 (25) \\
+Sorensen-Dice & 0.576 (25) & 0.486 (27) & 0.473 (24) & 0.453 (17) & 0.497 (25) \\
+Braun-Banquet & 0.574 (31) & 0.485 (33) & 0.473 (31) & 0.453 (23) & 0.496 (31) \\
+Pierce & 0.546 (32) & 0.470 (34) & 0.453 (32) & 0.451 (34) & 0.480 (32) \\
+Ample & 0.576 (24) & 0.521 (14) & 0.344 (33) & 0.477 (11) & 0.479 (33) \\
+Pearson & 0.513 (34) & 0.535 (10) & 0.260 (34) & 0.456 (14) & 0.441 (34) \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

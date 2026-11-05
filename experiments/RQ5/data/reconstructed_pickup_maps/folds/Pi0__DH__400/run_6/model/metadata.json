@@ -1,0 +1,264 @@
+{
+  "artifact_version": 1,
+  "created_at_utc": "2026-10-28T23:23:18.177746+00:00",
+  "files": {
+    "formula_catalog.csv": "c6f4945b7fbca6e76ccd3418e6a70d68fe42b469fa97d31c3b1419851cfde07a",
+    "formula_edge_cases.csv.gz": "7e53ea5c32b48370860c22003f8c65aedf332bb99bfc3b4f0756423bbcc279f6",
+    "training_episode_ids.csv.gz": "c3926a528b3bb7d53bbf2da1cdcf5114cbe4bd2ac9164cbf7a27b94f5f10ac33",
+    "voxel_scores.csv.gz": "faba648e616258eaf6158e8f96eb72d045522ae6083db6ea261e9348699c4dd5"
+  },
+  "formula_diagnostics": {
+    "ample": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "anderberg": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "arithmetic_mean": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "baroni_urbani_buser": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "braun_banquet": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "cohen": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "dennis": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "dice": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "fleiss": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "fossum": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "goodman": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "gower": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "hamann": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "hamming": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "harmonic_mean": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "jaccard": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "kulczynski": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "michael": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "mountford": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "ochiai": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "ochiai2": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "pearson": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "phi": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "pierce": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "rogers_tanimoto": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "rogot1": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "rogot2": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "scott": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "simple_matching": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "sokal": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "sorensen_dice": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "tarantula": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "tarwid": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    },
+    "zoltar": {
+      "negative_infinity": 0,
+      "positive_infinity": 0,
+      "undefined_neutral": 0
+    }
+  },
+  "formula_ids": [
+    "braun_banquet",
+    "dennis",
+    "mountford",
+    "fossum",
+    "pearson",
+    "gower",
+    "michael",
+    "pierce",
+    "baroni_urbani_buser",
+    "tarwid",
+    "ample",
+    "phi",
+    "arithmetic_mean",
+    "cohen",
+    "fleiss",
+    "zoltar",
+    "harmonic_mean",
+    "rogot2",
+    "simple_matching",
+    "rogers_tanimoto",
+    "hamming",
+    "hamann",
+    "sokal",
+    "scott",
+    "rogot1",
+    "kulczynski",
+    "anderberg",
+    "dice",
+    "goodman",
+    "jaccard",
+    "sorensen_dice",
+    "tarantula",
+    "ochiai",
+    "ochiai2"
+  ],
+  "grid": {
+    "coordinate_frame": "robot_base",
+    "coverage": "binary_per_episode",
+    "origin": [
+      -1.0,
+      -1.0,
+      0.0
+    ],
+    "rule": "floor((xyz - origin) / voxel_size)",
+    "voxel_size": 0.02
+  },
+  "score_policy": {
+    "all_unknown_trajectory": "neutral percentile 0.5",
+    "partial_unknown_voxels": "ignored and reported",
+    "trajectory_aggregation": "maximum empirical-percentile suspiciousness among known voxels",
+    "voxel_scores": "raw formula values with finite rank-preserving infinity sentinels"
+  },
+  "training": {
+    "budget": 400,
+    "condition": "DH",
+    "configuration_id": "Pi0__DH__400",
+    "current_input_sha256": "d656a398e57b2516ab01a626674ef9b692a6d5d1800681703c6772923feeafc4",
+    "experiment": "RQ1_phase_a_primary",
+    "experiment_signature": "910e24f9b9d91fdd8863ed3353c12dd082a81de824292f140fc39e5435eeda71",
+    "historical_audit_comparison": {
+      "current_episodes": 4000,
+      "different_episodes": 5,
+      "example_episode_ids": [
+        "Pi0_DH_400scenes_run_10_229",
+        "Pi0_DH_400scenes_run_10_294",
+        "Pi0_DH_400scenes_run_6_296",
+        "Pi0_DH_400scenes_run_7_120",
+        "Pi0_DH_400scenes_run_9_47"
+      ],
+      "reference_episodes": 4000
+    },
+    "test_run": "run_6",
+    "training_episode_ids_sha256": "16e63c60ca9dd2fb0b0ae42ab7b310cb4101df965340cc2dab8e8967ad35ff5e",
+    "training_episodes": 3600,
+    "training_failures": 2045,
+    "training_has_both_classes": true,
+    "training_passes": 1555,
+    "training_source": "current_sbfl_pickup_input",
+    "training_voxels": 7811,
+    "vla": "Pi0"
+  }
+}

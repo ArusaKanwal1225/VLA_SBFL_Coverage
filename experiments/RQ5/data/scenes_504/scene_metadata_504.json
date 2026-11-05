@@ -1,0 +1,3026 @@
+{
+  "0": {
+    "cell_x": 0,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "1": {
+    "cell_x": 0,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "2": {
+    "cell_x": 8,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "3": {
+    "cell_x": 6,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "4": {
+    "cell_x": 0,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "5": {
+    "cell_x": 4,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "6": {
+    "cell_x": 5,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "7": {
+    "cell_x": 5,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "8": {
+    "cell_x": 6,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "9": {
+    "cell_x": 3,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "10": {
+    "cell_x": 6,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "11": {
+    "cell_x": 6,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "12": {
+    "cell_x": 6,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "13": {
+    "cell_x": 2,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "14": {
+    "cell_x": 2,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "15": {
+    "cell_x": 2,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "16": {
+    "cell_x": 0,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "17": {
+    "cell_x": 1,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "18": {
+    "cell_x": 3,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "19": {
+    "cell_x": 1,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "20": {
+    "cell_x": 6,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "21": {
+    "cell_x": 6,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "22": {
+    "cell_x": 5,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "23": {
+    "cell_x": 5,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "24": {
+    "cell_x": 4,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "25": {
+    "cell_x": 2,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "26": {
+    "cell_x": 4,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "27": {
+    "cell_x": 4,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "28": {
+    "cell_x": 0,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "29": {
+    "cell_x": 1,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "30": {
+    "cell_x": 6,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "31": {
+    "cell_x": 4,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "32": {
+    "cell_x": 2,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "33": {
+    "cell_x": 8,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "34": {
+    "cell_x": 2,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "35": {
+    "cell_x": 4,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "36": {
+    "cell_x": 2,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "37": {
+    "cell_x": 8,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "38": {
+    "cell_x": 2,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "39": {
+    "cell_x": 0,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "40": {
+    "cell_x": 7,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "41": {
+    "cell_x": 6,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "42": {
+    "cell_x": 4,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "43": {
+    "cell_x": 4,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "44": {
+    "cell_x": 8,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "45": {
+    "cell_x": 3,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "46": {
+    "cell_x": 4,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "47": {
+    "cell_x": 2,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "48": {
+    "cell_x": 2,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "49": {
+    "cell_x": 7,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "50": {
+    "cell_x": 0,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "51": {
+    "cell_x": 8,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "52": {
+    "cell_x": 1,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "53": {
+    "cell_x": 0,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "54": {
+    "cell_x": 2,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "55": {
+    "cell_x": 5,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "56": {
+    "cell_x": 3,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "57": {
+    "cell_x": 0,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "58": {
+    "cell_x": 0,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "59": {
+    "cell_x": 1,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "60": {
+    "cell_x": 5,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "61": {
+    "cell_x": 1,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "62": {
+    "cell_x": 8,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "63": {
+    "cell_x": 2,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "64": {
+    "cell_x": 8,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "65": {
+    "cell_x": 7,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "66": {
+    "cell_x": 2,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "67": {
+    "cell_x": 7,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "68": {
+    "cell_x": 3,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "69": {
+    "cell_x": 5,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "70": {
+    "cell_x": 2,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "71": {
+    "cell_x": 8,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "72": {
+    "cell_x": 0,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "73": {
+    "cell_x": 7,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "74": {
+    "cell_x": 2,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "75": {
+    "cell_x": 3,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "76": {
+    "cell_x": 0,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "77": {
+    "cell_x": 0,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "78": {
+    "cell_x": 6,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "79": {
+    "cell_x": 1,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "80": {
+    "cell_x": 5,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "81": {
+    "cell_x": 8,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "82": {
+    "cell_x": 7,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "83": {
+    "cell_x": 1,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "84": {
+    "cell_x": 5,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "85": {
+    "cell_x": 3,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "86": {
+    "cell_x": 1,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "87": {
+    "cell_x": 6,
+    "cell_y": 2,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "88": {
+    "cell_x": 3,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "89": {
+    "cell_x": 0,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "90": {
+    "cell_x": 1,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "91": {
+    "cell_x": 5,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "92": {
+    "cell_x": 6,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "93": {
+    "cell_x": 7,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "94": {
+    "cell_x": 1,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "95": {
+    "cell_x": 1,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "96": {
+    "cell_x": 8,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "97": {
+    "cell_x": 6,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "98": {
+    "cell_x": 4,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "99": {
+    "cell_x": 8,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "100": {
+    "cell_x": 0,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "101": {
+    "cell_x": 0,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "102": {
+    "cell_x": 0,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "103": {
+    "cell_x": 1,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "104": {
+    "cell_x": 0,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "105": {
+    "cell_x": 3,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "106": {
+    "cell_x": 3,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "107": {
+    "cell_x": 3,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "108": {
+    "cell_x": 6,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "109": {
+    "cell_x": 4,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "110": {
+    "cell_x": 5,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "111": {
+    "cell_x": 6,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "112": {
+    "cell_x": 5,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "113": {
+    "cell_x": 1,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "114": {
+    "cell_x": 5,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "115": {
+    "cell_x": 8,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "116": {
+    "cell_x": 0,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "117": {
+    "cell_x": 3,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "118": {
+    "cell_x": 3,
+    "cell_y": 2,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "119": {
+    "cell_x": 8,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "120": {
+    "cell_x": 8,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "121": {
+    "cell_x": 4,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "122": {
+    "cell_x": 5,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "123": {
+    "cell_x": 8,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "124": {
+    "cell_x": 3,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "125": {
+    "cell_x": 2,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "126": {
+    "cell_x": 8,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "127": {
+    "cell_x": 6,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "128": {
+    "cell_x": 7,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "129": {
+    "cell_x": 2,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "130": {
+    "cell_x": 4,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "131": {
+    "cell_x": 4,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "132": {
+    "cell_x": 6,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "133": {
+    "cell_x": 7,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "134": {
+    "cell_x": 8,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "135": {
+    "cell_x": 6,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "136": {
+    "cell_x": 8,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "137": {
+    "cell_x": 1,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "138": {
+    "cell_x": 1,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "139": {
+    "cell_x": 6,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "140": {
+    "cell_x": 4,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "141": {
+    "cell_x": 2,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "142": {
+    "cell_x": 8,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "143": {
+    "cell_x": 4,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "144": {
+    "cell_x": 5,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "145": {
+    "cell_x": 8,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "146": {
+    "cell_x": 7,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "147": {
+    "cell_x": 7,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "148": {
+    "cell_x": 5,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "149": {
+    "cell_x": 2,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "150": {
+    "cell_x": 2,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "151": {
+    "cell_x": 0,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "152": {
+    "cell_x": 4,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "153": {
+    "cell_x": 3,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "154": {
+    "cell_x": 1,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "155": {
+    "cell_x": 3,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "156": {
+    "cell_x": 6,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "157": {
+    "cell_x": 6,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "158": {
+    "cell_x": 8,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "159": {
+    "cell_x": 6,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "160": {
+    "cell_x": 6,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "161": {
+    "cell_x": 8,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "162": {
+    "cell_x": 2,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "163": {
+    "cell_x": 5,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "164": {
+    "cell_x": 1,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "165": {
+    "cell_x": 6,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "166": {
+    "cell_x": 7,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "167": {
+    "cell_x": 2,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "168": {
+    "cell_x": 0,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "169": {
+    "cell_x": 2,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "170": {
+    "cell_x": 0,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "171": {
+    "cell_x": 7,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "172": {
+    "cell_x": 7,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "173": {
+    "cell_x": 6,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "174": {
+    "cell_x": 4,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "175": {
+    "cell_x": 3,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "176": {
+    "cell_x": 7,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "177": {
+    "cell_x": 6,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "178": {
+    "cell_x": 0,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "179": {
+    "cell_x": 7,
+    "cell_y": 2,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "180": {
+    "cell_x": 4,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "181": {
+    "cell_x": 3,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "182": {
+    "cell_x": 4,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "183": {
+    "cell_x": 8,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "184": {
+    "cell_x": 2,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "185": {
+    "cell_x": 8,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "186": {
+    "cell_x": 5,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "187": {
+    "cell_x": 6,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "188": {
+    "cell_x": 7,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "189": {
+    "cell_x": 3,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "190": {
+    "cell_x": 6,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "191": {
+    "cell_x": 2,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "192": {
+    "cell_x": 6,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "193": {
+    "cell_x": 5,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "194": {
+    "cell_x": 1,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "195": {
+    "cell_x": 3,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "196": {
+    "cell_x": 4,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "197": {
+    "cell_x": 2,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "198": {
+    "cell_x": 2,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "199": {
+    "cell_x": 1,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "200": {
+    "cell_x": 7,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "201": {
+    "cell_x": 7,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "202": {
+    "cell_x": 8,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "203": {
+    "cell_x": 3,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "204": {
+    "cell_x": 0,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "205": {
+    "cell_x": 4,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "206": {
+    "cell_x": 0,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "207": {
+    "cell_x": 1,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "208": {
+    "cell_x": 0,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "209": {
+    "cell_x": 3,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "210": {
+    "cell_x": 7,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "211": {
+    "cell_x": 0,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "212": {
+    "cell_x": 2,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "213": {
+    "cell_x": 4,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "214": {
+    "cell_x": 3,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "215": {
+    "cell_x": 6,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "216": {
+    "cell_x": 4,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "217": {
+    "cell_x": 0,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "218": {
+    "cell_x": 3,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "219": {
+    "cell_x": 7,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "220": {
+    "cell_x": 1,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "221": {
+    "cell_x": 4,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "222": {
+    "cell_x": 3,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "223": {
+    "cell_x": 0,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "224": {
+    "cell_x": 7,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "225": {
+    "cell_x": 8,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "226": {
+    "cell_x": 6,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "227": {
+    "cell_x": 3,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "228": {
+    "cell_x": 7,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "229": {
+    "cell_x": 2,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "230": {
+    "cell_x": 3,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "231": {
+    "cell_x": 0,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "232": {
+    "cell_x": 5,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "233": {
+    "cell_x": 8,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "234": {
+    "cell_x": 6,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "235": {
+    "cell_x": 1,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "236": {
+    "cell_x": 4,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "237": {
+    "cell_x": 5,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "238": {
+    "cell_x": 4,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "239": {
+    "cell_x": 4,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "240": {
+    "cell_x": 4,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "241": {
+    "cell_x": 5,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "242": {
+    "cell_x": 4,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "243": {
+    "cell_x": 7,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "244": {
+    "cell_x": 3,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "245": {
+    "cell_x": 8,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "246": {
+    "cell_x": 1,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "247": {
+    "cell_x": 6,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "248": {
+    "cell_x": 7,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "249": {
+    "cell_x": 7,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "250": {
+    "cell_x": 2,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "251": {
+    "cell_x": 1,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "252": {
+    "cell_x": 5,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "253": {
+    "cell_x": 2,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "254": {
+    "cell_x": 3,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "255": {
+    "cell_x": 4,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "256": {
+    "cell_x": 3,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "257": {
+    "cell_x": 8,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "258": {
+    "cell_x": 1,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "259": {
+    "cell_x": 7,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "260": {
+    "cell_x": 3,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "261": {
+    "cell_x": 5,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "262": {
+    "cell_x": 6,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "263": {
+    "cell_x": 4,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "264": {
+    "cell_x": 2,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "265": {
+    "cell_x": 2,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "266": {
+    "cell_x": 6,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "267": {
+    "cell_x": 7,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "268": {
+    "cell_x": 8,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "269": {
+    "cell_x": 6,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "270": {
+    "cell_x": 2,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "271": {
+    "cell_x": 8,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "272": {
+    "cell_x": 3,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "273": {
+    "cell_x": 5,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "274": {
+    "cell_x": 4,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "275": {
+    "cell_x": 1,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "276": {
+    "cell_x": 0,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "277": {
+    "cell_x": 7,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "278": {
+    "cell_x": 1,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "279": {
+    "cell_x": 3,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "280": {
+    "cell_x": 8,
+    "cell_y": 2,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "281": {
+    "cell_x": 0,
+    "cell_y": 2,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "282": {
+    "cell_x": 0,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "283": {
+    "cell_x": 8,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "284": {
+    "cell_x": 7,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "285": {
+    "cell_x": 2,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "286": {
+    "cell_x": 3,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "287": {
+    "cell_x": 4,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "288": {
+    "cell_x": 4,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "289": {
+    "cell_x": 7,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "290": {
+    "cell_x": 7,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "291": {
+    "cell_x": 4,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "292": {
+    "cell_x": 1,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "293": {
+    "cell_x": 6,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "294": {
+    "cell_x": 4,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "295": {
+    "cell_x": 5,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "296": {
+    "cell_x": 0,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "297": {
+    "cell_x": 1,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "298": {
+    "cell_x": 7,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "299": {
+    "cell_x": 7,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "300": {
+    "cell_x": 2,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "301": {
+    "cell_x": 6,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "302": {
+    "cell_x": 0,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "303": {
+    "cell_x": 7,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "304": {
+    "cell_x": 6,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "305": {
+    "cell_x": 1,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "306": {
+    "cell_x": 1,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "307": {
+    "cell_x": 8,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "308": {
+    "cell_x": 6,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "309": {
+    "cell_x": 8,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "310": {
+    "cell_x": 5,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "311": {
+    "cell_x": 1,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "312": {
+    "cell_x": 8,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "313": {
+    "cell_x": 6,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "314": {
+    "cell_x": 7,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "315": {
+    "cell_x": 2,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "316": {
+    "cell_x": 8,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "317": {
+    "cell_x": 7,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "318": {
+    "cell_x": 2,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "319": {
+    "cell_x": 5,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "320": {
+    "cell_x": 8,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "321": {
+    "cell_x": 2,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "322": {
+    "cell_x": 4,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "323": {
+    "cell_x": 3,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "324": {
+    "cell_x": 0,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "325": {
+    "cell_x": 0,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "326": {
+    "cell_x": 6,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "327": {
+    "cell_x": 8,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "328": {
+    "cell_x": 7,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "329": {
+    "cell_x": 0,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "330": {
+    "cell_x": 8,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "331": {
+    "cell_x": 8,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "332": {
+    "cell_x": 1,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "333": {
+    "cell_x": 4,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "334": {
+    "cell_x": 6,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "335": {
+    "cell_x": 1,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "336": {
+    "cell_x": 8,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "337": {
+    "cell_x": 1,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "338": {
+    "cell_x": 5,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "339": {
+    "cell_x": 1,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "340": {
+    "cell_x": 2,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "341": {
+    "cell_x": 3,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "342": {
+    "cell_x": 7,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "343": {
+    "cell_x": 8,
+    "cell_y": 2,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "344": {
+    "cell_x": 1,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "345": {
+    "cell_x": 8,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "346": {
+    "cell_x": 7,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "347": {
+    "cell_x": 1,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "348": {
+    "cell_x": 6,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "349": {
+    "cell_x": 0,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "350": {
+    "cell_x": 1,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "351": {
+    "cell_x": 1,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "352": {
+    "cell_x": 0,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "353": {
+    "cell_x": 3,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "354": {
+    "cell_x": 0,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "355": {
+    "cell_x": 0,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "356": {
+    "cell_x": 6,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "357": {
+    "cell_x": 8,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "358": {
+    "cell_x": 6,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "359": {
+    "cell_x": 5,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "360": {
+    "cell_x": 5,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "361": {
+    "cell_x": 6,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "362": {
+    "cell_x": 3,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "363": {
+    "cell_x": 6,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "364": {
+    "cell_x": 2,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "365": {
+    "cell_x": 5,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "366": {
+    "cell_x": 4,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "367": {
+    "cell_x": 7,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "368": {
+    "cell_x": 3,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "369": {
+    "cell_x": 6,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "370": {
+    "cell_x": 4,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "371": {
+    "cell_x": 3,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "372": {
+    "cell_x": 6,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "373": {
+    "cell_x": 5,
+    "cell_y": 1,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "374": {
+    "cell_x": 0,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "375": {
+    "cell_x": 2,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "376": {
+    "cell_x": 6,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "377": {
+    "cell_x": 5,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "378": {
+    "cell_x": 6,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "379": {
+    "cell_x": 5,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "380": {
+    "cell_x": 7,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "381": {
+    "cell_x": 4,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "382": {
+    "cell_x": 5,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "383": {
+    "cell_x": 8,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "384": {
+    "cell_x": 3,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "385": {
+    "cell_x": 5,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "386": {
+    "cell_x": 8,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "387": {
+    "cell_x": 7,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "388": {
+    "cell_x": 5,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "389": {
+    "cell_x": 1,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "390": {
+    "cell_x": 4,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "391": {
+    "cell_x": 2,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "392": {
+    "cell_x": 4,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "393": {
+    "cell_x": 7,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "394": {
+    "cell_x": 1,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "395": {
+    "cell_x": 1,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "396": {
+    "cell_x": 0,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "397": {
+    "cell_x": 3,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "398": {
+    "cell_x": 7,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "399": {
+    "cell_x": 3,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "400": {
+    "cell_x": 3,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "401": {
+    "cell_x": 8,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "402": {
+    "cell_x": 0,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "403": {
+    "cell_x": 6,
+    "cell_y": 6,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "404": {
+    "cell_x": 5,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "405": {
+    "cell_x": 1,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "406": {
+    "cell_x": 6,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "407": {
+    "cell_x": 7,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "408": {
+    "cell_x": 3,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "409": {
+    "cell_x": 1,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "410": {
+    "cell_x": 7,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "411": {
+    "cell_x": 8,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "412": {
+    "cell_x": 7,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "413": {
+    "cell_x": 0,
+    "cell_y": 6,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "414": {
+    "cell_x": 2,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "415": {
+    "cell_x": 1,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "416": {
+    "cell_x": 0,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "417": {
+    "cell_x": 2,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "418": {
+    "cell_x": 3,
+    "cell_y": 4,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "419": {
+    "cell_x": 3,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "420": {
+    "cell_x": 2,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "421": {
+    "cell_x": 4,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "422": {
+    "cell_x": 8,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "423": {
+    "cell_x": 1,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "424": {
+    "cell_x": 0,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "425": {
+    "cell_x": 2,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "426": {
+    "cell_x": 4,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "427": {
+    "cell_x": 4,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "428": {
+    "cell_x": 2,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "429": {
+    "cell_x": 0,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "430": {
+    "cell_x": 7,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "431": {
+    "cell_x": 4,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 1
+  },
+  "432": {
+    "cell_x": 5,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "433": {
+    "cell_x": 0,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "434": {
+    "cell_x": 5,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "435": {
+    "cell_x": 2,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "436": {
+    "cell_x": 3,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "437": {
+    "cell_x": 1,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "438": {
+    "cell_x": 0,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "439": {
+    "cell_x": 1,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "440": {
+    "cell_x": 2,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "441": {
+    "cell_x": 5,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "442": {
+    "cell_x": 2,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "443": {
+    "cell_x": 4,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "444": {
+    "cell_x": 1,
+    "cell_y": 2,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "445": {
+    "cell_x": 0,
+    "cell_y": 5,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "446": {
+    "cell_x": 1,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "447": {
+    "cell_x": 4,
+    "cell_y": 1,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "448": {
+    "cell_x": 4,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "449": {
+    "cell_x": 7,
+    "cell_y": 7,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "450": {
+    "cell_x": 0,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "451": {
+    "cell_x": 3,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "452": {
+    "cell_x": 4,
+    "cell_y": 1,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "453": {
+    "cell_x": 2,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 1
+  },
+  "454": {
+    "cell_x": 8,
+    "cell_y": 1,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "455": {
+    "cell_x": 1,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "456": {
+    "cell_x": 3,
+    "cell_y": 3,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "457": {
+    "cell_x": 1,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "458": {
+    "cell_x": 2,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "459": {
+    "cell_x": 4,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 5
+  },
+  "460": {
+    "cell_x": 3,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 2
+  },
+  "461": {
+    "cell_x": 5,
+    "cell_y": 4,
+    "source_orientation_id": 5,
+    "target_orientation_id": 2
+  },
+  "462": {
+    "cell_x": 0,
+    "cell_y": 0,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "463": {
+    "cell_x": 8,
+    "cell_y": 5,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "464": {
+    "cell_x": 3,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "465": {
+    "cell_x": 5,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "466": {
+    "cell_x": 2,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "467": {
+    "cell_x": 5,
+    "cell_y": 0,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "468": {
+    "cell_x": 7,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "469": {
+    "cell_x": 4,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 5
+  },
+  "470": {
+    "cell_x": 7,
+    "cell_y": 4,
+    "source_orientation_id": 3,
+    "target_orientation_id": 4
+  },
+  "471": {
+    "cell_x": 2,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "472": {
+    "cell_x": 8,
+    "cell_y": 5,
+    "source_orientation_id": 3,
+    "target_orientation_id": 3
+  },
+  "473": {
+    "cell_x": 0,
+    "cell_y": 1,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "474": {
+    "cell_x": 3,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 3
+  },
+  "475": {
+    "cell_x": 5,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "476": {
+    "cell_x": 5,
+    "cell_y": 3,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "477": {
+    "cell_x": 8,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  },
+  "478": {
+    "cell_x": 5,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "479": {
+    "cell_x": 3,
+    "cell_y": 6,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "480": {
+    "cell_x": 4,
+    "cell_y": 6,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "481": {
+    "cell_x": 6,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "482": {
+    "cell_x": 5,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 3
+  },
+  "483": {
+    "cell_x": 5,
+    "cell_y": 7,
+    "source_orientation_id": 1,
+    "target_orientation_id": 2
+  },
+  "484": {
+    "cell_x": 1,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 5
+  },
+  "485": {
+    "cell_x": 7,
+    "cell_y": 4,
+    "source_orientation_id": 1,
+    "target_orientation_id": 4
+  },
+  "486": {
+    "cell_x": 5,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 1
+  },
+  "487": {
+    "cell_x": 4,
+    "cell_y": 5,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "488": {
+    "cell_x": 6,
+    "cell_y": 7,
+    "source_orientation_id": 4,
+    "target_orientation_id": 2
+  },
+  "489": {
+    "cell_x": 1,
+    "cell_y": 3,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "490": {
+    "cell_x": 3,
+    "cell_y": 7,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "491": {
+    "cell_x": 5,
+    "cell_y": 2,
+    "source_orientation_id": 3,
+    "target_orientation_id": 2
+  },
+  "492": {
+    "cell_x": 5,
+    "cell_y": 0,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "493": {
+    "cell_x": 5,
+    "cell_y": 0,
+    "source_orientation_id": 5,
+    "target_orientation_id": 5
+  },
+  "494": {
+    "cell_x": 2,
+    "cell_y": 4,
+    "source_orientation_id": 2,
+    "target_orientation_id": 4
+  },
+  "495": {
+    "cell_x": 5,
+    "cell_y": 5,
+    "source_orientation_id": 1,
+    "target_orientation_id": 3
+  },
+  "496": {
+    "cell_x": 8,
+    "cell_y": 0,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "497": {
+    "cell_x": 0,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 5
+  },
+  "498": {
+    "cell_x": 7,
+    "cell_y": 3,
+    "source_orientation_id": 5,
+    "target_orientation_id": 4
+  },
+  "499": {
+    "cell_x": 3,
+    "cell_y": 7,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "500": {
+    "cell_x": 7,
+    "cell_y": 2,
+    "source_orientation_id": 4,
+    "target_orientation_id": 4
+  },
+  "501": {
+    "cell_x": 7,
+    "cell_y": 2,
+    "source_orientation_id": 1,
+    "target_orientation_id": 1
+  },
+  "502": {
+    "cell_x": 8,
+    "cell_y": 3,
+    "source_orientation_id": 2,
+    "target_orientation_id": 1
+  },
+  "503": {
+    "cell_x": 5,
+    "cell_y": 6,
+    "source_orientation_id": 5,
+    "target_orientation_id": 3
+  }
+}
