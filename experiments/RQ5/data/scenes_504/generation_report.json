@@ -1,0 +1,57 @@
+{
+  "scenes": 504,
+  "target_cells": 72,
+  "scenes_per_cell": 7,
+  "source_counts": {
+    "bridge_spoon_generated_modified": 72,
+    "sponge": 72,
+    "blue_plastic_bottle": 72,
+    "eggplant": 72,
+    "opened_redbull_can": 72,
+    "apple": 72,
+    "bridge_carrot_generated_modified": 72
+  },
+  "target_counts": {
+    "blue_plastic_bottle": 72,
+    "opened_redbull_can": 72,
+    "sponge": 72,
+    "apple": 72,
+    "bridge_spoon_generated_modified": 72,
+    "eggplant": 72,
+    "bridge_carrot_generated_modified": 72
+  },
+  "source_orientation_counts": {
+    "1": 101,
+    "2": 101,
+    "3": 101,
+    "4": 101,
+    "5": 100
+  },
+  "target_orientation_counts": {
+    "1": 101,
+    "2": 101,
+    "3": 101,
+    "4": 101,
+    "5": 100
+  },
+  "ordered_object_pairs": 42,
+  "scenes_per_ordered_pair": 12,
+  "pilot_scene_overlap": 0,
+  "seed": 20261028,
+  "pilot_sha256": "044b3797b85a35a5c861b9fde91fa0eb4fb56cd3b618d9bce5a172bd5d7a1284",
+  "min_separation": 0.2,
+  "voxel_size_xy": 0.05,
+  "x_range": [
+    -0.5,
+    -0.05
+  ],
+  "y_range": [
+    0,
+    0.4
+  ],
+  "grid_shape": [
+    9,
+    8
+  ],
+  "note": "Initial XY positions only; reachability, collisions and success require simulator validation."
+}

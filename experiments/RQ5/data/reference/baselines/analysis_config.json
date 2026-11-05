@@ -1,0 +1,167 @@
+{
+  "sample_file": "/home/ubuntu/Deephyperion_VLA/results/rq5_sample_rq1_ratio_fixed100/sample_manifest.csv",
+  "sample_sha256": "a57648651bc83148eda0e45742dbe2b78b4b198438f909302935f5bad55619cf",
+  "models": [
+    "eo1",
+    "gr00t",
+    "pi0",
+    "spatialvla-4b"
+  ],
+  "episodes_per_model": {
+    "eo1": 223,
+    "gr00t": 246,
+    "pi0": 298,
+    "spatialvla-4b": 342
+  },
+  "selected_class_counts": {
+    "eo1": {
+      "1": 123,
+      "0": 100
+    },
+    "gr00t": {
+      "1": 146,
+      "0": 100
+    },
+    "pi0": {
+      "1": 198,
+      "0": 100
+    },
+    "spatialvla-4b": {
+      "1": 242,
+      "0": 100
+    }
+  },
+  "failure_is_positive": true,
+  "aggregation": "arithmetic mean of numeric JSON leaves; fixed direction from RQ2 catalogue",
+  "missing_policy": "no episode removal; metric requires availability for every selected episode in every selected model",
+  "complete_baselines": [
+    "action_acceleration_instability",
+    "action_position_instability",
+    "action_velocity_instability",
+    "optimal_trajectory",
+    "tcp_acceleration_instability",
+    "tcp_position_instability",
+    "tcp_velocity_instability",
+    "trajectory_instability"
+  ],
+  "metric_catalogue": [
+    {
+      "metric_id": "token_probability",
+      "name": "Token Probability",
+      "filename": "Token_based_token_prob.json",
+      "family": "Token uncertainty",
+      "direction": -1,
+      "observability": "model internals",
+      "task_aware": false
+    },
+    {
+      "metric_id": "pcs",
+      "name": "Prediction Confidence Score (PCS)",
+      "filename": "Token_based_pcs.json",
+      "family": "Token uncertainty",
+      "direction": -1,
+      "observability": "model internals",
+      "task_aware": false
+    },
+    {
+      "metric_id": "deepgini",
+      "name": "DeepGini",
+      "filename": "Token_based_deepgini.json",
+      "family": "Token uncertainty",
+      "direction": 1,
+      "observability": "model internals",
+      "task_aware": false
+    },
+    {
+      "metric_id": "entropy",
+      "name": "Entropy",
+      "filename": "Token_based_entropy.json",
+      "family": "Token uncertainty",
+      "direction": 1,
+      "observability": "model internals",
+      "task_aware": false
+    },
+    {
+      "metric_id": "action_position_instability",
+      "name": "Action Position Instability",
+      "filename": "position_instability.json",
+      "family": "Action uncertainty",
+      "direction": 1,
+      "observability": "VLA action stream",
+      "task_aware": false
+    },
+    {
+      "metric_id": "action_velocity_instability",
+      "name": "Action Velocity Instability",
+      "filename": "velocity_instability.json",
+      "family": "Action uncertainty",
+      "direction": 1,
+      "observability": "VLA action stream",
+      "task_aware": false
+    },
+    {
+      "metric_id": "action_acceleration_instability",
+      "name": "Action Acceleration Instability",
+      "filename": "acceleration_instability.json",
+      "family": "Action uncertainty",
+      "direction": 1,
+      "observability": "VLA action stream",
+      "task_aware": false
+    },
+    {
+      "metric_id": "execution_variability",
+      "name": "Execution Variability",
+      "filename": "Execution_Variability.json",
+      "family": "Action uncertainty",
+      "direction": 1,
+      "observability": "repeated VLA inference",
+      "task_aware": false
+    },
+    {
+      "metric_id": "tcp_position_instability",
+      "name": "TCP Position Instability",
+      "filename": "TCP_position_instability.json",
+      "family": "Trajectory quality",
+      "direction": 1,
+      "observability": "executed TCP trajectory",
+      "task_aware": false
+    },
+    {
+      "metric_id": "tcp_velocity_instability",
+      "name": "TCP Velocity Instability",
+      "filename": "TCP_velocity_instability.json",
+      "family": "Trajectory quality",
+      "direction": 1,
+      "observability": "executed TCP trajectory",
+      "task_aware": false
+    },
+    {
+      "metric_id": "tcp_acceleration_instability",
+      "name": "TCP Acceleration Instability",
+      "filename": "TCP_acceleration_instability.json",
+      "family": "Trajectory quality",
+      "direction": 1,
+      "observability": "executed TCP trajectory",
+      "task_aware": false
+    },
+    {
+      "metric_id": "trajectory_instability",
+      "name": "Trajectory Instability",
+      "filename": "Trajectory_Instability_Gradients.json",
+      "family": "Trajectory quality",
+      "direction": 1,
+      "observability": "executed TCP trajectory",
+      "task_aware": false
+    },
+    {
+      "metric_id": "optimal_trajectory",
+      "name": "Optimal Trajectory",
+      "filename": "Optimal_Trajectory.json",
+      "family": "Task-aware quality",
+      "direction": 1,
+      "observability": "object/goal state",
+      "task_aware": true
+    }
+  ],
+  "note": "Fixed evaluation sample; no additional baseline fitting or target calibration."
+}

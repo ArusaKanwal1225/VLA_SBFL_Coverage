@@ -1,0 +1,87 @@
+{
+  "seed": null,
+  "sample_per_class": null,
+  "target_class_counts": {
+    "pi0": {
+      "1": 395,
+      "0": 109
+    },
+    "gr00t": {
+      "1": 279,
+      "0": 225
+    },
+    "eo1": {
+      "1": 327,
+      "0": 177
+    },
+    "spatialvla-4b": {
+      "1": 353,
+      "0": 151
+    }
+  },
+  "source_sample_manifest": "/home/ubuntu/Deephyperion_VLA/results/rq5_sample_rq1_ratio_fixed100/sample_manifest.csv",
+  "source_sample_sha256": "a57648651bc83148eda0e45742dbe2b78b4b198438f909302935f5bad55619cf",
+  "selected_class_counts": {
+    "pi0": {
+      "1": 198,
+      "0": 100
+    },
+    "gr00t": {
+      "1": 146,
+      "0": 100
+    },
+    "eo1": {
+      "1": 123,
+      "0": 100
+    },
+    "spatialvla-4b": {
+      "1": 242,
+      "0": 100
+    }
+  },
+  "target_signatures": {
+    "pi0": [
+      "google_robot_move_near_customizable",
+      2024,
+      "c4ca9db8a692843f82610575964449f87347c384024007212e2bf0a07ebce302",
+      "c225c259bb1ed0b59ea8653adcab476e00275499ea3948811880f495ccd13c8a"
+    ],
+    "gr00t": [
+      "google_robot_move_near_customizable",
+      2024,
+      "c4ca9db8a692843f82610575964449f87347c384024007212e2bf0a07ebce302",
+      "c225c259bb1ed0b59ea8653adcab476e00275499ea3948811880f495ccd13c8a"
+    ],
+    "eo1": [
+      "google_robot_move_near_customizable",
+      2024,
+      "c4ca9db8a692843f82610575964449f87347c384024007212e2bf0a07ebce302",
+      "c225c259bb1ed0b59ea8653adcab476e00275499ea3948811880f495ccd13c8a"
+    ],
+    "spatialvla-4b": [
+      "google_robot_move_near_customizable",
+      2024,
+      "c4ca9db8a692843f82610575964449f87347c384024007212e2bf0a07ebce302",
+      "c225c259bb1ed0b59ea8653adcab476e00275499ea3948811880f495ccd13c8a"
+    ]
+  },
+  "rq1_signature": "910e24f9b9d91fdd8863ed3353c12dd082a81de824292f140fc39e5435eeda71",
+  "grid": {
+    "voxel_size": 0.02,
+    "origin": [
+      -1.0,
+      -1.0,
+      0.0
+    ],
+    "coordinate_frame": "robot_base",
+    "rule": "floor((xyz - origin) / voxel_size)",
+    "coverage": "binary_per_episode"
+  },
+  "models": [
+    "pi0",
+    "gr00t",
+    "eo1",
+    "spatialvla-4b"
+  ],
+  "selection": "provided sample manifest; same sample for every RQ1 map and formula"
+}

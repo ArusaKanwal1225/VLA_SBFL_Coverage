@@ -1,0 +1,53 @@
+vla,metric_id,method,family,task_aware,available,episodes,availability_fraction,roc_auc,average_precision,complete_all_models
+EO1,token_probability,Token Probability,Token uncertainty,False,0,223,0.0,,,False
+EO1,pcs,Prediction Confidence Score (PCS),Token uncertainty,False,0,223,0.0,,,False
+EO1,deepgini,DeepGini,Token uncertainty,False,0,223,0.0,,,False
+EO1,entropy,Entropy,Token uncertainty,False,0,223,0.0,,,False
+EO1,action_position_instability,Action Position Instability,Action uncertainty,False,223,223,1.0,0.7724390243902439,0.8222357887962138,True
+EO1,action_velocity_instability,Action Velocity Instability,Action uncertainty,False,223,223,1.0,0.7722764227642276,0.8326288193799462,True
+EO1,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,False,223,223,1.0,0.770650406504065,0.832650995930745,True
+EO1,execution_variability,Execution Variability,Action uncertainty,False,0,223,0.0,,,False
+EO1,tcp_position_instability,TCP Position Instability,Trajectory quality,False,223,223,1.0,0.7285365853658536,0.7765032952984586,True
+EO1,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,False,223,223,1.0,0.7752032520325203,0.8211188893332877,True
+EO1,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,False,223,223,1.0,0.788130081300813,0.8343910352228747,True
+EO1,trajectory_instability,Trajectory Instability,Trajectory quality,False,223,223,1.0,0.7857723577235772,0.8289655369292381,True
+EO1,optimal_trajectory,Optimal Trajectory,Task-aware quality,True,223,223,1.0,0.8980487804878049,0.932226144831302,True
+GR00T,token_probability,Token Probability,Token uncertainty,False,0,246,0.0,,,False
+GR00T,pcs,Prediction Confidence Score (PCS),Token uncertainty,False,0,246,0.0,,,False
+GR00T,deepgini,DeepGini,Token uncertainty,False,0,246,0.0,,,False
+GR00T,entropy,Entropy,Token uncertainty,False,0,246,0.0,,,False
+GR00T,action_position_instability,Action Position Instability,Action uncertainty,False,246,246,1.0,0.6568493150684932,0.72389994253559,True
+GR00T,action_velocity_instability,Action Velocity Instability,Action uncertainty,False,246,246,1.0,0.6441095890410959,0.7099036846646978,True
+GR00T,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,False,246,246,1.0,0.6380821917808219,0.6965865743043665,True
+GR00T,execution_variability,Execution Variability,Action uncertainty,False,0,246,0.0,,,False
+GR00T,tcp_position_instability,TCP Position Instability,Trajectory quality,False,246,246,1.0,0.6412328767123288,0.7050733263425383,True
+GR00T,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,False,246,246,1.0,0.5618493150684931,0.6247850619956212,True
+GR00T,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,False,246,246,1.0,0.5416438356164384,0.6161564855455166,True
+GR00T,trajectory_instability,Trajectory Instability,Trajectory quality,False,246,246,1.0,0.552945205479452,0.6273397970536655,True
+GR00T,optimal_trajectory,Optimal Trajectory,Task-aware quality,True,246,246,1.0,0.8742465753424657,0.9275969216748915,True
+Pi0,token_probability,Token Probability,Token uncertainty,False,0,298,0.0,,,False
+Pi0,pcs,Prediction Confidence Score (PCS),Token uncertainty,False,0,298,0.0,,,False
+Pi0,deepgini,DeepGini,Token uncertainty,False,0,298,0.0,,,False
+Pi0,entropy,Entropy,Token uncertainty,False,0,298,0.0,,,False
+Pi0,action_position_instability,Action Position Instability,Action uncertainty,False,298,298,1.0,0.5064646464646465,0.7103871153920774,True
+Pi0,action_velocity_instability,Action Velocity Instability,Action uncertainty,False,298,298,1.0,0.5010606060606061,0.7061629771415451,True
+Pi0,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,False,298,298,1.0,0.49196969696969695,0.6995343589718013,True
+Pi0,execution_variability,Execution Variability,Action uncertainty,False,0,298,0.0,,,False
+Pi0,tcp_position_instability,TCP Position Instability,Trajectory quality,False,298,298,1.0,0.5816161616161616,0.757366975154563,True
+Pi0,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,False,298,298,1.0,0.6284848484848485,0.8003047312521366,True
+Pi0,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,False,298,298,1.0,0.6707575757575758,0.8297656845353353,True
+Pi0,trajectory_instability,Trajectory Instability,Trajectory quality,False,298,298,1.0,0.6614646464646464,0.8181147391077591,True
+Pi0,optimal_trajectory,Optimal Trajectory,Task-aware quality,True,298,298,1.0,0.9472727272727273,0.9725303672027639,True
+SpatialVLA,token_probability,Token Probability,Token uncertainty,False,0,342,0.0,,,False
+SpatialVLA,pcs,Prediction Confidence Score (PCS),Token uncertainty,False,0,342,0.0,,,False
+SpatialVLA,deepgini,DeepGini,Token uncertainty,False,0,342,0.0,,,False
+SpatialVLA,entropy,Entropy,Token uncertainty,False,0,342,0.0,,,False
+SpatialVLA,action_position_instability,Action Position Instability,Action uncertainty,False,342,342,1.0,0.4124793388429752,0.7210077376149008,True
+SpatialVLA,action_velocity_instability,Action Velocity Instability,Action uncertainty,False,342,342,1.0,0.413099173553719,0.7195393118937293,True
+SpatialVLA,action_acceleration_instability,Action Acceleration Instability,Action uncertainty,False,342,342,1.0,0.4027272727272727,0.713149213573881,True
+SpatialVLA,execution_variability,Execution Variability,Action uncertainty,False,0,342,0.0,,,False
+SpatialVLA,tcp_position_instability,TCP Position Instability,Trajectory quality,False,342,342,1.0,0.33169421487603307,0.6796831382651687,True
+SpatialVLA,tcp_velocity_instability,TCP Velocity Instability,Trajectory quality,False,342,342,1.0,0.42863636363636365,0.7198176443272972,True
+SpatialVLA,tcp_acceleration_instability,TCP Acceleration Instability,Trajectory quality,False,342,342,1.0,0.4682231404958678,0.7320476941770216,True
+SpatialVLA,trajectory_instability,Trajectory Instability,Trajectory quality,False,342,342,1.0,0.46454545454545454,0.7337906950326054,True
+SpatialVLA,optimal_trajectory,Optimal Trajectory,Task-aware quality,True,342,342,1.0,0.7643801652892562,0.8905226338158913,True
