@@ -17,7 +17,9 @@ from typing import Dict, Iterable, List, Mapping, Sequence, Tuple
 import numpy as np
 import pandas as pd
 
-from experiments.RQ1.analysis import holm_adjust, wilcoxon_signed_rank
+from experiments.RQ1.analysis import (
+    MAX_EXACT_NONZERO_PAIRS, holm_adjust, wilcoxon_signed_rank,
+)
 from experiments.RQ1.run_experiment import (
     EXPECTED_RUNS,
     Configuration,
@@ -28,6 +30,7 @@ from experiments.RQ1.run_experiment import (
     sha256_file,
     subset_dataset,
     validate_configuration_metadata,
+    validate_primary_block_metrics,
 )
 from experiments.RQ3.analysis import coverage_statistics, voxel_union
 from experiments.RQ3_v2.analysis import (
@@ -441,6 +444,8 @@ def aggregate_sample_efficiency(
 def adjacent_reference_tests(
     block_curves: pd.DataFrame,
     training_sizes: Sequence[int],
+    method: str = "approximate",
+    include_counts: bool = False,
 ) -> Tuple[pd.DataFrame, dict]:
     primary = block_curves[
         np.isclose(block_curves["voxel_size"].astype(float), 0.02)
@@ -458,7 +463,7 @@ def adjacent_reference_tests(
     tests = {}
     for lower, upper in zip(sizes, sizes[1:]):
         key = "{}-to-{}".format(lower, upper)
-        result = wilcoxon_signed_rank(pivot[upper], pivot[lower])
+        result = wilcoxon_signed_rank(pivot[upper], pivot[lower], method=method)
         raw[key] = result.p_value
         tests[key] = result
     adjusted = holm_adjust(raw)
@@ -476,6 +481,7 @@ def adjacent_reference_tests(
             "holm_adjusted_p_value": adjusted[key],
             "rank_biserial": tests[key].rank_biserial,
             "primary_blocks": len(differences),
+            **({"nonzero_pairs": tests[key].nonzero_pairs} if include_counts else {}),
         })
     return pd.DataFrame(rows), {
         "status": "complete",
@@ -486,7 +492,9 @@ def adjacent_reference_tests(
     }
 
 
-def sample_efficiency_tests(block_efficiency: pd.DataFrame) -> Tuple[pd.DataFrame, dict]:
+def sample_efficiency_tests(
+    block_efficiency: pd.DataFrame, method: str = "approximate", include_counts: bool = False,
+) -> Tuple[pd.DataFrame, dict]:
     primary = block_efficiency[
         np.isclose(block_efficiency["voxel_size"].astype(float), 0.02)]
     pivot = primary.pivot(
@@ -507,7 +515,7 @@ def sample_efficiency_tests(block_efficiency: pd.DataFrame) -> Tuple[pd.DataFram
     for formula_id in formula_ids:
         if formula_id == REFERENCE_FORMULA:
             continue
-        result = wilcoxon_signed_rank(pivot[formula_id], reference)
+        result = wilcoxon_signed_rank(pivot[formula_id], reference, method=method)
         raw[formula_id] = result.p_value
         tests[formula_id] = result
     adjusted = holm_adjust(raw)
@@ -531,6 +539,8 @@ def sample_efficiency_tests(block_efficiency: pd.DataFrame) -> Tuple[pd.DataFram
             "wilcoxon_p_value": p_value,
             "holm_adjusted_p_value": adjusted_p,
             "rank_biserial": rank_biserial,
+            **({"nonzero_pairs": 0 if formula_id == REFERENCE_FORMULA else
+                tests[formula_id].nonzero_pairs} if include_counts else {}),
             "meaningful_difference": bool(
                 formula_id != REFERENCE_FORMULA
                 and adjusted_p < 0.05 and abs(difference) >= PRACTICAL_MARGIN),
@@ -579,6 +589,16 @@ def conditional_coverage_analysis(metrics: pd.DataFrame, aggregate: Path) -> Tup
             "reason": "at least two repetitions with within-size coverage variation are required",
         }
 
+    summary, metadata = conditional_coverage_tests(effects)
+    if metadata["status"] == "complete":
+        summary.to_csv(aggregate / "conditional_coverage_tests.csv", index=False)
+    return effects, metadata
+
+
+def conditional_coverage_tests(
+    effects: pd.DataFrame, method: str = "approximate", include_counts: bool = False,
+) -> Tuple[pd.DataFrame, dict]:
+    """Test stored block slopes against zero; Holm spans the 34 techniques."""
     primary = effects[np.isclose(effects["voxel_size"].astype(float), 0.02)]
     formula_ids = list(STUDY_FORMULA_IDS)
     counts = primary.groupby("formula_id")["primary_block_id"].nunique()
@@ -593,7 +613,7 @@ def conditional_coverage_analysis(metrics: pd.DataFrame, aggregate: Path) -> Tup
         values = primary.loc[
             primary["formula_id"] == formula_id, "roc_auc_per_10pp_coverage"
         ].to_numpy(dtype=np.float64)
-        result = wilcoxon_signed_rank(values, np.zeros_like(values))
+        result = wilcoxon_signed_rank(values, np.zeros_like(values), method=method)
         raw[formula_id] = result.p_value
         tests[formula_id] = result
     adjusted = holm_adjust(raw)
@@ -611,10 +631,10 @@ def conditional_coverage_analysis(metrics: pd.DataFrame, aggregate: Path) -> Tup
             "holm_adjusted_p_value": adjusted[formula_id],
             "rank_biserial": tests[formula_id].rank_biserial,
             "primary_blocks": len(values),
+            **({"nonzero_pairs": tests[formula_id].nonzero_pairs} if include_counts else {}),
         })
     summary = pd.DataFrame(summary_rows)
-    summary.to_csv(aggregate / "conditional_coverage_tests.csv", index=False)
-    return effects, {
+    return summary, {
         "status": "complete",
         "test": "within-size fixed-effect coverage slopes tested against zero",
         "multiplicity": "Holm across 34 techniques",
@@ -752,6 +772,89 @@ def aggregate_results(output_root: Path) -> dict:
     return summary
 
 
+def regenerate_statistical_review(aggregate: Path, method: str = "exact") -> dict:
+    """Recompute paired tests across the frozen 4-VLA x 4-strategy design.
+
+    Holm families of 4 adjacent changes, 33 efficiency contrasts and 34 stored
+    coverage slopes are separate. Shared factors may limit block independence.
+    Meaningful-difference labels are descriptive, not equivalence tests.
+    """
+    if method not in {"approximate", "exact"}:
+        raise ValueError("method must be 'approximate' or 'exact'")
+    aggregate = aggregate.expanduser().resolve()
+    paths = {
+        "learning": aggregate / "primary_block_learning_curves.csv",
+        "efficiency": aggregate / "primary_block_sample_efficiency.csv",
+        "coverage": aggregate / "within_size_coverage_effects.csv",
+        "old_adjacent": aggregate / "adjacent_size_tests.csv",
+        "old_efficiency": aggregate / "sample_efficiency_tests.csv",
+        "old_coverage": aggregate / "conditional_coverage_tests.csv",
+    }
+    for path in paths.values():
+        if not path.is_file():
+            raise FileNotFoundError(path)
+    learning, efficiency, coverage = [pd.read_csv(paths[key]) for key in
+                                      ("learning", "efficiency", "coverage")]
+    old_adjacent, old_efficiency, old_coverage = [pd.read_csv(paths[key]) for key in
+                                                  ("old_adjacent", "old_efficiency", "old_coverage")]
+    for frame, outcome in ((learning, "roc_auc"), (efficiency, "normalized_log_aulc"),
+                           (coverage, "roc_auc_per_10pp_coverage")):
+        if set(frame.voxel_size) != {0.02}:
+            raise ValueError("the frozen RQ4 review requires voxel size 0.02")
+        if frame is learning:
+            if set(frame.training_size) != set(DEFAULT_TRAINING_SIZES):
+                raise ValueError("unexpected training sizes")
+            for _, group in frame.groupby("training_size"):
+                validate_primary_block_metrics(group)
+        else:
+            validate_primary_block_metrics(frame.rename(columns={outcome: "roc_auc"}))
+    adjacent, adjacent_meta = adjacent_reference_tests(
+        learning, DEFAULT_TRAINING_SIZES, method=method, include_counts=True)
+    sample, sample_meta = sample_efficiency_tests(
+        efficiency, method=method, include_counts=True)
+    conditional, conditional_meta = conditional_coverage_tests(
+        coverage.sort_values(["primary_block_id", "formula_id"]),
+        method=method, include_counts=True)
+    if any(meta["status"] != "complete" for meta in
+           (adjacent_meta, sample_meta, conditional_meta)):
+        raise ValueError("incomplete review families")
+    outputs = {
+        f"adjacent_size_tests_{method}.csv": adjacent,
+        f"sample_efficiency_tests_{method}.csv": sample.sort_values("formula_id"),
+        f"conditional_coverage_tests_{method}.csv": conditional.sort_values("formula_id"),
+    }
+    for frame, family in zip(outputs.values(), (4, 33, 34)):
+        frame["wilcoxon_method"] = method
+        frame["holm_family_size"] = family
+    # Reconcile descriptive quantities before writing any derived output.
+    for frame, historical, keys in zip(outputs.values(),
+            (old_adjacent, old_efficiency, old_coverage),
+            (["lower_training_size", "upper_training_size"], ["formula_id"], ["formula_id"])):
+        left = frame.set_index(keys).sort_index()
+        right = historical.set_index(keys).sort_index()
+        if not left.index.equals(right.index):
+            raise ValueError("historical comparison identities do not match aggregates")
+        if set(right.columns) - set(left.columns):
+            raise ValueError("review is missing required historical columns")
+        for column in right.select_dtypes(include=[np.number]).columns:
+            if column in {"wilcoxon_p_value", "holm_adjusted_p_value"}:
+                continue
+            if not np.allclose(left[column], right[column], rtol=0, atol=1e-14):
+                raise ValueError("historical values do not reconcile: " + column)
+        frame["significant_0p05"] = frame["holm_adjusted_p_value"] < 0.05
+    for name, frame in outputs.items():
+        frame.to_csv(aggregate / name, index=False)
+    summary={"status":"complete","wilcoxon_method":method,"primary_blocks":16,
+        "families":{"adjacent":4,"sample_efficiency":33,"conditional_coverage":34},
+        "nonzero_pair_max": max(int(frame.nonzero_pairs.max()) for frame in outputs.values()),
+        "outputs":list(outputs),"sources_sha256":{p.name:sha256_file(p) for p in paths.values()},
+        "output_sha256": {name: sha256_file(aggregate/name) for name in outputs},
+        "wilcoxon_alternative": "two-sided",
+        "z_score_reported":False}
+    atomic_json(aggregate/f"statistical_review_{method}.json",summary)
+    return summary
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-root", type=Path, default=Path("input"))
@@ -768,6 +871,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--save-models", action="store_true")
     parser.add_argument("--save-predictions", action="store_true")
     parser.add_argument("--analysis-only", action="store_true")
+    parser.add_argument("--statistical-review-only", action="store_true")
+    parser.add_argument("--wilcoxon-method", choices=("approximate", "exact"), default="exact")
     parser.add_argument("--smoke", action="store_true")
     return parser.parse_args()
 
@@ -795,6 +900,13 @@ def main() -> int:
         output_root = (REPOSITORY_ROOT / relative).resolve()
     else:
         output_root = args.output_root.expanduser().resolve()
+    if args.statistical_review_only:
+        if args.analysis_only or args.smoke:
+            raise ValueError("statistical review mode is exclusive with experiment modes")
+        result = regenerate_statistical_review(
+            output_root / "aggregate", args.wilcoxon_method)
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return 0
     if args.analysis_only:
         print(json.dumps(aggregate_results(output_root), indent=2, sort_keys=True))
         return 0

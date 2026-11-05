@@ -62,6 +62,7 @@ def parse_args() -> argparse.Namespace:
         "--aggregate-dir", type=Path, default=result_root / "aggregate"
     )
     parser.add_argument("--output-dir", type=Path, default=result_root / "tables")
+    parser.add_argument("--statistical-review-method", choices=("approximate", "exact"))
     parser.add_argument(
         "--top-rank-cutoff",
         type=int,
@@ -851,9 +852,63 @@ def generate_tables(args: argparse.Namespace) -> list[Path]:
     return outputs
 
 
+def generate_statistical_review_tables(args: argparse.Namespace) -> list[Path]:
+    """Render the three separate frozen families without loading experiment cells."""
+    method = args.statistical_review_method
+    aggregate = args.aggregate_dir.resolve()
+    output = args.output_dir.resolve()
+    specs = (
+        ("adjacent_size_tests", 4, "mean_delta_roc_auc"),
+        ("sample_efficiency_tests", 33, "difference_vs_harmonic_mean"),
+        ("conditional_coverage_tests", 34, "mean_roc_auc_per_10pp_coverage"),
+    )
+    review = aggregate / f"statistical_review_{method}.json"
+    metadata = json.loads(review.read_text())
+    if metadata.get("wilcoxon_method") != method or metadata.get("families") != {
+        "adjacent": 4, "sample_efficiency": 33, "conditional_coverage": 34}:
+        raise ValueError("inconsistent RQ4 review metadata")
+    # Validate every source before creating any table.
+    for stem, family, effect in specs:
+        frame = read_csv(aggregate / f"{stem}_{method}.csv", [effect, "wilcoxon_p_value",
+            "holm_adjusted_p_value", "rank_biserial", "holm_family_size", "wilcoxon_method"])
+        if len(frame) != (34 if family == 33 else family) or set(frame.holm_family_size) != {family} or set(frame.wilcoxon_method) != {method}:
+            raise ValueError("invalid review family: " + stem)
+    outputs, sources = [], {}
+    for stem, family, effect in specs:
+        source = aggregate / f"{stem}_{method}.csv"
+        frame = read_csv(source, [effect, "wilcoxon_p_value", "holm_adjusted_p_value",
+                                  "rank_biserial", "holm_family_size", "wilcoxon_method"])
+        expected = 34 if family == 33 else family
+        if len(frame) != expected or set(frame.holm_family_size) != {family} or set(frame.wilcoxon_method) != {method}:
+            raise ValueError("invalid review family: " + stem)
+        csv_path = output / f"rq3v2_{stem}_{method}.csv"
+        write_csv(csv_path, frame)
+        lines = [r"\begin{longtable}{lrrrr}",
+                 r"\caption{RQ4 " + latex_escape(stem) + ": two-sided " + method
+                 + " Wilcoxon signed-rank, Holm over " + str(family) + r" tests.}\\",
+                 r"\toprule", r"Comparison & Mean effect & Raw $p$ & Holm $p$ & $r_{rb}$ \\", r"\midrule"]
+        for row in frame.to_dict("records"):
+            label = row.get("technique", str(row.get("lower_training_size", "")) + "--" + str(row.get("upper_training_size", "")))
+            lines.append("{} & {:+.6f} & {:.8g} & {:.8g} & {:+.3f} {}".format(
+                latex_escape(str(label)), row[effect], row["wilcoxon_p_value"],
+                row["holm_adjusted_p_value"], row["rank_biserial"], r"\\"))
+        lines.extend([r"\bottomrule", r"\end{longtable}", ""])
+        tex_path = csv_path.with_suffix(".tex")
+        atomic_text(tex_path, "\n".join(lines))
+        outputs.extend([csv_path, tex_path])
+        sources[source.name] = sha256_file(source)
+    review = aggregate / f"statistical_review_{method}.json"
+    sources[review.name] = sha256_file(review)
+    manifest = output / f"statistical_review_{method}_manifest.json"
+    atomic_text(manifest, json.dumps({"method": method, "source_sha256": sources,
+        "outputs": {p.name: sha256_file(p) for p in outputs}}, indent=2) + "\n")
+    return outputs + [manifest]
+
+
 def main() -> int:
     args = parse_args()
-    outputs = generate_tables(args)
+    outputs = (generate_statistical_review_tables(args)
+               if args.statistical_review_method else generate_tables(args))
     print("Wrote {} RQ3 v2 table artifacts to {}".format(len(outputs), args.output_dir))
     return 0
 
