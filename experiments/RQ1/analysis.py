@@ -4,9 +4,16 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Dict, Iterable, Tuple
+from typing import Dict, Iterable, Sequence, Tuple
 
 import numpy as np
+
+
+# Exhaustive sign enumeration grows as 2**n.  This cap allows the 16-block
+# confirmatory analyses while bounding one exact calculation to 1,048,576
+# sign assignments.  Callers must explicitly select the approximation above
+# this limit; the exact method never falls back silently.
+MAX_EXACT_NONZERO_PAIRS = 20
 
 
 def average_ranks(values: Iterable[float], descending: bool = False) -> np.ndarray:
@@ -24,6 +31,25 @@ def average_ranks(values: Iterable[float], descending: bool = False) -> np.ndarr
         while end < data.size and ordered_values[order[end]] == ordered_values[order[start]]:
             end += 1
         result[order[start:end]] = 0.5 * ((start + 1) + end)
+        start = end
+    return result
+
+
+def competition_ranks(values: Iterable[float], descending: bool = False) -> np.ndarray:
+    """Return one-based competition ranks, with ties assigned the minimum rank."""
+
+    data = np.asarray(list(values), dtype=np.float64)
+    if data.ndim != 1 or data.size == 0 or not np.isfinite(data).all():
+        raise ValueError("ranking values must be a non-empty finite vector")
+    ordered_values = -data if descending else data
+    order = np.argsort(ordered_values, kind="mergesort")
+    result = np.empty(data.size, dtype=np.int64)
+    start = 0
+    while start < data.size:
+        end = start + 1
+        while end < data.size and ordered_values[order[end]] == ordered_values[order[start]]:
+            end += 1
+        result[order[start:end]] = start + 1
         start = end
     return result
 
@@ -128,8 +154,63 @@ class WilcoxonResult:
     nonzero_pairs: int
 
 
-def wilcoxon_signed_rank(first: Iterable[float], second: Iterable[float]) -> WilcoxonResult:
-    """Two-sided paired Wilcoxon signed-rank test with tie correction."""
+def _exact_signed_rank_p_value(ranks: np.ndarray, positive: float) -> float:
+    """Enumerate the conditional two-sided signed-rank distribution.
+
+    The observed absolute differences, including their average ranks for ties,
+    are held fixed.  Under the signed-rank null, every assignment of signs to
+    the nonzero differences is equiprobable.  Ranks are doubled so that all
+    subset sums and comparisons are performed exactly with integers.
+    """
+
+    count = int(ranks.size)
+    if count > MAX_EXACT_NONZERO_PAIRS:
+        raise ValueError(
+            "exact Wilcoxon signed-rank enumeration supports at most {} "
+            "nonzero pairs (received {}); select method='approximate' "
+            "explicitly for a larger sample".format(
+                MAX_EXACT_NONZERO_PAIRS, count))
+    scaled_ranks = np.rint(2.0 * ranks).astype(np.int64)
+    if not np.allclose(2.0 * ranks, scaled_ranks, rtol=0.0, atol=0.0):
+        raise ArithmeticError("signed-rank averages are not integer or half-integer")
+    positive_sum = int(round(2.0 * positive))
+    total = int(scaled_ranks.sum())
+    observed = min(positive_sum, total - positive_sum)
+
+    subset_sums = np.zeros(1, dtype=np.int64)
+    for rank in scaled_ranks:
+        subset_sums = np.concatenate((subset_sums, subset_sums + rank))
+    statistics = np.minimum(subset_sums, total - subset_sums)
+    extreme = int(np.count_nonzero(statistics <= observed))
+    return float(extreme / subset_sums.size)
+
+
+def wilcoxon_signed_rank(
+    first: Iterable[float],
+    second: Iterable[float],
+    method: str = "approximate",
+) -> WilcoxonResult:
+    """Two-sided paired Wilcoxon signed-rank test with tie correction.
+
+    ``method="approximate"`` preserves the original normal approximation with
+    tie and continuity corrections.  ``method="exact"`` conditions on the
+    observed absolute nonzero differences and exhaustively enumerates their
+    signs.  The exact test assumes that the paired differences are symmetric
+    about zero under the null and independent signs (or joint invariance under
+    all sign flips), making those sign assignments equiprobable. Marginal
+    symmetry alone is insufficient when blocks are dependent; it
+    is a test of the signed-rank location null, not specifically of equal
+    arithmetic means.
+
+    Exact enumeration is limited by :data:`MAX_EXACT_NONZERO_PAIRS`.  Exceeding
+    the limit raises an error and never changes methods automatically.  The
+    returned ``z_score`` remains the continuity-corrected standardized
+    statistic in both modes for backward-compatible result structure; only the
+    exact mode's ``p_value`` is obtained from enumeration.
+    """
+
+    if method not in {"approximate", "exact"}:
+        raise ValueError("Wilcoxon method must be 'approximate' or 'exact'")
 
     left = np.asarray(list(first), dtype=np.float64)
     right = np.asarray(list(second), dtype=np.float64)
@@ -160,6 +241,8 @@ def wilcoxon_signed_rank(first: Iterable[float], second: Iterable[float]) -> Wil
         deviation = max(0.0, abs(positive - mean) - 0.5)
         z_score = deviation / math.sqrt(variance)
         p_value = math.erfc(z_score / math.sqrt(2.0))
+    if method == "exact":
+        p_value = _exact_signed_rank_p_value(ranks, positive)
     rank_total = count * (count + 1.0) / 2.0
     return WilcoxonResult(
         statistic=statistic,
@@ -183,6 +266,69 @@ def holm_adjust(p_values: Dict[str, float]) -> Dict[str, float]:
         running = max(running, (count - index) * value)
         adjusted[key] = min(1.0, running)
     return adjusted
+
+
+@dataclass(frozen=True)
+class PairwiseWilcoxonResult:
+    first_id: str
+    second_id: str
+    statistic: float
+    p_value: float
+    holm_adjusted_p_value: float
+    rank_biserial_first_minus_second: float
+    nonzero_pairs: int
+
+
+def all_pairwise_wilcoxon(
+    score_matrix: np.ndarray,
+    technique_ids: Sequence[str],
+    method: str = "exact",
+) -> Tuple[PairwiseWilcoxonResult, ...]:
+    """Compare every technique pair and apply one Holm correction family.
+
+    Rows of ``score_matrix`` are paired experimental blocks and columns follow
+    ``technique_ids``.  The result contains exactly ``k * (k - 1) / 2``
+    comparisons.  Holm adjustment is applied once to that complete family;
+    selecting a presentation reference is deliberately left to the caller.
+    ``z_score`` is not carried into these results because it does not determine
+    exact p-values.
+    """
+
+    values = np.asarray(score_matrix, dtype=np.float64)
+    labels = tuple(str(value) for value in technique_ids)
+    if values.ndim != 2 or values.shape[0] < 1 or values.shape[1] < 2:
+        raise ValueError("pairwise scores must be a matrix with at least two techniques")
+    if values.shape[1] != len(labels):
+        raise ValueError("technique_ids must match the score-matrix columns")
+    if len(set(labels)) != len(labels):
+        raise ValueError("technique_ids must be unique")
+    if not np.isfinite(values).all():
+        raise ValueError("pairwise scores must be finite")
+
+    raw_p_values: Dict[str, float] = {}
+    unadjusted = []
+    for first_index, first_id in enumerate(labels[:-1]):
+        for second_index in range(first_index + 1, len(labels)):
+            second_id = labels[second_index]
+            result = wilcoxon_signed_rank(
+                values[:, first_index], values[:, second_index], method=method)
+            key = "{}|{}".format(first_index, second_index)
+            raw_p_values[key] = result.p_value
+            unadjusted.append((key, first_id, second_id, result))
+
+    adjusted = holm_adjust(raw_p_values)
+    return tuple(
+        PairwiseWilcoxonResult(
+            first_id=first_id,
+            second_id=second_id,
+            statistic=result.statistic,
+            p_value=result.p_value,
+            holm_adjusted_p_value=adjusted[key],
+            rank_biserial_first_minus_second=result.rank_biserial,
+            nonzero_pairs=result.nonzero_pairs,
+        )
+        for key, first_id, second_id, result in unadjusted
+    )
 
 
 def hierarchical_bootstrap(
@@ -222,7 +368,13 @@ def hierarchical_budget_bootstrap(
     iterations: int,
     seed: int,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-    """Bootstrap blocks and folds while preserving equal budget weights."""
+    """Bootstrap paired 4-VLA x 4-strategy blocks and folds within fixed budgets.
+
+    Percentile 95% intervals are pointwise, neither simultaneous nor adjusted
+    for Holm multiplicity or selection of the observed reference technique.
+    Resampling assumes adequate exchangeability of blocks and inner folds;
+    shared factors and overlapping training folds limit this interpretation.
+    """
 
     values = np.asarray(fold_scores, dtype=np.float64)
     if values.ndim != 4 or min(values.shape) < 1 or not np.isfinite(values).all():
