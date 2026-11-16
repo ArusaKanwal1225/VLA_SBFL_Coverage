@@ -215,7 +215,7 @@ The main outputs are written to **reproduced/tables/paper/**:
 
 Source reports, complete exact-review tables, and supplementary learning-curve figures are retained in their RQ output directories. LaTeX requires <code>booktabs</code>; complete review tables also use <code>longtable</code>.
 
-Table 1 and Figures 1–4 are worked examples, diagrams, or simulator observations. They are not offline evaluation outputs. See [the paper-artifact map](docs/PAPER_ARTIFACTS.md) for the correspondence.
+Table 1 and Figures 1–4 are worked examples, diagrams, or simulator observations. They are not offline evaluation outputs.
 
 <details>
 <summary><b>Verify data, outcomes, and frozen maps</b></summary>
