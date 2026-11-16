@@ -390,5 +390,3 @@ The dataset can be cited separately:
 We acknowledge the developers of [EO-1](https://github.com/SHAILAB-IPEC/EO1), [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T), [pi0](https://github.com/Physical-Intelligence/openpi), and [SpatialVLA](https://github.com/SpatialVLA/SpatialVLA), whose models were used to produce the recorded executions.
 
 The baseline comparison builds on [Evaluating Uncertainty and Quality of Visual Language Action-enabled Robots](https://github.com/pablovalle/VLA_UQ). The offline analysis uses NumPy, pandas, SciPy, scikit-learn, and Matplotlib.
-
-Additional documentation: [map provenance](experiments/RQ5/PROVENANCE.md) · [Zenodo release instructions](docs/ZENODO.md).
