@@ -2,7 +2,7 @@
 
 # VoxelSBFL: Voxel-Level Spectrum-Based Failure Prediction for Vision-Language-Action Models
 
-> [Arusa Kanwal](https://scholar.google.com/citations?hl=en&user=OtQVrtAAAAAJ)<sup>1,*</sup>, [Pablo Valle](https://scholar.google.com/citations?user=-3y0BlAAAAAJ&hl=en)<sup>1,*</sup>, [Paola Roggero](https://scholar.google.es/citations?hl=es&user=_ZXnvWEAAAAJ)<sup>1</sup>, [Miren Illarramendi](https://scholar.google.com/citations?hl=en&user=GN9Lgs8AAAAJ)<sup>1</sup>, [Shaukat Ali](https://scholar.google.com/citations?user=S_UVLhUAAAAJ&hl=en)<sup>2</sup>, [Aitor Arrieta](https://scholar.google.com/citations?user=ft06jF4AAAAJ&hl=en)<sup>1</sup><br>
+> [Arusa Kanwal*](https://scholar.google.com/citations?hl=en&user=OtQVrtAAAAAJ)<sup>1,</sup>, [Pablo Valle*](https://scholar.google.com/citations?user=-3y0BlAAAAAJ&hl=en)<sup>1,</sup>, [Paola Roggero](https://scholar.google.es/citations?hl=es&user=_ZXnvWEAAAAJ)<sup>1</sup>, [Miren Illarramendi](https://scholar.google.com/citations?hl=en&user=GN9Lgs8AAAAJ)<sup>1</sup>, [Shaukat Ali](https://scholar.google.com/citations?user=S_UVLhUAAAAJ&hl=en)<sup>2</sup>, [Aitor Arrieta](https://scholar.google.com/citations?user=ft06jF4AAAAJ&hl=en)<sup>1</sup><br>
 > Mondragon Unibertsitatea<sup>1</sup>, Simula Research Laboratory<sup>2</sup>
 >
 > <sup>*</sup> Both authors contributed equally to this research.
