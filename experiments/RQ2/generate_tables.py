@@ -55,6 +55,7 @@ def parse_args() -> argparse.Namespace:
     rq2_root = root / "experiments" / "RQ2" / "results" / "phase_a_granularity"
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--aggregate-dir", type=Path, default=rq2_root / "aggregate")
+    parser.add_argument("--training-voxels-csv", type=Path, help="Released per-fold counts for table-only reproduction")
     parser.add_argument("--fine-results", type=Path, default=rq2_root / "cells" / "size_0p01")
     parser.add_argument(
         "--primary-results",
@@ -929,7 +930,15 @@ def generate_tables(args: argparse.Namespace) -> List[Path]:
         0.02: args.primary_results,
         0.05: args.coarse_results,
     }
-    training_voxels = load_training_voxels(sources)
+    if args.training_voxels_csv:
+        training_voxels = read_csv(args.training_voxels_csv, {"voxel_size", "configuration_id", "test_run", "vla", "training_voxels"})
+        if len(training_voxels) != 960 or training_voxels.duplicated(["voxel_size", "configuration_id", "test_run"]).any():
+            raise ValueError("Expected 960 distinct released training-voxel counts")
+        grouped = training_voxels.groupby(["vla", "voxel_size"]).size()
+        if len(grouped) != 12 or set(grouped) != {80}:
+            raise ValueError("Expected 80 voxel-count folds per VLA/size")
+    else:
+        training_voxels = load_training_voxels(sources)
 
     outputs: List[Path] = []
     outputs.extend(build_reference_table(vla_metrics, rankings, output_dir))

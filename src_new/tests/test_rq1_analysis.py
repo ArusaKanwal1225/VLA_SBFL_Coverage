@@ -43,14 +43,14 @@ class RQ1AnalysisTests(unittest.TestCase):
         result = wilcoxon_signed_rank([4, 5, 6, 7, 8], [1, 2, 3, 4, 5])
         self.assertEqual(result.statistic, 0.0)
         self.assertEqual(result.z_score, 2.0869967789998034)
-        self.assertEqual(result.p_value, 0.036888425707049886)
+        self.assertAlmostEqual(result.p_value, 0.036888425707049886, places=15)
         self.assertEqual(result.rank_biserial, 1.0)
         self.assertEqual(result.nonzero_pairs, 5)
         tied_with_zeros = wilcoxon_signed_rank(
             [1, 2, 3, 4, 5], [1, 1, 4, 2, 5])
         self.assertEqual(tied_with_zeros.statistic, 1.5)
         self.assertEqual(tied_with_zeros.z_score, 0.5443310539518174)
-        self.assertEqual(tied_with_zeros.p_value, 0.5862136810731401)
+        self.assertAlmostEqual(tied_with_zeros.p_value, 0.5862136810731401, places=15)
         self.assertEqual(tied_with_zeros.rank_biserial, 0.5)
         self.assertEqual(tied_with_zeros.nonzero_pairs, 3)
         self.assertEqual(

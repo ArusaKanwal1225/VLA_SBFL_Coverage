@@ -1,6 +1,0 @@
-train_size,failures,passes,status,reason,requested_configuration
-1,1,0,trained,,1
-5,3,2,trained,,1
-50,26,24,trained,,1
-100,52,48,trained,,1
-200,105,95,trained,,1

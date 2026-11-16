@@ -1,0 +1,10 @@
+# Preserve frozen source/protocol hashes on every platform.
+*.py text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.csv -text
+*.gz -text
+*.zip -text

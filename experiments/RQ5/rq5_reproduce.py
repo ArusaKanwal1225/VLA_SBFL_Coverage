@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Verify the published RQ5 bundle, reproduce its analysis, or regenerate tables."""
 import argparse
+import os
 import csv
 import hashlib
 import json
@@ -12,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPTS = ROOT / 'experiments/RQ5'
-DEFAULT_DATA = SCRIPTS / 'data'
+DEFAULT_DATA = ROOT / 'data/rq5'
 MODELS = ('eo1', 'gr00t', 'pi0', 'spatialvla-4b')
 
 
@@ -134,7 +135,7 @@ def run(data, output):
     selection, sbfl, baselines = (output / name for name in ('selection', 'sbfl', 'baselines'))
     command('rq5_select_rq1_ratio.py', '--target', data / 'move_near_504',
             '--scene-metadata', data / 'scenes_504/scene_metadata_504.json',
-            '--rq1-audit', ROOT / 'experiments/RQ1/results/phase_a_primary/audit/episode_manifest.csv.gz',
+            '--rq1-audit', Path(os.environ.get('VLA_SBFL_RQ1_REFERENCE', ROOT / 'data/reference/rq1')) / 'audit/episode_manifest.csv.gz',
             '--fixed-pass', '100', '--min-per-class', '100', '--seed', '20261028',
             '--output', selection)
     identity = lambda path: sorted((r['model'], r['episode_id'], r['eval_id'], r['failure'])

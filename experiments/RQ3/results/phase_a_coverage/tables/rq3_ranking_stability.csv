@@ -1,4 +1,0 @@
-first_coverage_tier,second_coverage_tier,spearman_rank_correlation,techniques
-low,medium,0.9995892380365576,31
-low,high,0.9991784760731155,31
-medium,high,0.9995892380365576,31

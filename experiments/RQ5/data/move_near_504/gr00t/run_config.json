@@ -1,8 +1,0 @@
-{
-  "model": "gr00t",
-  "task": "google_robot_move_near_customizable",
-  "seed": 2024,
-  "tasks_sha256": "c4ca9db8a692843f82610575964449f87347c384024007212e2bf0a07ebce302",
-  "prompts_sha256": "c225c259bb1ed0b59ea8653adcab476e00275499ea3948811880f495ccd13c8a",
-  "video": true
-}

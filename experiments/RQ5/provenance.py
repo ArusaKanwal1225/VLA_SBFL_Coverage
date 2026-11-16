@@ -9,6 +9,7 @@ import ast
 import csv
 import hashlib
 import json
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -39,7 +40,10 @@ def ast_fingerprint(node):
 
 def verify_compatibility(root=ROOT):
     contract = json.loads(CONTRACT.read_text())
-    record = json.loads((root/'experiments/RQ1/results/phase_a_primary/run.json').read_text())
+    reference = Path(os.environ.get('VLA_SBFL_RQ1_REFERENCE', root/'data/reference/rq1')) if root == ROOT else root/'data/reference/rq1'
+    if not reference.exists():
+        reference = root/'experiments/RQ1/results/phase_a_primary'
+    record = json.loads((reference/'run.json').read_text())
     details = record['signature_details']
     for field, source in contract['historical_sources'].items():
         if digest(source.encode()) != details[field]:
@@ -74,7 +78,7 @@ def verify_compatibility(root=ROOT):
 
 def verify_frozen_maps(maps, root=ROOT):
     contract = json.loads(CONTRACT.read_text())
-    manifest = root/'experiments/RQ5/data/files_manifest.csv'
+    manifest = Path(maps).resolve().parent/'files_manifest.csv'
     if digest(manifest.read_bytes()) != contract['artifact_manifest_sha256']:
         raise ValueError('Published artifact manifest mismatch')
     with manifest.open(newline='') as stream:

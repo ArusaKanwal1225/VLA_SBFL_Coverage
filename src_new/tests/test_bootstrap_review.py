@@ -1,3 +1,4 @@
+from replication.references import reference_path
 import hashlib
 import json
 import unittest
@@ -18,13 +19,14 @@ class BootstrapReviewTests(unittest.TestCase):
         np.testing.assert_array_equal(first[:, 0], first[:, 1])
         np.testing.assert_allclose(first[:, 2]-first[:, 0], 0.1, rtol=0, atol=1e-14)
 
+    @unittest.skipUnless((Path(__file__).resolve().parents[2]/"data/DATASET.json").is_file(), "Install the Zenodo dataset for integration tests")
     def test_historical_reproduction_and_manifest_integrity(self):
         root = Path(__file__).resolve().parents[2] / "experiments"
         total, changed = 0, []
         for directory, count in [("RQ1/results/phase_a_primary", 68),
                                  ("RQ2_baselines/results/all_models", 16),
                                  ("RQ2/results/phase_a_granularity", 236)]:
-            aggregate = root / directory / "aggregate"
+            aggregate = reference_path(root.parent, directory) / "aggregate"
             frame = pd.read_csv(aggregate / "bootstrap_block_sensitivity.csv")
             manifest = json.loads((aggregate / "bootstrap_block_sensitivity_manifest.json").read_text())
             self.assertEqual(len(frame), count)

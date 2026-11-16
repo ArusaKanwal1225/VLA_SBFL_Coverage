@@ -1,0 +1,53 @@
+{
+  "filename": "vla-sbfl-data-20261116.zip",
+  "size_bytes": 3426674917,
+  "sha256": "329453c7fb0dcd19934d0b3e3e44e0f5a073c88e12d0a98b0e57613a29343da0",
+  "url": null,
+  "doi": null,
+  "source_commit": "44b2113bf9055f7aa0e7dce52d394c88030586b3",
+  "archive_members": 1375653,
+  "uncompressed_bytes": 10804046545,
+  "all_zip_crcs_verified": true,
+  "original_payload_files_unchanged_from_verified_draft": 1375468,
+  "dataset": {
+    "schema_version": 2,
+    "source_commit": "44b2113bf9055f7aa0e7dce52d394c88030586b3",
+    "paper": "VoxelSBFL: Voxel-Level Spectrum-Based Failure Prediction for Vision-Language-Action Models",
+    "rq_mapping": {
+      "rq1": "RQ1",
+      "rq2": "RQ2_baselines",
+      "rq3": "RQ2",
+      "rq4": "RQ3_v2",
+      "rq5": "RQ5"
+    },
+    "exact_statistical_review": true,
+    "packaging_script_sha256": "751dc386b851b465000cc5ebfb06975deebd2f5782564dd1a335e78a8c2ffc09",
+    "files": 1375650,
+    "bytes_uncompressed": 10508526656,
+    "files_by_component": {
+      "pickup": 1345600,
+      "reference": 182,
+      "rq5": 29868
+    },
+    "pickup_expected_episodes": 96000,
+    "pickup_expected_runs": 320,
+    "move_near_episodes_per_model": 504,
+    "rq5_selected_N": {
+      "eo1": 223,
+      "gr00t": 246,
+      "pi0": 298,
+      "spatialvla-4b": 342
+    },
+    "rq5_maps": "frozen_reconstructed_pickup_maps_not_historical_originals",
+    "references_are_historical": true,
+    "excluded": [
+      "videos",
+      "images outside reference figures",
+      "checkpoints",
+      "duplicate raw TCP/action streams",
+      "timing-only logs",
+      "exploratory outputs",
+      "optional fitted RQ1-RQ3 models"
+    ]
+  }
+}

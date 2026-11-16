@@ -1,0 +1,360 @@
+{
+  "status": "passed",
+  "scientific_source_commit": "44b2113bf9055f7aa0e7dce52d394c88030586b3",
+  "python": "3.11.16",
+  "platform": "Linux x86_64",
+  "environment": "fresh venv installed from requirements.txt; pip check passed",
+  "scientific_tests": 67,
+  "release_tests": 5,
+  "tests_with_data_skipped": 0,
+  "pipeline": {
+    "status": "passed",
+    "source_commit": "44b2113bf9055f7aa0e7dce52d394c88030586b3",
+    "stages": {
+      "scientific_tests": {
+        "status": "passed",
+        "log": "/home/ubuntu/replication_backups/20261116-original/final-scientific_tests.log",
+        "returncode": 0,
+        "elapsed_seconds": 11.194356918334961
+      },
+      "release_tests": {
+        "status": "passed",
+        "log": "/home/ubuntu/replication_backups/20261116-original/final-release_tests.log",
+        "returncode": 0,
+        "elapsed_seconds": 0.16214704513549805
+      },
+      "tables": {
+        "status": "passed",
+        "log": "/home/ubuntu/replication_backups/20261116-original/final-tables.log",
+        "returncode": 0,
+        "elapsed_seconds": 29.725281238555908
+      },
+      "exact_statistics": {
+        "status": "passed",
+        "log": "/home/ubuntu/replication_backups/20261116-original/final-exact_statistics.log",
+        "returncode": 0,
+        "elapsed_seconds": 7.042092561721802
+      },
+      "smoke": {
+        "status": "passed",
+        "log": "/home/ubuntu/replication_backups/20261116-original/final-smoke.log",
+        "returncode": 0,
+        "elapsed_seconds": 17.210142612457275
+      },
+      "rq5_full": {
+        "status": "passed",
+        "log": "/home/ubuntu/replication_backups/20261116-original/final-rq5_full.log",
+        "returncode": 0,
+        "elapsed_seconds": 96.4807562828064
+      }
+    }
+  },
+  "archive": {
+    "sha256": "329453c7fb0dcd19934d0b3e3e44e0f5a073c88e12d0a98b0e57613a29343da0",
+    "all_zip_crcs_verified": true,
+    "preserved_original_payload_files": 1375468
+  },
+  "rq1_full_refit": {
+    "configuration_rows_compared": 1088,
+    "status": "matched",
+    "note": "Completed during initial package validation; later upstream changes add statistical reporting only, with scientific compatibility verified."
+  },
+  "rq2_full_raw": {
+    "rq2": {
+      "status": "matched",
+      "rows": 288,
+      "columns": [
+        "roc_auc",
+        "average_precision"
+      ],
+      "different_values": 0,
+      "examples": []
+    }
+  },
+  "rq3_voxel_counts": {
+    "source": "current_released_pickup_trajectory_binary_coverage",
+    "rows": 960,
+    "matched_historical_diagnostics": true,
+    "differences": [],
+    "sha256": "002749220a17ffce7a86dcd889374af44e171cc292bae7df68a222b14bba3ceb",
+    "method": "union of nine run-level visited-voxel sets; no outcome-based fitting"
+  },
+  "rq5_full": {
+    "status": "matched_reference",
+    "models": {
+      "eo1": {
+        "executions": 504,
+        "selected": 223,
+        "selected_pass": 100,
+        "selected_fail": 123
+      },
+      "gr00t": {
+        "executions": 504,
+        "selected": 246,
+        "selected_pass": 100,
+        "selected_fail": 146
+      },
+      "pi0": {
+        "executions": 504,
+        "selected": 298,
+        "selected_pass": 100,
+        "selected_fail": 198
+      },
+      "spatialvla-4b": {
+        "executions": 504,
+        "selected": 342,
+        "selected_pass": 100,
+        "selected_fail": 242
+      }
+    },
+    "selection_matches_reference": true,
+    "map_metadata_hashes_match_reference": true,
+    "metric_checks": [
+      {
+        "file": "fold_metrics.csv",
+        "rows": 10880,
+        "numeric_columns": [
+          "roc_auc",
+          "average_precision",
+          "mean_known_fraction",
+          "all_unknown_trajectories"
+        ]
+      },
+      {
+        "file": "configuration_metrics.csv",
+        "rows": 1088,
+        "numeric_columns": [
+          "roc_auc",
+          "average_precision",
+          "mean_known_fraction",
+          "all_unknown_trajectories"
+        ]
+      },
+      {
+        "file": "model_metrics.csv",
+        "rows": 136,
+        "numeric_columns": [
+          "roc_auc",
+          "average_precision",
+          "mean_known_fraction",
+          "all_unknown_trajectories"
+        ]
+      },
+      {
+        "file": "baseline_availability.csv",
+        "rows": 52,
+        "numeric_columns": [
+          "available",
+          "episodes",
+          "availability_fraction",
+          "roc_auc",
+          "average_precision"
+        ]
+      }
+    ],
+    "map_origin": "reconstructed_from_current_pickup_using_frozen_RQ1_protocol",
+    "videos_required": false,
+    "pickup_inputs_required": false
+  },
+  "figure5": {
+    "EO1": {
+      "maps": 80,
+      "stable_voxels": 6291,
+      "top_decile": 292,
+      "minimum_maps_present": 20,
+      "matches_paper_counts": true
+    },
+    "Groot": {
+      "maps": 80,
+      "stable_voxels": 8061,
+      "top_decile": 406,
+      "minimum_maps_present": 20,
+      "matches_paper_counts": true
+    },
+    "Pi0": {
+      "maps": 80,
+      "stable_voxels": 8443,
+      "top_decile": 392,
+      "minimum_maps_present": 20,
+      "matches_paper_counts": true
+    },
+    "SpatialVLA": {
+      "maps": 80,
+      "stable_voxels": 7763,
+      "top_decile": 413,
+      "minimum_maps_present": 20,
+      "matches_paper_counts": true
+    }
+  },
+  "exact_tests": {
+    "rq1": {
+      "status": "matched",
+      "exact_reviews": [
+        {
+          "file": "pairwise_comparisons_exact.csv",
+          "status": "matched",
+          "rows": 561,
+          "columns": [
+            "wilcoxon_p_value",
+            "holm_adjusted_p_value",
+            "rank_biserial_first_minus_second"
+          ],
+          "different_values": 0,
+          "examples": []
+        },
+        {
+          "file": "reference_comparisons_exact.csv",
+          "status": "matched",
+          "rows": 33,
+          "columns": [
+            "wilcoxon_p_value",
+            "holm_adjusted_p_value",
+            "rank_biserial_reference_minus_candidate"
+          ],
+          "different_values": 0,
+          "examples": []
+        }
+      ]
+    },
+    "rq2": {
+      "status": "matched",
+      "exact_reviews": [
+        {
+          "file": "statistical_comparison_exact.csv",
+          "status": "matched",
+          "rows": 8,
+          "columns": [
+            "raw_p",
+            "rank_biserial",
+            "holm_p"
+          ],
+          "different_values": 0,
+          "examples": []
+        }
+      ]
+    },
+    "rq3": {
+      "status": "matched",
+      "exact_reviews": [
+        {
+          "file": "technique_size_effects_exact.csv",
+          "status": "matched",
+          "rows": 68,
+          "columns": [
+            "wilcoxon_p_value",
+            "holm_adjusted_p_value",
+            "rank_biserial_size_minus_primary"
+          ],
+          "different_values": 0,
+          "examples": []
+        },
+        {
+          "file": "technique_size_interactions_exact.csv",
+          "status": "matched",
+          "rows": 66,
+          "columns": [
+            "wilcoxon_p_value",
+            "holm_adjusted_p_value",
+            "rank_biserial_interaction"
+          ],
+          "different_values": 0,
+          "examples": []
+        }
+      ]
+    },
+    "rq4": {
+      "status": "matched",
+      "exact_reviews": [
+        {
+          "file": "adjacent_size_tests_exact.csv",
+          "status": "matched",
+          "rows": 4,
+          "columns": [
+            "wilcoxon_p_value",
+            "holm_adjusted_p_value",
+            "rank_biserial"
+          ],
+          "different_values": 0,
+          "examples": []
+        },
+        {
+          "file": "conditional_coverage_tests_exact.csv",
+          "status": "matched",
+          "rows": 34,
+          "columns": [
+            "wilcoxon_p_value",
+            "holm_adjusted_p_value",
+            "rank_biserial"
+          ],
+          "different_values": 0,
+          "examples": []
+        },
+        {
+          "file": "sample_efficiency_tests_exact.csv",
+          "status": "matched",
+          "rows": 34,
+          "columns": [
+            "wilcoxon_p_value",
+            "holm_adjusted_p_value",
+            "rank_biserial"
+          ],
+          "different_values": 0,
+          "examples": []
+        }
+      ]
+    }
+  },
+  "bootstrap_wrapper": "passed on copied RQ1-RQ3 aggregates; references unchanged",
+  "scope": {
+    "smoke": "all five paper RQs; RQ5 table generation",
+    "full_transfer": "all 320 frozen maps, 34 techniques and all four selected target samples",
+    "rq3_all_fitted_models": "not regenerated for release validation; all 960 voxel counts and the exact statistical review were regenerated",
+    "rq4_all_16000_cells": "not regenerated for release validation; nested-suite smoke and full aggregate statistical producers were checked"
+  },
+  "known_display_difference": "One supplementary n95 display may be 31.1 vs historical 31.0 due to machine-precision parsing; AUC/ranks unchanged.",
+  "portability": {
+    "status": "passed",
+    "fresh_code_directory": "/tmp/vla-clean-replication-8q4z3qwn",
+    "source_files": 100,
+    "stages": {
+      "without_data_scientific": {
+        "returncode": 0
+      },
+      "without_data_release": {
+        "returncode": 0
+      },
+      "installed_data_tables": {
+        "returncode": 0
+      }
+    },
+    "imported_library": "/tmp/vla-clean-replication-8q4z3qwn/src_new/vla_sbfl/__init__.py",
+    "paper_tables": 14,
+    "checks": "Clean code copy, no-data CI tests, independent package import and default verified table execution"
+  },
+  "paper": {
+    "filename": "TOSEM_Arusa (5).pdf",
+    "pages": 36,
+    "sha256": "e0f1febd8f65c37363d3e84c7118e66dd75f6d957a2edbf0dc56671579b671f6"
+  },
+  "figure5_layout_visually_checked": true,
+  "paper_tables": {
+    "generated": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "exact_statistics": true,
+    "captions_aligned_to_final_paper": true
+  }
+}

@@ -9,10 +9,10 @@ import random
 from collections import Counter, defaultdict
 from fractions import Fraction
 from pathlib import Path
-from rq5_sample_size_comparison import read_rq1, DEFAULT_AUDIT
+from rq5_rq1_outcomes import read_rq1, DEFAULT_AUDIT
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = Path('/home/ubuntu/Deephyperion_VLA/results')
+BASE = ROOT / 'data/rq5'
 MODELS = [('eo1','EO1'),('gr00t','Groot'),('pi0','Pi0'),('spatialvla-4b','SpatialVLA')]
 
 
@@ -60,8 +60,8 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--rq1-audit',type=Path,default=DEFAULT_AUDIT)
     p.add_argument('--target',type=Path,default=BASE/'move_near_504')
-    p.add_argument('--scene-metadata',type=Path,default=ROOT/'output/Pick_and_place_504/scene_metadata_504.json')
-    p.add_argument('--output',type=Path,default=BASE/'rq5_sample_rq1_ratio_288')
+    p.add_argument('--scene-metadata',type=Path,default=ROOT/'data/rq5/scenes_504/scene_metadata_504.json')
+    p.add_argument('--output',type=Path,default=ROOT/'reproduced/rq5-selection')
     p.add_argument('--seed',type=int,default=20261028)
     p.add_argument('--per-cell',type=int,default=4)
     p.add_argument('--total',type=int,help='Scenes per model; cells differ by at most one')

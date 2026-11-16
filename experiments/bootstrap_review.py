@@ -15,6 +15,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from replication.references import reference_path
 from experiments.RQ1.analysis import hierarchical_budget_bootstrap
 from experiments.RQ2.analysis import matched_size_bootstrap
 from experiments.RQ2_baselines.analysis import paired_hierarchical_bootstrap
@@ -53,7 +54,7 @@ def audit(rq):
     directories = {"RQ1": "RQ1/results/phase_a_primary",
                    "RQ2": "RQ2_baselines/results/all_models",
                    "RQ3": "RQ2/results/phase_a_granularity"}
-    aggregate = ROOT / "experiments" / directories[rq] / "aggregate"
+    aggregate = reference_path(ROOT, directories[rq]) / "aggregate"
     sources, rows = {}, []
 
     def read(name, json_file=False):

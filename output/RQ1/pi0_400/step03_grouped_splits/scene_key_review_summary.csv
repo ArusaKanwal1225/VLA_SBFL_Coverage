@@ -1,5 +1,0 @@
-algorithm,episodes,exact_groups,repeated_exact_groups,episodes_in_repeated_groups,cross_run_exact_groups,rounded4_groups_containing_multiple_exact_groups
-DH_400scenes,4000,3996,4,8,2,0
-DH_HybridDT_400scenes,4000,3998,2,4,2,0
-DH_HybridRF_400scenes,4000,3996,3,7,3,1
-DH_WeightedRF_400scenes,4000,3993,7,14,7,0

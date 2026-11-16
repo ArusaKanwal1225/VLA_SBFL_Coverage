@@ -348,7 +348,7 @@ def main() -> int:
     manifest = {
         "rq1_aggregate_directory": os.path.relpath(args.rq1_aggregate_dir.expanduser().resolve(), repository_root()),
         "generated_files": [
-            {"path": str(path.relative_to(repository_root())), "sha256": sha256_file(path)}
+            {"path": str(path.resolve().relative_to(repository_root())) if path.resolve().is_relative_to(repository_root()) else str(path.resolve()), "sha256": sha256_file(path)}
             for path in generated
         ],
         "aggregate_directory": os.path.relpath(aggregate, repository_root()),

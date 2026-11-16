@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Reconstruct pick-up maps with the RQ1 protocol; transfer frozen maps to move-near."""
 import argparse
+import os
 import hashlib
 import json
 import random
@@ -24,8 +25,8 @@ from vla_sbfl.voxelizer import VoxelGrid
 GRID = VoxelGrid(0.02, (-1., -1., 0.), 'robot_base')
 MODEL_NAMES = {'pi0': 'Pi0', 'gr00t': 'Groot', 'eo1': 'EO1', 'spatialvla-4b': 'SpatialVLA'}
 RUNS = tuple('run_%d' % i for i in range(1, 11))
-RQ1 = ROOT / 'experiments/RQ1/results/phase_a_primary'
-DEFAULT_TARGET = Path('/home/ubuntu/Deephyperion_VLA/results/move_near_504')
+RQ1 = Path(os.environ.get('VLA_SBFL_RQ1_REFERENCE', ROOT / 'data/reference/rq1')).expanduser().resolve()
+DEFAULT_TARGET = ROOT / 'data/rq5/move_near_504'
 
 
 def sha(path):

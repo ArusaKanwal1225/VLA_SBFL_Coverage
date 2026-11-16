@@ -1,3 +1,4 @@
+from replication.references import reference_path
 """Exercise real producers with frozen aggregate inputs and temporary outputs."""
 import contextlib
 import importlib
@@ -13,6 +14,7 @@ import pandas as pd
 from src_new.tests.test_statistical_review_artifacts import ROOT, SPECS
 
 
+@unittest.skipUnless((ROOT/"data/DATASET.json").is_file(), "Install the Zenodo dataset for integration tests")
 class ReviewProducerTests(unittest.TestCase):
     def test_statistical_producers_and_exact_tables(self):
         jobs = [("RQ1", "RQ1/results/phase_a_primary"),
@@ -20,7 +22,7 @@ class ReviewProducerTests(unittest.TestCase):
                 ("RQ2", "RQ2/results/phase_a_granularity"),
                 ("RQ3_v2", "RQ3_v2/results/learning_curves")]
         for directory, results in jobs:
-            source = ROOT / "experiments" / results / "aggregate"
+            source = reference_path(ROOT, results) / "aggregate"
             runner = importlib.import_module(f"experiments.{directory}.run_experiment")
             tables = importlib.import_module(f"experiments.{directory}.generate_tables")
             with self.subTest(rq=directory), tempfile.TemporaryDirectory() as tmp:
@@ -59,7 +61,7 @@ class ReviewProducerTests(unittest.TestCase):
             root = Path(tmp)
             for directory in ("RQ1/results/phase_a_primary", "RQ2_baselines/results/all_models",
                               "RQ2/results/phase_a_granularity"):
-                source = ROOT / "experiments" / directory / "aggregate"
+                source = reference_path(ROOT, directory) / "aggregate"
                 target = root / "experiments" / directory / "aggregate"
                 shutil.copytree(source, target)
                 for path in target.glob("bootstrap_block_sensitivity*"):
@@ -75,7 +77,7 @@ class ReviewProducerTests(unittest.TestCase):
             module = importlib.import_module(f"experiments.{directory}.generate_tables")
             with tempfile.TemporaryDirectory() as tmp:
                 aggregate, output = Path(tmp)/"aggregate", Path(tmp)/"tables"
-                shutil.copytree(ROOT/"experiments"/results/"aggregate", aggregate)
+                shutil.copytree(reference_path(ROOT, results)/"aggregate", aggregate)
                 (aggregate/"statistical_review_exact.json").unlink()
                 with patch("sys.argv", ["tables", "--aggregate-dir", str(aggregate),
                     "--output-dir", str(output), "--statistical-review-method", "exact"]):

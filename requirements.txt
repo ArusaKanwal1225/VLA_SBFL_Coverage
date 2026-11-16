@@ -1,10 +1,21 @@
-# VLA-SBFL-Coverage: numerical analysis and visualization dependencies
-# Compatible ranges for the Windows Python 3.9 environment used during preparation.
-# The extract_all_models_sbfl.py data extraction script itself needs only the Python standard library.
-# Install with: python -m pip install -r requirements.txt
-
-numpy>=1.24,<2.0
-pandas>=2.0,<2.3
-scipy>=1.11,<1.14
-scikit-learn>=1.3,<1.7
-matplotlib>=3.7,<3.10
+# Recorded CPU analysis environment. Use Python 3.11, from the repository root.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+scikit-learn==1.6.1
+matplotlib==3.9.4
+joblib==1.6.0
+cloudpickle==3.1.2
+threadpoolctl==3.7.0
+python-dateutil==3.0.0
+pytz==2026.5
+tzdata==2026.5
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.67.0
+kiwisolver==1.5.1
+packaging==26.3
+pillow==13.0.0
+pyparsing==3.3.3
+six==1.17.0
+-e ./src_new

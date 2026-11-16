@@ -16,7 +16,7 @@ from experiments.RQ1.generate_tables import tie_aware_ranks, latex_escape
 from vla_sbfl.metrics import roc_auc, average_precision
 
 MODELS = [('eo1', 'EO1'), ('gr00t', 'GR00T'), ('pi0', 'Pi0'), ('spatialvla-4b', 'SpatialVLA')]
-DEFAULT_ROOT = Path('/home/ubuntu/Deephyperion_VLA/results')
+DEFAULT_ROOT = ROOT / 'data/rq5'
 
 
 def digest(path):

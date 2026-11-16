@@ -1,5 +1,0 @@
-algorithm,runs,episodes,successes,failures,trajectory_positions,mean_steps,failure_rate
-DH_200scenes,10,2000,954,1046,160000,80.0,0.523
-DH_HybridDT_200scenes,10,2000,711,1289,160000,80.0,0.6445
-DH_HybridRF_200scenes,10,2000,635,1365,160000,80.0,0.6825
-DH_WeightedRF_200scenes,10,2000,577,1423,160000,80.0,0.7115

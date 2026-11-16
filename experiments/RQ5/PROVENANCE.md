@@ -7,7 +7,7 @@ only. Move Near trajectories were subsequently scored without retraining or
 target-task calibration.
 
 The exact reconstructed artifacts used in the reported analysis are published
-under data/reconstructed_pickup_maps. Their original metadata, training
+under data/rq5/reconstructed_pickup_maps. Their original metadata, training
 episode-ID lists, input fingerprints, score files and file hashes are retained.
 
 ## Historical audit discrepancies
@@ -30,7 +30,7 @@ Counts are aggregated once per configuration, not once for each of its ten
 folds. Configurations and 200/400 budgets can refer to overlapping physical
 executions, so these counts must not be interpreted as 61 distinct executions.
 The detailed configuration counts, example IDs and input fingerprints are in
-data/map_provenance.json and the unchanged per-fold metadata.
+data/rq5/map_provenance.json and the unchanged per-fold metadata.
 
 The frozen RQ1 code/protocol signature is:
 910e24f9b9d91fdd8863ed3353c12dd082a81de824292f140fc39e5435eeda71

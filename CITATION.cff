@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this package, cite the VoxelSBFL paper and the corresponding Zenodo data version."
+type: software
+title: "VoxelSBFL: paper replication package"
+version: "2026.11.16"
+date-released: "2026-11-16"
+repository-code: "https://github.com/ArusaKanwal1225/VLA_SBFL_Coverage"
+authors:
+  - given-names: Arusa
+    family-names: Kanwal
+  - given-names: Pablo
+    family-names: Valle
+  - given-names: Paola
+    family-names: Roggero
+  - given-names: Miren
+    family-names: Illarramendi
+  - given-names: Shaukat
+    family-names: Ali
+  - given-names: Aitor
+    family-names: Arrieta

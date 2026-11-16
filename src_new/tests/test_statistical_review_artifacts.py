@@ -1,3 +1,4 @@
+from replication.references import reference_path
 """Regression checks for the frozen Phase D aggregate-only reviews."""
 import hashlib
 import json
@@ -23,6 +24,7 @@ SPECS = (
 )
 
 
+@unittest.skipUnless((ROOT/"data/DATASET.json").is_file(), "Install the Zenodo dataset for integration tests")
 class StatisticalReviewArtifactsTests(unittest.TestCase):
     def test_review_cli_returns_before_experiment_dispatch(self):
         for module_name, output in (
@@ -32,7 +34,7 @@ class StatisticalReviewArtifactsTests(unittest.TestCase):
         ):
             module = importlib.import_module(module_name)
             with patch("sys.argv", [module_name, "--statistical-review-only", "--output-root",
-                                   str(ROOT / "experiments" / output)]), \
+                                   str(reference_path(ROOT, output))]), \
                  patch.object(module, "regenerate_statistical_review", return_value={}) as review, \
                  patch.object(module, "aggregate_cross_size" if module_name == "experiments.RQ2.run_experiment" else "aggregate_results", side_effect=AssertionError("experiment aggregation called")), \
                  contextlib.redirect_stdout(io.StringIO()):
@@ -42,7 +44,7 @@ class StatisticalReviewArtifactsTests(unittest.TestCase):
     def test_historical_reproduction_full_families_and_tables(self):
         changes = []
         for directory, stem, keys, raw, adjusted, family, table in SPECS:
-            root = ROOT / "experiments" / directory
+            root = reference_path(ROOT, directory)
             old = pd.read_csv(root / "aggregate" / (stem + ".csv")).set_index(keys).sort_index()
             for method in ("approximate", "exact"):
                 with self.subTest(stem=stem, method=method):
@@ -80,7 +82,7 @@ class StatisticalReviewArtifactsTests(unittest.TestCase):
 
     def test_review_source_and_output_hashes(self):
         for directory in sorted({item[0] for item in SPECS}):
-            aggregate = ROOT / "experiments" / directory / "aggregate"
+            aggregate = reference_path(ROOT, directory) / "aggregate"
             for method in ("approximate", "exact"):
                 payload = json.loads((aggregate / f"statistical_review_{method}.json").read_text())
                 sources = payload.get("source_sha256", payload.get("sources_sha256"))

@@ -1,3 +1,4 @@
+from replication.references import reference_path
 """Compatibility gates for frozen RQ5 maps after statistical-only updates."""
 import json
 import contextlib
@@ -11,12 +12,13 @@ from unittest.mock import patch
 from experiments.RQ5.provenance import ROOT, verify_compatibility, verify_frozen_maps
 
 
+@unittest.skipUnless((ROOT/"data/DATASET.json").is_file(), "Install the Zenodo dataset for integration tests")
 class RQ5ProvenanceTests(unittest.TestCase):
     def test_combined_baseline_reporting_preserves_original_performance(self):
         import pandas as pd
         from experiments.RQ2_baselines import generate_tables
-        aggregate = ROOT/'experiments/RQ2_baselines/results/all_models/aggregate'
-        rq1 = ROOT/'experiments/RQ1/results/phase_a_primary/aggregate'
+        aggregate = reference_path(ROOT, 'RQ2_baselines/results/all_models')/'aggregate'
+        rq1 = reference_path(ROOT, 'RQ1/results/phase_a_primary')/'aggregate'
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp)/'tables'
             local_aggregate, local_rq1 = Path(tmp)/'baseline', Path(tmp)/'rq1'
@@ -44,6 +46,7 @@ class RQ5ProvenanceTests(unittest.TestCase):
             root = Path(tmp)
             for relative in ('src_new/vla_sbfl', 'experiments/RQ1'):
                 shutil.copytree(ROOT/relative, root/relative)
+            shutil.copytree(ROOT/'data/reference/rq1', root/'data/reference/rq1')
             analysis = root/'experiments/RQ1/analysis.py'
             analysis.write_text(analysis.read_text()+'\n# Statistical reporting revision\n')
             verify_compatibility(root)
@@ -66,14 +69,14 @@ class RQ5ProvenanceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'training/helper compatibility'):
                 verify_compatibility(root)
             runner.write_text(source)
-            run = root/'experiments/RQ1/results/phase_a_primary/run.json'
+            run = root/'data/reference/rq1/run.json'
             record = json.loads(run.read_text()); record['experiment_signature'] = 'invalid'
             run.write_text(json.dumps(record))
             with self.assertRaisesRegex(ValueError, 'Historical signature'):
                 verify_compatibility(root)
 
     def test_published_maps_and_corruption_detection(self):
-        maps = ROOT/'experiments/RQ5/data/reconstructed_pickup_maps'
+        maps = ROOT/'data/rq5/reconstructed_pickup_maps'
         self.assertEqual(verify_frozen_maps(maps), 320)
         original = Path.read_bytes
         def corrupted(path):

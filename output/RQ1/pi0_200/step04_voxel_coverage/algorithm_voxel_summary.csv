@@ -1,5 +1,0 @@
-algorithm,episodes,failures,successes,unique_voxels_full_data_descriptive_only,mean_unique_voxels_per_episode,median_unique_voxels_per_episode
-DH_200scenes,2000,1046,954,6965,27.619,27.0
-DH_HybridDT_200scenes,2000,1289,711,7177,28.3825,28.0
-DH_HybridRF_200scenes,2000,1365,635,7150,28.203,28.0
-DH_WeightedRF_200scenes,2000,1423,577,7373,28.2345,28.0

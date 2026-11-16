@@ -1,16 +1,16 @@
-
-# Local OS and Python runtime files
-.DS_Store
+# Multi-gigabyte analysis data are distributed on Zenodo.
+/data/
+/input/
+/output/
+/reproduced/
+/.venv/
+/.venv-*/
+/.replication-check/
+/VLA_SBFL_EO1/
+*.zip
+*.partial
 __pycache__/
 *.py[cod]
-
-# Historical extraction error reports
-output/input_validation/*_errors.txt
-
-# Regenerable experiment intermediates (aggregate results remain versioned)
-experiments/*/results/**/folds/
-experiments/*/results/**/cells/
-experiments/*/results/smoke/
-
-# Local clone of the raw multi-gigabyte EO1 dataset
-VLA_SBFL_EO1/
+*.egg-info/
+.DS_Store
+experiments/*/results/
