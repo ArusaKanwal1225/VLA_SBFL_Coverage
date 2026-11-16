@@ -375,4 +375,4 @@ We acknowledge the developers of [EO-1](https://github.com/SHAILAB-IPEC/EO1), [I
 
 The baseline comparison builds on [Evaluating Uncertainty and Quality of Visual Language Action-enabled Robots](https://github.com/pablovalle/VLA_UQ). The offline analysis uses NumPy, pandas, SciPy, scikit-learn, and Matplotlib.
 
-Additional documentation: [paper artifacts](docs/PAPER_ARTIFACTS.md) · [map provenance](experiments/RQ5/PROVENANCE.md) · [Zenodo release instructions](docs/ZENODO.md) · [cleanup record](docs/CLEANUP.md).
+Additional documentation: [map provenance](experiments/RQ5/PROVENANCE.md) · [Zenodo release instructions](docs/ZENODO.md).
