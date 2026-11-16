@@ -2,7 +2,7 @@
 
 # VoxelSBFL: Voxel-Level Spectrum-Based Failure Prediction for Vision-Language-Action Models
 
-> Arusa Kanwal<sup>1</sup>, [Pablo Valle](https://scholar.google.com/citations?user=-3y0BlAAAAAJ&hl=en)<sup>1</sup>, Paola Roggero<sup>1</sup>, Miren Illarramendi<sup>1</sup>, [Shaukat Ali](https://scholar.google.com/citations?user=S_UVLhUAAAAJ&hl=en)<sup>2</sup>, [Aitor Arrieta](https://scholar.google.com/citations?user=ft06jF4AAAAJ&hl=en)<sup>1</sup><br>
+> [Arusa Kanwal](https://scholar.google.com/citations?hl=en&user=OtQVrtAAAAAJ)<sup>1</sup>, [Pablo Valle](https://scholar.google.com/citations?user=-3y0BlAAAAAJ&hl=en)<sup>1</sup>, [Paola Roggero](https://scholar.google.es/citations?hl=es&user=_ZXnvWEAAAAJ)<sup>1</sup>, [Miren Illarramendi](https://scholar.google.com/citations?hl=en&user=GN9Lgs8AAAAJ)<sup>1</sup>, [Shaukat Ali](https://scholar.google.com/citations?user=S_UVLhUAAAAJ&hl=en)<sup>2</sup>, [Aitor Arrieta](https://scholar.google.com/citations?user=ft06jF4AAAAJ&hl=en)<sup>1</sup><br>
 > Mondragon Unibertsitatea<sup>1</sup>, Simula Research Laboratory<sup>2</sup>
 
 [📦 Replication Data](https://zenodo.org/records/24280744) · [🚀 Installation](#installation) · [📊 Reproduce the Results](#usage) · [📚 Citation](#citation)
@@ -389,4 +389,4 @@ We acknowledge the developers of [EO-1](https://github.com/SHAILAB-IPEC/EO1), [I
 
 The baseline comparison builds on [Evaluating Uncertainty and Quality of Visual Language Action-enabled Robots](https://github.com/pablovalle/VLA_UQ). The offline analysis uses NumPy, pandas, SciPy, scikit-learn, and Matplotlib.
 
-Additional documentation: [paper artifacts](docs/PAPER_ARTIFACTS.md) · [map provenance](experiments/RQ5/PROVENANCE.md) · [Zenodo release instructions](docs/ZENODO.md) · [cleanup record](docs/CLEANUP.md).
+Additional documentation: [map provenance](experiments/RQ5/PROVENANCE.md) · [Zenodo release instructions](docs/ZENODO.md).
