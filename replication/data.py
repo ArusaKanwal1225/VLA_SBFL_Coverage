@@ -157,7 +157,7 @@ def main():
         return
     url = args.url or release.get("url")
     if not url or urllib.parse.urlparse(url).scheme != "https" or not expected:
-        parser.error("Set the Zenodo HTTPS URL and SHA-256; the upload has not been published yet")
+        parser.error("A valid HTTPS download URL and trusted SHA-256 are required; check replication/archive.json or supply --url and --sha256")
     target = (args.output or ROOT/release.get("filename", "vla-sbfl-data.zip")).resolve()
     if target.exists():
         raise FileExistsError(target)

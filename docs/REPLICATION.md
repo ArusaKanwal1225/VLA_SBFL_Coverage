@@ -27,6 +27,15 @@ its 0.02 m folds are reused by the voxel-size comparison.
 
 ## Dataset and storage
 
+The released dataset is [Zenodo record 24280744](https://zenodo.org/records/24280744),
+DOI [10.5281/zenodo.24280744](https://doi.org/10.5281/zenodo.24280744).
+Install it from the repository root with:
+
+~~~bash
+python replication/data.py download
+python replication/data.py unpack vla-sbfl-data.zip
+~~~
+
 The ZIP contains 320 Pick-Up runs: four models × four generators × two budgets
 × ten runs, totaling 96,000 episodes and 7,680,000 TCP samples.
 The RQ5 candidate pool contains 504 executions per model, or 2,016 total.

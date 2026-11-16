@@ -18,3 +18,23 @@ authors:
     family-names: Ali
   - given-names: Aitor
     family-names: Arrieta
+references:
+  - type: data
+    title: 'Input data of "VoxelSBFL: Voxel-Level Spectrum-Based Failure Prediction for Vision-Language-Action Models"'
+    doi: "10.5281/zenodo.24280744"
+    url: "https://zenodo.org/records/24280744"
+    year: 2026
+    license: CC-BY-4.0
+    authors:
+      - given-names: Arusa
+        family-names: Kanwal
+      - given-names: Pablo
+        family-names: Valle
+      - given-names: Paola
+        family-names: Roggero
+      - given-names: Miren
+        family-names: Illarramendi
+      - given-names: Shaukat
+        family-names: Ali
+      - given-names: Aitor
+        family-names: Arrieta

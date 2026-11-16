@@ -1,9 +1,9 @@
 {
-  "filename": "vla-sbfl-data-20261116.zip",
+  "filename": "vla-sbfl-data.zip",
   "size_bytes": 3426674917,
   "sha256": "329453c7fb0dcd19934d0b3e3e44e0f5a073c88e12d0a98b0e57613a29343da0",
-  "url": null,
-  "doi": null,
+  "url": "https://zenodo.org/records/24280744/files/vla-sbfl-data.zip?download=1",
+  "doi": "10.5281/zenodo.24280744",
   "source_commit": "44b2113bf9055f7aa0e7dce52d394c88030586b3",
   "archive_members": 1375653,
   "uncompressed_bytes": 10804046545,
@@ -49,5 +49,7 @@
       "exploratory outputs",
       "optional fitted RQ1-RQ3 models"
     ]
-  }
+  },
+  "record_url": "https://zenodo.org/records/24280744",
+  "zenodo_checksum": "md5:89c2ddf9a96a05ca55402eaeac279b60"
 }

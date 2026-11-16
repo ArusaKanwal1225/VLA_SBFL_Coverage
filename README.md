@@ -5,7 +5,7 @@
 > Arusa Kanwal<sup>1</sup>, [Pablo Valle](https://scholar.google.com/citations?user=-3y0BlAAAAAJ&hl=en)<sup>1</sup>, Paola Roggero<sup>1</sup>, Miren Illarramendi<sup>1</sup>, [Shaukat Ali](https://scholar.google.com/citations?user=S_UVLhUAAAAJ&hl=en)<sup>2</sup>, [Aitor Arrieta](https://scholar.google.com/citations?user=ft06jF4AAAAJ&hl=en)<sup>1</sup><br>
 > Mondragon Unibertsitatea<sup>1</sup>, Simula Research Laboratory<sup>2</sup>
 
-[📦 Replication Data](#provided-datasets) · [🚀 Installation](#installation) · [📊 Reproduce the Results](#usage) · [📚 Citation](#citation)
+[📦 Replication Data](https://zenodo.org/records/24280744) · [🚀 Installation](#installation) · [📊 Reproduce the Results](#usage) · [📚 Citation](#citation)
 
 </div>
 
@@ -68,7 +68,7 @@ VLA_SBFL_Coverage/
 
 The benchmark covers four VLA models: [EO-1](https://github.com/SHAILAB-IPEC/EO1), [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T), [pi0](https://github.com/Physical-Intelligence/openpi), and [SpatialVLA](https://github.com/SpatialVLA/SpatialVLA).
 
-Data are distributed separately from the code as **vla-sbfl-data-20261116.zip**:
+Data are distributed separately from the code as **[vla-sbfl-data.zip](https://zenodo.org/records/24280744/files/vla-sbfl-data.zip?download=1)** on [Zenodo](https://zenodo.org/records/24280744) (DOI: [10.5281/zenodo.24280744](https://doi.org/10.5281/zenodo.24280744)):
 
 | Component | Contents |
 | --- | --- |
@@ -81,7 +81,7 @@ Data are distributed separately from the code as **vla-sbfl-data-20261116.zip**:
 
 ### Data availability
 
-**The archive is prepared for Zenodo.** Its download URL and DOI will be added after publication. Until then, obtain the ZIP from the authors. [replication/archive.json](replication/archive.json) records the exact filename, size, and checksum.
+The dataset is publicly available at **[Zenodo record 24280744](https://zenodo.org/records/24280744)** under **CC BY 4.0**. The download command below uses this published version and verifies its SHA-256. [replication/archive.json](replication/archive.json) records the download URL, DOI, exact filename, size, and checksum.
 
 The ZIP occupies approximately **3.43 GB**, containing approximately **10.80 GB** of uncompressed files. Small-file filesystem overhead requires additional space. Execution videos, model checkpoints, duplicate raw TCP/action streams, and simulator dependencies are excluded.
 
@@ -175,25 +175,25 @@ This is a dedicated analysis environment. Model-specific environments such as PI
 
 ### 3. Install the dataset
 
-After obtaining the archive:
-
-~~~bash
-python replication/data.py unpack /path/to/vla-sbfl-data-20261116.zip
-~~~
-
-The tool extracts and verifies the files under <code>data/</code>.
-
-<details>
-<summary><b>Automatic download after Zenodo publication</b></summary>
-
-Once the published URL is recorded in <code>replication/archive.json</code>:
+Download the published archive and extract it from the repository root:
 
 ~~~bash
 python replication/data.py download
-python replication/data.py unpack vla-sbfl-data-20261116.zip
+python replication/data.py unpack vla-sbfl-data.zip
 ~~~
 
-Automatic download is unavailable while the Zenodo record is pending.
+The downloader verifies the archive's SHA-256. The extraction tool verifies each payload file and installs the dataset under <code>data/</code>.
+
+<details>
+<summary><b>Manual download</b></summary>
+
+Download **vla-sbfl-data.zip** from [Zenodo](https://zenodo.org/records/24280744), then provide its local path:
+
+~~~bash
+python replication/data.py unpack /path/to/vla-sbfl-data.zip
+~~~
+
+A previously downloaded <code>vla-sbfl-data-20261116.zip</code> with the published SHA-256 contains the same data and can also be supplied to <code>unpack</code>.
 
 </details>
 
@@ -340,7 +340,7 @@ Data-dependent integration tests are explicitly skipped before installing the ar
 | Issue | What to do |
 | --- | --- |
 | **Dataset not installed** | Run the dataset unpack command before analysis. |
-| **Zenodo URL is unset** | Obtain the prepared ZIP from the authors until the published URL is added to archive.json. |
+| **Download fails** | Download vla-sbfl-data.zip manually from [Zenodo](https://zenodo.org/records/24280744), then run the unpack command with its local path. |
 | **Checksum mismatch** | Check the expected SHA-256 in [archive metadata](replication/archive.json) and obtain an intact copy. Preserve the frozen files. |
 | **Output directory is not empty** | Choose another output directory, or resume a full run with matching settings. |
 | **Interrupted RQ5 scoring** | Select a fresh output directory; partial files are preserved. |
@@ -354,7 +354,7 @@ ROC-AUC/AP assess trajectory-level failure discrimination; they do not establish
 
 ## Citation
 
-If you use this package, please cite the VoxelSBFL paper and its Zenodo dataset once their publication identifiers are available. Software citation metadata are provided in [CITATION.cff](CITATION.cff).
+If you use this package, please cite the VoxelSBFL paper when its publication details are available and the released dataset: **[10.5281/zenodo.24280744](https://doi.org/10.5281/zenodo.24280744)**. Software citation metadata and the dataset reference are provided in [CITATION.cff](CITATION.cff).
 
 The following entry cites the replication software:
 
@@ -366,6 +366,20 @@ The following entry cites the replication software:
   year    = {2026},
   url     = {https://github.com/ArusaKanwal1225/VLA_SBFL_Coverage},
   version = {2026.11.16}
+}
+~~~
+
+The dataset can be cited separately:
+
+~~~bibtex
+@dataset{kanwal2026voxelsbfl_data,
+  title     = {Input data of "VoxelSBFL: Voxel-Level Spectrum-Based Failure Prediction for Vision-Language-Action Models"},
+  author    = {Arusa Kanwal and Pablo Valle and Paola Roggero and
+               Miren Illarramendi and Shaukat Ali and Aitor Arrieta},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24280744},
+  url       = {https://zenodo.org/records/24280744}
 }
 ~~~
 
