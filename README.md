@@ -362,7 +362,7 @@ The following entry cites the replication software:
 
 ~~~bibtex
 @misc{kanwal2026voxelsbfl_replication,
-  title   = {VoxelSBFL: Paper Replication Package},
+  title   = {Replication Package of VoxelSBFL},
   author  = {Arusa Kanwal and Pablo Valle and Paola Roggero and
              Miren Illarramendi and Shaukat Ali and Aitor Arrieta},
   year    = {2026},
